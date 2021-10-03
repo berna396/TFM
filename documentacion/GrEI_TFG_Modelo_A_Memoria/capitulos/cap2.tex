@@ -1,0 +1,57 @@
+\chapter{Revisión de solucións comerciais}
+
+\section{Gestión de alertas}
+
+La monitorización de la actividad en la red puede ser un trabajo tedioso, sin embargo existen buenas razones pare hacerlo. Por un lado permite buscar e investigar inicios de sesión sospechosos en estaciones de trabajo, dispositivos conectados a redes y servidores mientras identifica las posibles deficiencia de seguridad en la adminitración del sistema. También puede reastrar las instalaciones software y las transferencias de datos para identificar problemas potenciales en tiempo real en lugar que después de que el daño esté hecho.
+
+Estos logs trambién contribuyen en gran medida a que la organización cumpla con el reglamento general de protección de datos  (GHDPR) que se aplica a cualquier entidad que opere en la unión europea.
+
+El registro, tanto el seguimiento como el análisis debe ser un proceso fundamental en cualquier infraestructura de monitoreo. Es necesario un archivo de registro de transacciones para recuperar una base de datos de un desastre. Además, al rastrear los archivos de registro, los equipo de DevOps y los administradores base de datos (DBA) pueden mantener un rendimiento óptimo de la base de datos o encontrar evidencia de actividad no autorizada en el caso de un ciberataque. Por esta razón, es importante monitorear y analizar regularmente los regitro del sistema. Es una forma confiable de recrear la cadena de eventos que condujo a cualquier problema que haya surgido.
+
+Debido a esta serie de problemáticas, existen un número considerable de registro de código abierto y herramientas de análisis disponibles en la actualidad, lo que hace que elegir los recursos adecuados para los registros de actividad sea un trabajo considerable. La comunidad de software de código abierto y gratuito ofrece diseños de registros que funcionan con todo tipo de sitios y prácticamente con cualquier sistema operativo. 
+
+Para la gestión de los logs y producción de alertas se tuvieron en cuenta las siguientes herramientas:
+
+\subsection{Graylog}
+
+Graylog comenzó en Alemania en 2011 y ahora se ofrece como una herramienta de código abierto o una solución comercial. Está diseñado para ser un sistema de administración de registros centralizado que recibe flujos de datos de varios servidores o puntos finales y le permite navegar o analizar esa información rápidamente.
+
+Graylog se ha ganado una reputación positiva entre los administradores de sistemas debido a su facilidad de escalabilidad. La mayoría de los proyectos web comienzan con poco, pero pueden crecer exponencialmente. Graylog puede equilibrar cargas en una red de servidores backend y manejar varios terabytes de datos de registro cada día.
+
+Los administradores de TI encontrarán que la interfaz frontend de Graylog es fácil de usar y robusta en su funcionalidad. Graylog se basa en el concepto de paneles, que le permite elegir qué métricas o fuentes de datos le parecen más valiosas y ver rápidamente las tendencias a lo largo del tiempo.
+
+Cuando ocurre un incidente de seguridad o rendimiento, los administradores de TI quieren poder rastrear los síntomas hasta una causa raíz lo más rápido posible. La función de búsqueda en Graylog lo hace fácil. Tiene tolerancia a fallas incorporada que puede ejecutar búsquedas de múltiples subprocesos para que pueda analizar varias amenazas potenciales juntas.
+
+\subsection{Nagios}
+
+Nagios comenzó con un solo desarrollador en 1999 y desde entonces se ha convertido en una de las herramientas de código abierto más confiables para administrar datos de registro. La versión actual de Nagios puede integrarse con servidores que ejecutan Microsoft Windows, Linux o Unix.
+
+Su producto principal es un servidor de registros, cuyo objetivo es simplificar la recopilación de datos y hacer que la información sea más accesible para los administradores del sistema. El motor del servidor de registro de Nagios capturará datos en tiempo real y los enviará a una poderosa herramienta de búsqueda. La integración con un nuevo punto final o aplicación es fácil gracias al asistente de configuración integrado.
+
+Nagios se usa con mayor frecuencia en organizaciones que necesitan monitorear la seguridad de su red local. Puede auditar una variedad de eventos relacionados con la red y ayudar a automatizar la distribución de alertas. Nagios incluso se puede configurar para ejecutar scripts predefinidos si se cumple una determinada condición, lo que le permite resolver problemas antes de que un humano tenga que involucrarse.
+
+Como parte de la auditoría de red, Nagios filtrará los datos de registro según la ubicación geográfica donde se originan. Eso significa que puede crear paneles de control completos con tecnología de mapeo para comprender cómo fluye su tráfico web.
+
+\subsection{ELK Stack}
+
+1806 / 5000
+Resultados de traducción
+Elastic Stack, a menudo llamado ELK Stack, es una de las herramientas de código abierto más populares entre las organizaciones que necesitan examinar grandes conjuntos de datos y dar sentido a los registros de su sistema.
+
+Su oferta principal se compone de tres productos separados: Elasticsearch, Kibana y Logstash:
+
+\begin{itemize}
+
+\item Como sugiere su nombre, Elasticsearch está diseñado para ayudar a los usuarios a encontrar coincidencias dentro de conjuntos de datos utilizando una amplia gama de tipos y lenguajes de consulta. La velocidad es la ventaja número uno de esta herramienta. Se puede expandir en grupos de cientos de nodos de servidor para manejar petabytes de datos con facilidad.
+
+\item Kibana es una herramienta de visualización que se ejecuta junto con Elasticsearch para permitir a los usuarios analizar sus datos y crear informes potentes. Cuando instale por primera vez el motor Kibana en su clúster de servidores, obtendrá acceso a una interfaz que muestra estadísticas, gráficos e incluso animaciones de sus datos.
+
+\item La última pieza de ELK Stack es Logstash, que actúa como una canalización puramente del lado del servidor hacia la base de datos Elasticsearch. Puede integrar Logstash con una variedad de lenguajes de codificación y API para que la información de sus sitios web y aplicaciones móviles se alimente directamente a su potente motor de búsqueda Elastic Stalk.
+
+\end{itemize}
+
+Una característica única de ELK Stack es que le permite monitorear aplicaciones creadas en instalaciones de código abierto de WordPress. A diferencia de la mayoría de las herramientas de registro de auditoría de seguridad listas para usar que rastrean los registros de administración y PHP, pero poco más, ELK Stack puede examinar los registros del servidor web y de la base de datos.
+
+El seguimiento de registros y la gestión de bases de datos deficientes son una de las causas más comunes del rendimiento deficiente de un sitio web. No verificar, optimizar y vaciar regularmente los registros de la base de datos no solo puede ralentizar un sitio, sino que también puede provocar un bloqueo completo. Por lo tanto, ELK Stack es una excelente herramienta para el kit de herramientas de todos los desarrolladores de WordPress.
+
+

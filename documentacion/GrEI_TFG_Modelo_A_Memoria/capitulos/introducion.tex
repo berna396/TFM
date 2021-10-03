@@ -1,0 +1,105 @@
+\chapter{Introdución}
+\hyphenation{In-te-re-se}
+
+Para un sistema de máxima disponibilidad como es el caso de sistemas de dispensación farmacéutica,
+los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una
+cantidad masiva de logs.
+
+Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
+
+El objetivo del proyecto será aportar una plataforma que se encargue de generar alertas en caso de
+una incidencia importante, analizando los logs de actividad hasta dar con el componente afectado. De esta forma el sistema deberá responder en tiempo real con el fin de agilizar el proceso y mejorar el servicio. Con esta nueva operativa se podría registrar estas alertas para poder dotar al equipo de un informe de las incidencias y sus componentes afectados, con el fin de elaborar soluciones a problemas comunes y poder formar de una manera más eficiente y exacta a los encargados del correcto funcionamiento del sistema principal.
+
+Se buscará que la alerta generada sea lo más descriptible posible y que consiga dar un indicio de la causa
+del problema. De esta manera se podrá dar una respuesta con tiempos mínimos tiempos de espera, lo
+cual supondría tanto una mejora en el servicio como la facilitación del trabajo de cara al equipo
+encargado de la supervisión de la aplicación.
+
+A la hora realizar el diseño de la plataforma se deberá tener los siguientes puntos como claves: 
+
+\begin{itemize}
+\item Dada una aplicación que tenga una disponibilidad total y sobre la que opere un número elevado
+de usuarios, se generan una cantidad de logs masiva, que en caso de que se produzca un error, el proceso de revisión de logs y la diagnosis posterior puede ocupar un tiempo
+demasiado largo en caso de que no se pueden producir cortes en el servicio.
+
+\item La finalidad del proyecto será disponer de una plataforma para detectar en tiempo real posibles problemas e incidencias y
+clasificarlas según experiencias pasadas reducirá ese tiempo de espera en gran medida. La funcionalidad de la clasificación de la alerta entre problemas conocidos supondría una mejora significativa en la gestión operacional de la aplicación.
+
+\item Registrar las incidencias alertadas supone un extra añadido, ya que se dispondrá de un histórico
+con el que saldrán a la luz posibles bugs o errores frecuentes de cara a poder llevar un control
+y análisis de la aplicación más exhaustiva.  
+
+\item El proyecto deberá estar desacoplado de la aplicación principal y estar preparado para adaptarse a cambios y nuevas funcionalidades.
+
+\end{itemize}
+
+
+
+\section{Objetivos}
+
+Una vez planteado el contexto se identifican los siguientes objetivos:
+
+\definecolor{Gray}{gray}{0.85}
+\newcolumntype{a}{&gt;{\columncolor{Gray}}c}
+\newcolumntype{b}{&gt;{\columncolor{white}}c}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| p{2.5cm} | p{10cm} |}
+\hline
+\bf{OBJ-01} \cellcolor{Gray} & \textbf{Emisión de alertas con información relevante tras la detección de posibles errores o
+incidencias. Se buscará enviar la posible causa del problema raíz.} \\
+\hline
+\bf{Descripción} \cellcolor{Gray} & 
+El principal objetivo del proyecto es la construcción de una plataforma con las herramientas necesarias para la emisión de alertas tempranas en caso de producirse una incidencia en la aplicación a monitorizar. Se espera que la alertas se generen en near real time con el fin de una recuperación del servicio los más rápida y eficiente posible. La plataforma deberá ser configurable ya que nace de la necesidad de coexistir servicio a un sistema con disponibilidad total que está en continuo desarrollo y evolución.
+\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| p{2.5cm} | p{10cm} |}
+\hline
+
+\bf{OBJ-02} \cellcolor{Gray} & \textbf{Registro de las incidencias encontradas con la información necesaria para su posterior
+tratamiento.} \\
+\hline
+\bf{Descripción} \cellcolor{Gray} & Se deberá llevar un registro de las incidencias detectadas y de los logs de la aplicación obtenidos. De esta forma una vez solucionada la incidencia se podrá catalogar y registrar los errores producidos en la aplicación con el fin de un análisis posterior en el que se podrán detectar posibles vulnerabilidades o bugs.
+\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{| p{2.5cm} | p{10cm} |}
+\hline
+
+\bf{OBJ-03} \cellcolor{Gray} & \textbf{Clasificar el error mediante los logs de la aplicación} \\
+\hline
+\bf{Descripción} \cellcolor{Gray} & La plataforma deberá utilizar técnicas de machine learning para la clasificación de la incidencia en base a los logs producidos en la aplicación. De esta forma se podrá plantear el envío de los pasos conocidos para su solución en cuanto se detecte el error.
+\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\section{Alcance}
+
+La solución alcanzada deberá cumplir los objetivos definidos en el apartado anterior. Por un lado la plataforma a desarrollar deberá incorporar las herramientas necesarias que permitan de forma simple para un usuario la creación de alertas y modificación de las mismas en base a criterios acordados y a la experiencia obtenida. Por otro deberá utilizar los datos obtenidos con la finalidad de aplicar herramientas de Machine Learning con el fin de clasificar la incidencia ocurrida.
+
+Se deberá tener en cuenta que no se podrán utilizar datos reales de la aplicación actual debido a que se estarían utilizando datos personales de terceros lo que incumpliría la normativa de protección de datos. En su lugar se utilizarán logs de entornos de desarrollo sobre los cuales se implementará una solución que permita crear un escenario equivalente al entorno real sin datos personales y a menor escala.
+
+Una vez finalizado el desarrollo se deberá proporcionar una plataforma que pueda ser agregada a la aplicación actual y que deberá ser validada a posteriori. Para ello deberá proponerse una arquitectura como una extensión de la plataforma actual con el fin de que coexista. Por ello se ha de tener en cuenta que la instalación y despliegue será controlado en un entorno preparado para este fin permitiendo un control de versiones y registro del resultado.
+
+Como entregables del proyecto serán los siguiente:
+\begin{enumerate}
+\item Plataforma encargada de la emisión de alertas con reglas de alertas configurables.
+\item Plataforma encargada de la clasificación de las incidencias y su registro.
+\item Propuesta de integración en el sistema real
+\end{enumerate}
