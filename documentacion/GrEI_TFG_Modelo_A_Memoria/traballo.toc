@@ -6,7 +6,12 @@
 \contentsline {section}{\numberline {2.1}Gestión de alertas}{5}%
 \contentsline {subsection}{\numberline {2.1.1}Graylog}{6}%
 \contentsline {subsection}{\numberline {2.1.2}Nagios}{7}%
-\contentsline {subsection}{\numberline {2.1.3}ELK Stack}{7}%
-\contentsline {chapter}{\numberline {3}Proposta de solución}{9}%
-\contentsline {chapter}{\numberline {4}Conclusións e posibles ampliacións}{13}%
-\contentsline {chapter}{Bibliografía}{15}%
+\contentsline {subsection}{\numberline {2.1.3}ELK Stack}{8}%
+\contentsline {subsection}{\numberline {2.1.4}Conclusiones}{9}%
+\contentsline {chapter}{\numberline {3}Proposta de solución}{11}%
+\contentsline {subsection}{\numberline {3.0.1}Generador de alertas}{13}%
+\contentsline {subsection}{\numberline {3.0.2}Reducción de log}{15}%
+\contentsline {chapter}{\numberline {4}Conclusiones y posibles ampliaciones}{17}%
+\contentsline {subsection}{\numberline {4.0.1}Conclusiones}{17}%
+\contentsline {subsection}{\numberline {4.0.2}Posibles ampliaciones}{18}%
+\contentsline {chapter}{Bibliografía}{19}%

@@ -1,0 +1,306 @@
+2021-10-09 12:56:45,404 | INFO  | BindingServicioDispensacionesACImpl | [64b2b34b-132275087613] | Petición | Servicio: ServicioDispensaciones | Operación: registroDispensacion_eReceitaAC | Cliente: AC
+2021-10-09 12:56:45,404 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | INICIO registroDispensacion_eReceitaPeticionGenerica
+2021-10-09 12:56:45,404 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | Petición genérica :
+<PeticionGenerica xmlns="http://disel/esquemas/peticionesyrespuestas">  <FechaHora xmlns="">2021-10-09T12:56:45.387+02:00</FechaHora>  <IdTransaccion xmlns="">64b2b34b-132275087613</IdTransaccion>  <IP xmlns="">192.168.200.211</IP>  <MensajePeticion xmlns="">    <EnClaro><![CDATA[<PeticionRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas">  <Cabecera xmlns="">    <Version>3.0</Version>    <Software>      <FabricanteProducto>DXC</FabricanteProducto>      <Version>1.0</Version>    </Software>    <FechaHora>2021-10-09T12:56:45.384+02:00</FechaHora>    <IdFarmaceutico>      <NumeroColegiado>34274343L</NumeroColegiado>      <NombreFarmaceutico>ALBA</NombreFarmaceutico>      <Apellidos>VAZQUEZ LOPEZ DE LA VEGA</Apellidos>    </IdFarmaceutico>    <IdFarmacia>      <CodigoNacionalFarmacia>LU0104</CodigoNacionalFarmacia>    </IdFarmacia>    <Idioma>GA</Idioma>    <IP>192.168.200.211</IP>  </Cabecera>  <IdentificacionPaciente xmlns="">    <FuenteDatos>manual</FuenteDatos>    <Documento>520627ARLE0019</Documento>    <TipoDocumento>CIP</TipoDocumento>  </IdentificacionPaciente>  <RegistroDispensacion xmlns="">    <FechaDispensacion>2021-10-09T12:56:45.384+02:00</FechaDispensacion>    <IdPrescripcion>1106144</IdPrescripcion>    <IdReceta>1198846115</IdReceta>    <ProductoDispensado>      <CodigoNacional>656367</CodigoNacional>      <Prezomenor>true</Prezomenor>      <NombreProducto>METFORMINA CINFA 850MG 50 COMPRIMI RECUB PELIC EFG</NombreProducto>      <TipoProducto>medicamento</TipoProducto>      <EsPsicotropo>false</EsPsicotropo>      <EsEstupefaciente>false</EsEstupefaciente>      <DispensableEn>A</DispensableEn>      <PVPNomenclator>1.94</PVPNomenclator>      <PVPReal>1.94</PVPReal>      <AportacionPaciente>0.00</AportacionPaciente>    </ProductoDispensado>    <NumeroEnvasesDispensados>1</NumeroEnvasesDispensados>    <Diligencia>      <TipoDiligencia>sustitucion_producto</TipoDiligencia>      <Motivo>urgente_necesidad</Motivo>      <Descripcion/>    </Diligencia>    <DispensacionForzada>false</DispensacionForzada>    <LocalizacionCupon>      <NumeroPlantilla></NumeroPlantilla>      <CoordenadaX></CoordenadaX>      <CoordenadaY></CoordenadaY>    </LocalizacionCupon>    <FirmaDispensacion>      <DocumentoFirmado>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</DocumentoFirmado>      <Contenido><![CDATA[<DocFirmaDispensacion xmlns="http://disel/esquemas/DocumentosXMLFirma"><DocFirmaReceta xmlns="">PABEAGEAdABvAHMARgBpAHIAbQBhAGQAbwBzAD4APABQAGEAYwBpAGUAbgB0AGUAPgA8AEMASQBQAD4ANQAyADAANgAyADcAQQBSAEwARQAwADAAMQA5ADwALwBDAEkAUAA+ADwATgBvAG0AYgByAGUAPgBNAEEAUgBJAEEAIABTAEUAUgBBAEYASQBOAEEAPAAvAE4AbwBtAGIAcgBlAD4APABBAHAAZQBsAGwAaQBkAG8AMQA+AEEATABMAE8APAAvAEEAcABlAGwAbABpAGQAbwAxAD4APABBAHAAZQBsAGwAaQBkAG8AMgA+AFIARQBMAEwAQQBOADwALwBBAHAAZQBsAGwAaQBkAG8AMgA+ADwARgBlAGMAaABhAE4AYQBjAGkAbQBpAGUAbgB0AG8APgAxADkANQAyAC0AMAA2AC0AMgA3ADwALwBGAGUAYwBoAGEATgBhAGMAaQBtAGkAZQBuAHQAbwA+ADwALwBQAGEAYwBpAGUAbgB0AGUAPgA8AFAAcgBlAHMAYwByAGkAcABjAGkAbwBuAD4APABJAGQAUAByAGUAcwBjAHIAaQBwAGMAaQBvAG4APgAxADEAMAA2ADEANAA0ADwALwBJAGQAUAByAGUAcwBjAHIAaQBwAGMAaQBvAG4APgA8AE8AYgBqAGUAdABvAFAAcgBlAHMAYwByAGkAdABvAD4APABFAHMAcABlAGMAaQBhAGwAaQBkAGEAZAA+ADwASQBkAEUAcwBwAGUAYwBpAGEAbABpAGQAYQBkAD4ANgA1ADIAMgAwADAAPAAvAEkAZABFAHMAcABlAGMAaQBhAGwAaQBkAGEAZAA+ADwARABlAHMAYwByAGkAcABFAHMAcABlAGMAaQBhAGwAaQBkAGEAZAA+AE0ARQBUAEYATwBSAE0ASQBOAEEAIABLAEUAUgBOACAAUABIAEEAUgBNAEEAIAA4ADUAMABNAEcAIAA1ADAAIABDAE8ATQBQAFIAIABSAEUAQwAgAFAARQBMACAARQBGAEcAPAAvAEQAZQBzAGMAcgBpAHAARQBzAHAAZQBjAGkAYQBsAGkAZABhAGQAPgA8AC8ARQBzAHAAZQBjAGkAYQBsAGkAZABhAGQAPgA8AC8ATwBiAGoAZQB0AG8AUAByAGUAcwBjAHIAaQB0AG8APgA8AFMAZQBsAGwAbwBDAGEAbQBwAFMAYQBuAGkAdAA+ADAAPAAvAFMAZQBsAGwAbwBDAGEAbQBwAFMAYQBuAGkAdAA+ADwAUABlAHIAaQBvAGQAbwBSAGUAYwBlAHQAYQBkAG8APgA8AFIAZQBjAGUAdABhAD4APABJAGQAUgBlAGMAZQB0AGEAPgAxADEAOQA4ADgANAA2ADEAMQA1ADwALwBJAGQAUgBlAGMAZQB0AGEAPgA8AEQAZQBzAGMAcgBpAHAAVABpAHAAbwBSAGUAYwBlAHQAYQA+AFAARQBOAFMASQBPAE4ASQBTAFQAQQA8AC8ARABlAHMAYwByAGkAcABUAGkAcABvAFIAZQBjAGUAdABhAD4APABQAG8AcwBvAGwAbwBnAGkAYQA+ADwAUABvAHMAbwBsAG8AZwBpAGEARwBlAG4AZQByAGEAbAA+ADwARABvAHMAaQBzAD4AMQA8AC8ARABvAHMAaQBzAD4APABVAG4AaQBkAGEAZABlAHMAPgBDAE8ATQBQAFIASQBNAEkARABPADwALwBVAG4AaQBkAGEAZABlAHMAPgA8AEMAYQBkAGEAPgA4ADwALwBDAGEAZABhAD4APABDAG8AZABVAGQAcwBDAGEAZABhAD4ASAA8AC8AQwBvAGQAVQBkAHMAQwBhAGQAYQA+ADwALwBQAG8AcwBvAGwAbwBnAGkAYQBHAGUAbgBlAHIAYQBsAD4APAAvAFAAbwBzAG8AbABvAGcAaQBhAD4APABOAHUAbQBFAG4AdgBhAHMAZQBzAD4AMQA8AC8ATgB1AG0ARQBuAHYAYQBzAGUAcwA+ADwASQBuAHMAdAByAHUAYwBjAGkAbwBuAGUAcwBQAGEAYwBpAGUAbgB0AGUAPgA8AC8ASQBuAHMAdAByAHUAYwBjAGkAbwBuAGUAcwBQAGEAYwBpAGUAbgB0AGUAPgA8AEEAZAB2AGUAcgB0AGUAbgBjAGkAYQBzAD4APAAvAEEAZAB2AGUAcgB0AGUAbgBjAGkAYQBzAD4APABGAGUAYwBoAGEARABpAHMAcABlAG4AcwBhAGMAaQBvAG4AUAByAGUAdgBpAHMAdABhAD4AMgAwADIAMQAtADEAMAAtADEAOQA8AC8ARgBlAGMAaABhAEQAaQBzAHAAZQBuAHMAYQBjAGkAbwBuAFAAcgBlAHYAaQBzAHQAYQA+ADwAUgBlAHEAdQBpAGUAcgBlAEgAbwBtAG8AbABvAGcAYQBjAGkAbwBuAD4AZgBhAGwAcwBlADwALwBSAGUAcQB1AGkAZQByAGUASABvAG0AbwBsAG8AZwBhAGMAaQBvAG4APgA8AEYAYQBjAHUAbAB0AGEAdABpAHYAbwA+ADwAQwBOAFAAPgA2ADIAOAA4ADkAMgA8AC8AQwBOAFAAPgA8AE4AbwBtAGIAcgBlAD4AQQBOAEEAIABNAEEAUgBJAEEAIABBAE4ARwBFAEwARQBTADwALwBOAG8AbQBiAHIAZQA+ADwAQQBwAGUAbABsAGkAZABvADEAPgBDAFUAUgBJAEUAUwBFAFMAPAAvAEEAcABlAGwAbABpAGQAbwAxAD4APABBAHAAZQBsAGwAaQBkAG8AMgA+AEEAUgBDAE8AUwA8AC8AQQBwAGUAbABsAGkAZABvADIAPgA8AEQAZQBzAGMAcgBpAHAAQwBlAG4AdAByAG8APgBDAEUATgBUAFIATwAgAFMAQQBVAEQARQAgAEEAIABDAFUA0QBBADwALwBEAGUAcwBjAHIAaQBwAEMAZQBuAHQAcgBvAD4APABOAHUAbQBDAG8AbABlAGcAaQBhAGQAbwA+ADMAMgAwADIANAA1ADUAMwA8AC8ATgB1AG0AQwBvAGwAZQBnAGkAYQBkAG8APgA8AC8ARgBhAGMAdQBsAHQAYQB0AGkAdgBvAD4APABGAGUAYwBoAGEAQwByAGUAYQBjAGkAbwBuAD4AMgAwADIAMQAtADAANwAtADMAMABUADAAMAA6ADAAMAA6ADAAMAA8AC8ARgBlAGMAaABhAEMAcgBlAGEAYwBpAG8AbgA+ADwALwBSAGUAYwBlAHQAYQA+ADwALwBQAGUAcgBpAG8AZABvAFIAZQBjAGUAdABhAGQAbwA+ADwARABlAHMAYwByAGkAcABWAGkAYQA+AE8AUgBBAEwAPAAvAEQAZQBzAGMAcgBpAHAAVgBpAGEAPgA8AEQAdQByAGEAYwBpAG8AbgBUAHIAYQB0AGEAbQBpAGUAbgB0AG8APgAwADwALwBEAHUAcgBhAGMAaQBvAG4AVAByAGEAdABhAG0AaQBlAG4AdABvAD4APABVAG4AaQBkAGEAZABEAHUAcgBhAGMAaQBvAG4AVAByAGEAdABhAG0AaQBlAG4AdABvAD4AUwBFAE0AQQBOAEEAPAAvAFUAbgBpAGQAYQBkAEQAdQByAGEAYwBpAG8AbgBUAHIAYQB0AGEAbQBpAGUAbgB0AG8APgA8AC8AUAByAGUAcwBjAHIAaQBwAGMAaQBvAG4APgA8AC8ARABhAHQAbwBzAEYAaQByAG0AYQBkAG8AcwA+AA==</DocFirmaReceta><FirmaFacultativoEmisor xmlns="">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</FirmaFacultativoEmisor><DatosPropiosDispensacion xmlns=""><FechaDispensacion>2021-10-09T12:56:24.056+02:00</FechaDispensacion><IdentificacionFarmaceuticoDispensador><NumeroColegiado>34274343L</NumeroColegiado><NombreFarmaceutico>ALBA</NombreFarmaceutico><Apellidos>VAZQUEZ LOPEZ DE LA VEGA</Apellidos></IdentificacionFarmaceuticoDispensador><CampanaSanitaria>false</CampanaSanitaria><IdentificacionFarmacia><CodigoNacionalFarmacia>LU0104</CodigoNacionalFarmacia></IdentificacionFarmacia><ProductoDispensado><CodigoNacional>656367</CodigoNacional><NombreProducto>METFORMINA CINFA 850MG 50 COMPRIMI RECUB PELIC EFG</NombreProducto><TipoProducto>medicamento</TipoProducto><EsPsicotropo>false</EsPsicotropo><EsEstupefaciente>false</EsEstupefaciente><PVPNomenclator>1.94</PVPNomenclator><AportacionPaciente>0.00</AportacionPaciente></ProductoDispensado><NumeroEnvasesDispensados>0</NumeroEnvasesDispensados><ExpedicionReceta><Es_eReceita>true</Es_eReceita><EsImpresa>false</EsImpresa></ExpedicionReceta><Diligencia><TipoDiligencia>sustitucion_producto</TipoDiligencia><Motivo>urgente_necesidad</Motivo></Diligencia><DispensacionForzada>false</DispensacionForzada><DispensacionCDR>false</DispensacionCDR><TipoRecetaDispensada>R_pensionista_roja</TipoRecetaDispensada><TipoAportacionDispensacion><TipoReceta>R_pensionista_roja</TipoReceta><AportacionTotalReceta>0.0</AportacionTotalReceta></TipoAportacionDispensacion></DatosPropiosDispensacion></DocFirmaDispensacion>]]]]>><![CDATA[</Contenido>    </FirmaDispensacion>    <TipoAportacion>      <TipoReceta>TSI 001</TipoReceta>      <AportacionTotalReceta>0.0</AportacionTotalReceta>    </TipoAportacion>  </RegistroDispensacion></PeticionRegistroDispensacion_eReceita>]]></EnClaro>  </MensajePeticion></PeticionGenerica>
+2021-10-09 12:56:45,405 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | INICIO registroDispensacion_eReceita
+2021-10-09 12:56:45,406 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | <datos><farmacia>LU0104</farmacia><farmaceutico>34274343L</farmaceutico><tipodocumento>CIP</tipodocumento><documento>520627ARLE0019</documento><fuente>MANUAL</fuente></datos>
+2021-10-09 12:56:45,406 | INFO  | BLServicioIdentificacion | [64b2b34b-132275087613] | INICIO identificacionFarmaceutico
+2021-10-09 12:56:45,406 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: getObject
+2021-10-09 12:56:45,409 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: getObject | Tiempo: 3 ms.
+2021-10-09 12:56:45,409 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarFarmacias
+2021-10-09 12:56:45,409 | INFO  | DiselPersistenceIdentificacionImpl | [64b2b34b-132275087613] | consultarFarmacias: Inicio
+2021-10-09 12:56:45,409 | INFO  | DiselDaoIdentificacionImpl | [64b2b34b-132275087613] | loadFarmacias sFarmacia:LU0104
+2021-10-09 12:56:45,411 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarFarmacias | Tiempo: 2 ms.
+2021-10-09 12:56:45,411 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:56:45,411 | INFO  | DiselPersistenceIdentificacionImpl | [64b2b34b-132275087613] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:56:45,411 | INFO  | DiselDaoIdentificacionImpl | [64b2b34b-132275087613] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:LU0104,sColegiado:34274343L
+2021-10-09 12:56:45,417 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 6 ms.
+2021-10-09 12:56:45,417 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarHorarios
+2021-10-09 12:56:45,417 | INFO  | DiselPersistenceIdentificacionImpl | [64b2b34b-132275087613] | consultarHorarios: Inicio
+2021-10-09 12:56:45,418 | INFO  | DiselDaoIdentificacionImpl | [64b2b34b-132275087613] | loadHorariosFarmaFarmaceutico idFarmacia:LU0104,nroColegiado:34274343L,dia:6,fechaInicio:Sat Oct 09 00:00:00 CEST 2021
+2021-10-09 12:56:45,447 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarHorarios | Tiempo: 30 ms.
+2021-10-09 12:56:45,447 | INFO  | BLServicioIdentificacion | [64b2b34b-132275087613] | FIN identificacionFarmaceutico
+2021-10-09 12:56:45,448 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,448 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,448 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:LimiteActivo
+2021-10-09 12:56:45,450 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:56:45,450 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.LimiteActivo
+2021-10-09 12:56:45,450 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,450 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,450 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:lectura_banda_confiable
+2021-10-09 12:56:45,451 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,451 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.lectura_banda_confiable
+2021-10-09 12:56:45,451 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,451 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,452 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:transformacion_TSI_receta
+2021-10-09 12:56:45,452 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,452 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.transformacion_TSI_receta
+2021-10-09 12:56:45,453 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,453 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,453 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:AplicarLimiteVirtual
+2021-10-09 12:56:45,453 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 0 ms.
+2021-10-09 12:56:45,454 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.AplicarLimiteVirtual
+2021-10-09 12:56:45,516 | INFO  | ValidatePeticionRegistroDispensacionEReceita | [64b2b34b-132275087613] | Paciente validado
+2021-10-09 12:56:45,516 | INFO  | BLServicioDispensacionesFarmacia | [64b2b34b-132275087613] | INICIO registroDispensacion_eReceita
+2021-10-09 12:56:45,517 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:56:45,517 | INFO  | DiselPersistenceIdentificacionImpl | [64b2b34b-132275087613] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:56:45,517 | INFO  | DiselDaoIdentificacionImpl | [64b2b34b-132275087613] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:LU0104,sColegiado:34274343L
+2021-10-09 12:56:45,525 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 8 ms.
+2021-10-09 12:56:45,526 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,526 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,526 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:LimiteActivo
+2021-10-09 12:56:45,527 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,527 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.LimiteActivo
+2021-10-09 12:56:45,530 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,530 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,531 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:verificar_cert_AC
+2021-10-09 12:56:45,532 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:56:45,532 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.verificar_cert_AC
+2021-10-09 12:56:45,782 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: getObject
+2021-10-09 12:56:45,784 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: getObject | Tiempo: 2 ms.
+2021-10-09 12:56:45,849 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,850 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,850 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:financiacionSelectiva
+2021-10-09 12:56:45,852 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 3 ms.
+2021-10-09 12:56:45,852 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.financiacionSelectiva
+2021-10-09 12:56:45,853 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,853 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,853 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:codigoExcepcionIndicacionNoFinanciada
+2021-10-09 12:56:45,854 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,854 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.codigoExcepcionIndicacionNoFinanciada
+2021-10-09 12:56:45,855 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,855 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,855 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:codigoExcepcionHipercolesterolemia
+2021-10-09 12:56:45,856 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,856 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.codigoExcepcionHipercolesterolemia
+2021-10-09 12:56:45,857 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | INICIO validacion
+2021-10-09 12:56:45,858 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | Peticion validacion: /n<xml-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cabecera>
+    <Version>3.0</Version>
+    <Software>
+      <FabricanteProducto>DXC</FabricanteProducto>
+      <Version>1.0</Version>
+    </Software>
+    <FechaHora>2021-10-09T12:56:45.384+02:00</FechaHora>
+    <IdFarmaceutico>
+      <NumeroColegiado>34274343L</NumeroColegiado>
+      <NombreFarmaceutico>ALBA</NombreFarmaceutico>
+      <Apellidos>VAZQUEZ LOPEZ DE LA VEGA</Apellidos>
+    </IdFarmaceutico>
+    <IdFarmacia>
+      <CodigoNacionalFarmacia>LU0104</CodigoNacionalFarmacia>
+    </IdFarmacia>
+    <Idioma>GA</Idioma>
+    <IP>192.168.200.211</IP>
+  </Cabecera>
+  <IdentificacionPaciente>
+    <FuenteDatos>manual</FuenteDatos>
+    <Documento>520627ARLE0019</Documento>
+    <TipoDocumento>CIP</TipoDocumento>
+  </IdentificacionPaciente>
+  <IdPrescripcion>1106144</IdPrescripcion>
+  <IdReceta>1198846115</IdReceta>
+  <TipoExpedicionReceta>
+    <Es_eReceita>true</Es_eReceita>
+    <EsImpresa>false</EsImpresa>
+  </TipoExpedicionReceta>
+  <CodigoNacionalProductoDispensado>656367</CodigoNacionalProductoDispensado>
+  <NumeroEnvasesDispensados>1</NumeroEnvasesDispensados>
+  <PVPReal>1.94</PVPReal>
+  <AportacionPaciente>0.0</AportacionPaciente>
+  <Diligencia>
+    <TipoDiligencia>sustitucion_producto</TipoDiligencia>
+    <Motivo>urgente_necesidad</Motivo>
+    <Descripcion/>
+  </Diligencia>
+  <NIF_RecogeDispensacion xsi:nil="true"/>
+  <Documento xsi:nil="true"/>
+  <ColorReceta>R_pensionista_roja</ColorReceta>
+  <limitePaciente>0.0</limitePaciente>
+  <porcentajeAportacion>0.0</porcentajeAportacion>
+  <TipoAportacion>
+    <TipoReceta>TSI 001</TipoReceta>
+    <AportacionTotalReceta>0.0</AportacionTotalReceta>
+  </TipoAportacion>
+  <CampaniaSanitaria>false</CampaniaSanitaria>
+  <RecetaHomologada>false</RecetaHomologada>
+  <AportacionUnitaria>0.00</AportacionUnitaria>
+  <Tramo>TSI 001</Tramo>
+  <Estupefaciente>false</Estupefaciente>
+  <Psicotropo>false</Psicotropo>
+</xml-fragment>
+2021-10-09 12:56:45,858 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | INICIO ValidaDispensacion
+2021-10-09 12:56:45,858 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,858 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,858 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:LimiteActivo
+2021-10-09 12:56:45,859 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,859 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.LimiteActivo
+2021-10-09 12:56:45,860 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:56:45,860 | INFO  | DiselPersistenceIdentificacionImpl | [64b2b34b-132275087613] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:56:45,861 | INFO  | DiselDaoIdentificacionImpl | [64b2b34b-132275087613] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:LU0104,sColegiado:34274343L
+2021-10-09 12:56:45,866 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 6 ms.
+2021-10-09 12:56:45,899 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: obtenerCategoria
+2021-10-09 12:56:45,900 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:56:45,901 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: obtenerCategoria | Tiempo: 2 ms.
+2021-10-09 12:56:45,901 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:56:45,902 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | ****************************** tipo de farmacia: R
+2021-10-09 12:56:45,902 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | INICIO validaReceta
+2021-10-09 12:56:45,902 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: getObject
+2021-10-09 12:56:45,903 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: getObject | Tiempo: 1 ms.
+2021-10-09 12:56:45,908 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,908 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,908 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:habilita_advertencia_producto_homologacion
+2021-10-09 12:56:45,910 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:56:45,910 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.habilita_advertencia_producto_homologacion
+2021-10-09 12:56:45,911 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,911 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,911 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:dias_rango_validez_receta
+2021-10-09 12:56:45,912 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,912 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.dias_rango_validez_receta
+2021-10-09 12:56:45,912 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,912 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,912 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:margen_restriccion_acopio
+2021-10-09 12:56:45,913 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,913 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.margen_restriccion_acopio
+2021-10-09 12:56:45,914 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | No coinciden los CIP
+2021-10-09 12:56:45,914 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | FIN validaReceta: 0
+2021-10-09 12:56:45,914 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,914 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,915 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_metodo
+2021-10-09 12:56:45,916 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:56:45,916 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.consulta_gasto_metodo
+2021-10-09 12:56:45,916 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,916 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,916 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_calcular_suma_hasta
+2021-10-09 12:56:45,917 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,917 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.consulta_gasto_calcular_suma_hasta
+2021-10-09 12:56:45,917 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | INICIO validaProducto
+2021-10-09 12:56:45,942 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: obtenerCategoria
+2021-10-09 12:56:45,943 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:56:45,944 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: obtenerCategoria | Tiempo: 2 ms.
+2021-10-09 12:56:45,944 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:56:45,944 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,945 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,945 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:financiacionSelectiva
+2021-10-09 12:56:45,945 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,945 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.financiacionSelectiva
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | aportacionProducto_CEPF: 0
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | aportacionProducto_CEPF * num Envases: 0
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | aportacionPaciente_Validado: 0
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | creditoRestante: 0
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | FIN validaProducto
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | FIN validacion
+2021-10-09 12:56:45,946 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | Respuesta validacion: /n<xml-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RespuestaOperacion>
+    <FechaHora>2021-10-09T12:56:45.946+02:00</FechaHora>
+    <CodigoRespuesta>NE0000</CodigoRespuesta>
+    <DescripcionCorta>Operación realizada con exito</DescripcionCorta>
+    <Descripcion>Operación realizada con éxito</Descripcion>
+  </RespuestaOperacion>
+  <Validacion>
+    <Fecha>2021-10-09T12:56:45.858+02:00</Fecha>
+    <ValidadoSatisfactorio>true</ValidadoSatisfactorio>
+    <ValidacionErronea>
+      <TipoValidacion>producto</TipoValidacion>
+      <Categoria>informativa</Categoria>
+      <Resultado>true</Resultado>
+      <DescripcionValidacion>
+        <CodigoValidacion>Sustitucion</CodigoValidacion>
+        <TextoValidacion>
+          <GA>Sustitúese o produto prescrito por outro produto do mesmo conxunto de intercambio</GA>
+        </TextoValidacion>
+      </DescripcionValidacion>
+    </ValidacionErronea>
+    <FechaBaja xsi:nil="true"/>
+  </Validacion>
+</xml-fragment>
+2021-10-09 12:56:45,947 | INFO  | BLServicioValidacionFarmacia | [64b2b34b-132275087613] | FIN validacion
+2021-10-09 12:56:45,947 | INFO  | RegistroDispensacionActionDelegate$RegistroDispensacionIndividualActionDelegate | [64b2b34b-132275087613] | Verificando firma...
+2021-10-09 12:56:45,947 | INFO  | RegistroDispensacionActionDelegate$RegistroDispensacionIndividualActionDelegate | [64b2b34b-132275087613] | Firma Detached
+2021-10-09 12:56:45,953 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,953 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,953 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:comprobar_identidad_firma
+2021-10-09 12:56:45,954 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,954 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.comprobar_identidad_firma
+2021-10-09 12:56:45,956 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,956 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,956 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:eticket_identificador_unico_envase
+2021-10-09 12:56:45,957 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,957 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.eticket_identificador_unico_envase
+2021-10-09 12:56:45,973 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,973 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,973 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:activar_hint_consulta_dispensaciones_recetas
+2021-10-09 12:56:45,974 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,974 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.activar_hint_consulta_dispensaciones_recetas
+2021-10-09 12:56:45,974 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarEstadosDispensacionRecetasDispensaciones
+2021-10-09 12:56:45,975 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | consultarEstadosDispensacionRecetasDispensaciones: Inicio
+2021-10-09 12:56:45,975 | INFO  | DiselDaoDispensacionesImpl | [64b2b34b-132275087613] | consultarDispensacionesPorRecetas
+2021-10-09 12:56:45,975 | INFO  | DiselDaoDispensacionesImpl | [64b2b34b-132275087613] | Se usa el hint en consultarDispensacionesPorRecetas: true
+2021-10-09 12:56:45,978 | INFO  | DiselDaoDispensacionesImpl | [64b2b34b-132275087613] | Número de dispensaciones recuperadas: 0
+2021-10-09 12:56:45,978 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarEstadosDispensacionRecetasDispensaciones | Tiempo: 4 ms.
+2021-10-09 12:56:45,980 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: obtenerCategoria
+2021-10-09 12:56:45,980 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:56:45,982 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: obtenerCategoria | Tiempo: 2 ms.
+2021-10-09 12:56:45,982 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:56:45,983 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,983 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,983 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_actualizar_sumarizada
+2021-10-09 12:56:45,984 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,984 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.consulta_gasto_actualizar_sumarizada
+2021-10-09 12:56:45,985 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,985 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,985 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:habilita_swap_firmadispensacion
+2021-10-09 12:56:45,986 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,986 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.habilita_swap_firmadispensacion
+2021-10-09 12:56:45,987 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:56:45,987 | INFO  | DiselPersistenceConfiguracionImpl | [64b2b34b-132275087613] | consultarParametrosCache: Inicio
+2021-10-09 12:56:45,987 | INFO  | DiselDaoConfiguracionImpl | [64b2b34b-132275087613] | loadParametrosConfiguracionCache tipoParametro:duracion_tratamiento_cubrir
+2021-10-09 12:56:45,988 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:56:45,988 | INFO  | DiselPlataformaCacheInterceptor | [64b2b34b-132275087613] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.GA.duracion_tratamiento_cubrir
+2021-10-09 12:56:45,988 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Petición | Operación: procesarRegistroDispensacion
+2021-10-09 12:56:45,988 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroDispensacion: Inicio
+2021-10-09 12:56:45,989 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroPaciente: Inicio
+2021-10-09 12:56:45,992 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroFarmaceutico: Inicio
+2021-10-09 12:56:45,993 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroDispensacionModular: Inicio
+2021-10-09 12:56:45,993 | INFO  | DiselDaoDispensacionesImpl | [64b2b34b-132275087613] | updateAnteriorUltimaDePrescripcion 1106144
+2021-10-09 12:56:46,001 | INFO  | DiselDaoDispensacionesImpl | [64b2b34b-132275087613] | updateUltimoEstadoFalsoIdentificadoresUnicos []
+2021-10-09 12:56:46,002 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroDispensacionModular: Fin
+2021-10-09 12:56:46,002 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [64b2b34b-132275087613] | procesarRegistroDispensacion: Fin
+2021-10-09 12:56:46,072 | INFO  | DiselPersistenceInterceptor | [64b2b34b-132275087613] | Respuesta | Operación: procesarRegistroDispensacion | Tiempo: 84 ms.
+2021-10-09 12:56:46,073 | INFO  | BLServicioDispensacionesFarmacia | [64b2b34b-132275087613] | FIN registroDispensacion_eReceita
+2021-10-09 12:56:46,073 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | FIN registroDispensacion_eReceita
+2021-10-09 12:56:46,073 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | Respuesta Petición: 
+<?xml version="1.0" encoding="UTF-8"?>
+<RespuestaRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ConfirmacionRegistroDispensacion xmlns="">
+    <IdReceta>1198846115</IdReceta>
+    <RespuestaOperacion>
+      <FechaHora>2021-10-09T12:56:46.002+02:00</FechaHora>
+      <CodigoRespuesta>NE0000</CodigoRespuesta>
+      <DescripcionCorta>Operación realizada con exito</DescripcionCorta>
+      <Descripcion>Operación realizada con éxito</Descripcion>
+    </RespuestaOperacion>
+    <IdDispensacion>64b2b583-3593-59be-328220143080</IdDispensacion>
+    <ValidacionErronea>
+      <Fecha>2021-10-09T12:56:45.858+02:00</Fecha>
+      <ValidadoSatisfactorio>true</ValidadoSatisfactorio>
+      <ValidacionErronea>
+        <TipoValidacion>producto</TipoValidacion>
+        <Categoria>informativa</Categoria>
+        <Resultado>true</Resultado>
+        <DescripcionValidacion>
+          <CodigoValidacion>Sustitucion</CodigoValidacion>
+          <TextoValidacion>
+            <GA>Sustitúese o produto prescrito por outro produto do mesmo conxunto de intercambio</GA>
+          </TextoValidacion>
+        </DescripcionValidacion>
+      </ValidacionErronea>
+      
+    </ValidacionErronea>
+  </ConfirmacionRegistroDispensacion>
+</RespuestaRegistroDispensacion_eReceita>
+2021-10-09 12:56:46,073 | INFO  | DiselPlataformaUtils | [64b2b34b-132275087613] | inicio generarMsjeRptaGenericaRegDisp
+2021-10-09 12:56:46,074 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | Respuesta genérica :
+<RespuestaGenerica xmlns="http://disel/esquemas/peticionesyrespuestas">  <FechaHora xmlns="">2021-10-09T12:56:46.073+02:00</FechaHora>  <IdTransaccion xmlns="">64b2b34b-132275087613</IdTransaccion>  <ListaRecetaDispensacion xmlns="">    <IdReceta>1198846115</IdReceta>    <IdDispensacion>64b2b583-3593-59be-328220143080</IdDispensacion>  </ListaRecetaDispensacion>  <MensajeRespuesta xmlns="">    <EnClaro><![CDATA[<?xml version="1.0" encoding="UTF-8"?><RespuestaRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  <ConfirmacionRegistroDispensacion xmlns="">    <IdReceta>1198846115</IdReceta>    <RespuestaOperacion>      <FechaHora>2021-10-09T12:56:46.002+02:00</FechaHora>      <CodigoRespuesta>NE0000</CodigoRespuesta>      <DescripcionCorta>Operación realizada con exito</DescripcionCorta>      <Descripcion>Operación realizada con éxito</Descripcion>    </RespuestaOperacion>    <IdDispensacion>64b2b583-3593-59be-328220143080</IdDispensacion>    <ValidacionErronea>      <Fecha>2021-10-09T12:56:45.858+02:00</Fecha>      <ValidadoSatisfactorio>true</ValidadoSatisfactorio>      <ValidacionErronea>        <TipoValidacion>producto</TipoValidacion>        <Categoria>informativa</Categoria>        <Resultado>true</Resultado>        <DescripcionValidacion>          <CodigoValidacion>Sustitucion</CodigoValidacion>          <TextoValidacion>            <GA>Sustitúese o produto prescrito por outro produto do mesmo conxunto de intercambio</GA>          </TextoValidacion>        </DescripcionValidacion>      </ValidacionErronea>          </ValidacionErronea>  </ConfirmacionRegistroDispensacion></RespuestaRegistroDispensacion_eReceita>]]></EnClaro>  </MensajeRespuesta>  <RespuestaOperacion xmlns="">    <FechaHora>2021-10-09T12:56:46.073+02:00</FechaHora>    <CodigoRespuesta>NE0000</CodigoRespuesta>    <DescripcionCorta>Operación realizada con exito</DescripcionCorta>    <Descripcion>Operación realizada con éxito</Descripcion>  </RespuestaOperacion></RespuestaGenerica>
+2021-10-09 12:56:46,074 | INFO  | OFServicioDispensacionesAC | [64b2b34b-132275087613] | FIN registroDispensacion_eReceitaPeticionGenerica
+2021-10-09 12:56:46,074 | INFO  | BindingServicioDispensacionesACImpl | [64b2b34b-132275087613] | Respuesta | Servicio: ServicioDispensaciones | Operación: registroDispensacion_eReceitaAC | Cliente: AC | 2111 | 670

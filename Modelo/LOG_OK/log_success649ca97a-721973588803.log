@@ -1,0 +1,299 @@
+2021-10-09 12:32:41,100 | INFO  | BindingServicioDispensacionesACImpl | [649ca97a-721973588803] | Petición | Servicio: ServicioDispensaciones | Operación: registroDispensacion_eReceitaAC | Cliente: AC
+2021-10-09 12:32:41,100 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | INICIO registroDispensacion_eReceitaPeticionGenerica
+2021-10-09 12:32:41,100 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | Petición genérica :
+<PeticionGenerica xmlns="http://disel/esquemas/peticionesyrespuestas">  <FechaHora xmlns="">2021-10-09T12:32:41.082+02:00</FechaHora>  <IdTransaccion xmlns="">649ca97a-721973588803</IdTransaccion>  <IP xmlns="">192.168.200.211</IP>  <MensajePeticion xmlns="">    <EnClaro><![CDATA[<PeticionRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas">  <Cabecera xmlns="">    <Version>3.0</Version>    <Software>      <FabricanteProducto>DXC</FabricanteProducto>      <Version>1.0</Version>    </Software>    <FechaHora>2021-10-09T12:32:41.080+02:00</FechaHora>    <IdFarmaceutico>      <NumeroColegiado>32683647A</NumeroColegiado>      <NombreFarmaceutico>MARIA MERCEDES</NombreFarmaceutico>      <Apellidos>SABIN ORJALES</Apellidos>    </IdFarmaceutico>    <IdFarmacia>      <CodigoNacionalFarmacia>CO0647</CodigoNacionalFarmacia>    </IdFarmacia>    <Idioma>ES</Idioma>    <IP>192.168.200.211</IP>  </Cabecera>  <IdentificacionPaciente xmlns="">    <FuenteDatos>lectura_TIS</FuenteDatos>    <Documento>8402448237055</Documento>    <TipoDocumento>IdTIS</TipoDocumento>  </IdentificacionPaciente>  <RegistroDispensacion xmlns="">    <FechaDispensacion>2021-10-09T12:32:41.079+02:00</FechaDispensacion>    <IdPrescripcion>145845464</IdPrescripcion>    <IdReceta>1217078067</IdReceta>    <ProductoDispensado>      <CodigoNacional>140031</CodigoNacional>      <Prezomenor>true</Prezomenor>      <NombreProducto>SULFATO DE COBRE 1/1000 250 ML SOLUCION TOPICA (PO)</NombreProducto>      <TipoProducto>formulas_y_otros</TipoProducto>      <EsPsicotropo>false</EsPsicotropo>      <EsEstupefaciente>false</EsEstupefaciente>      <DispensableEn>A</DispensableEn>      <PVPNomenclator>17.58</PVPNomenclator>      <PVPReal>17.58</PVPReal>      <AportacionPaciente>0.00</AportacionPaciente>    </ProductoDispensado>    <NumeroEnvasesDispensados>1</NumeroEnvasesDispensados>    <DispensacionForzada>false</DispensacionForzada>    <LocalizacionCupon>      <NumeroPlantilla></NumeroPlantilla>      <CoordenadaX></CoordenadaX>      <CoordenadaY></CoordenadaY>    </LocalizacionCupon>    <FirmaDispensacion>      <DocumentoFirmado>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</DocumentoFirmado>      <Contenido><![CDATA[<DocFirmaDispensacion xmlns="http://disel/esquemas/DocumentosXMLFirma"><DocFirmaReceta xmlns="">PABEAGEAdABvAHMARgBpAHIAbQBhAGQAbwBzAD4APABQAGEAYwBpAGUAbgB0AGUAPgA8AEMASQBQAD4AOQAwADAAOAAyADcAUgBTAE8AQQAwADAAMQA4ADwALwBDAEkAUAA+ADwATgBvAG0AYgByAGUAPgBZAE8ATABBAE4ARABBADwALwBOAG8AbQBiAHIAZQA+ADwAQQBwAGUAbABsAGkAZABvADEAPgBSAE8ARABSAEkARwBVAEUAWgA8AC8AQQBwAGUAbABsAGkAZABvADEAPgA8AEEAcABlAGwAbABpAGQAbwAyAD4AUwBBAE4ASgBVAEEATgA8AC8AQQBwAGUAbABsAGkAZABvADIAPgA8AEYAZQBjAGgAYQBOAGEAYwBpAG0AaQBlAG4AdABvAD4AMQA5ADkAMAAtADAAOAAtADIANwA8AC8ARgBlAGMAaABhAE4AYQBjAGkAbQBpAGUAbgB0AG8APgA8AC8AUABhAGMAaQBlAG4AdABlAD4APABQAHIAZQBzAGMAcgBpAHAAYwBpAG8AbgA+ADwASQBkAFAAcgBlAHMAYwByAGkAcABjAGkAbwBuAD4AMQA0ADUAOAA0ADUANAA2ADQAPAAvAEkAZABQAHIAZQBzAGMAcgBpAHAAYwBpAG8AbgA+ADwATwBiAGoAZQB0AG8AUAByAGUAcwBjAHIAaQB0AG8APgA8AEUAcwBwAGUAYwBpAGEAbABpAGQAYQBkAD4APABJAGQARQBzAHAAZQBjAGkAYQBsAGkAZABhAGQAPgAxADQAMAAwADMAMQA8AC8ASQBkAEUAcwBwAGUAYwBpAGEAbABpAGQAYQBkAD4APABEAGUAcwBjAHIAaQBwAEUAcwBwAGUAYwBpAGEAbABpAGQAYQBkAD4AUwBVAEwARgBBAFQATwAgAEQARQAgAEMATwBCAFIARQAgADEALwAxADAAMAAwACAAMgA1ADAAIABNAEwAIABTAE8ATABVAEMASQBPAE4AIABUAE8AUABJAEMAQQAgACgAUABPACkAPAAvAEQAZQBzAGMAcgBpAHAARQBzAHAAZQBjAGkAYQBsAGkAZABhAGQAPgA8AC8ARQBzAHAAZQBjAGkAYQBsAGkAZABhAGQAPgA8AC8ATwBiAGoAZQB0AG8AUAByAGUAcwBjAHIAaQB0AG8APgA8AFMAZQBsAGwAbwBDAGEAbQBwAFMAYQBuAGkAdAA+ADAAPAAvAFMAZQBsAGwAbwBDAGEAbQBwAFMAYQBuAGkAdAA+ADwAUABlAHIAaQBvAGQAbwBSAGUAYwBlAHQAYQBkAG8APgA8AFIAZQBjAGUAdABhAD4APABJAGQAUgBlAGMAZQB0AGEAPgAxADIAMQA3ADAANwA4ADAANgA3ADwALwBJAGQAUgBlAGMAZQB0AGEAPgA8AEQAZQBzAGMAcgBpAHAAVABpAHAAbwBSAGUAYwBlAHQAYQA+AEEAQwBUAEkAVgBPADwALwBEAGUAcwBjAHIAaQBwAFQAaQBwAG8AUgBlAGMAZQB0AGEAPgA8AFAAbwBzAG8AbABvAGcAaQBhAD4APABQAG8AcwBvAGwAbwBnAGkAYQBFAHMAdABpAG0AYQBkAGEAPgA8AEQAdQByAGEAYwBpAG8AbgBFAG4AdgBhAHMAZQA+ADcALgAwADwALwBEAHUAcgBhAGMAaQBvAG4ARQBuAHYAYQBzAGUAPgA8AFUAbgBpAGQAYQBkAEQAdQByAGEAYwBpAG8AbgBFAG4AdgBhAHMAZQA+AEQAPAAvAFUAbgBpAGQAYQBkAEQAdQByAGEAYwBpAG8AbgBFAG4AdgBhAHMAZQA+ADwATQBvAHQAaQB2AG8AUABvAHMAbwBsAG8AZwBpAGEARQBzAHQAaQBtAGEAZABhAD4APABDAG8AZABpAGcAbwA+AEQARQA8AC8AQwBvAGQAaQBnAG8APgA8AEQAZQBzAGMAcgBpAHAAYwBpAG8AbgA+AFMAZQBnAPoAbgAgAG4AZQBjAGUAcwBpAGQAYQBkADwALwBEAGUAcwBjAHIAaQBwAGMAaQBvAG4APgA8AC8ATQBvAHQAaQB2AG8AUABvAHMAbwBsAG8AZwBpAGEARQBzAHQAaQBtAGEAZABhAD4APAAvAFAAbwBzAG8AbABvAGcAaQBhAEUAcwB0AGkAbQBhAGQAYQA+ADwALwBQAG8AcwBvAGwAbwBnAGkAYQA+ADwATgB1AG0ARQBuAHYAYQBzAGUAcwA+ADEAPAAvAE4AdQBtAEUAbgB2AGEAcwBlAHMAPgA8AEkAbgBzAHQAcgB1AGMAYwBpAG8AbgBlAHMAUABhAGMAaQBlAG4AdABlAD4APAAvAEkAbgBzAHQAcgB1AGMAYwBpAG8AbgBlAHMAUABhAGMAaQBlAG4AdABlAD4APABBAGQAdgBlAHIAdABlAG4AYwBpAGEAcwA+ADwALwBBAGQAdgBlAHIAdABlAG4AYwBpAGEAcwA+ADwARgBlAGMAaABhAEQAaQBzAHAAZQBuAHMAYQBjAGkAbwBuAFAAcgBlAHYAaQBzAHQAYQA+ADIAMAAyADEALQAxADAALQAwADgAPAAvAEYAZQBjAGgAYQBEAGkAcwBwAGUAbgBzAGEAYwBpAG8AbgBQAHIAZQB2AGkAcwB0AGEAPgA8AFIAZQBxAHUAaQBlAHIAZQBIAG8AbQBvAGwAbwBnAGEAYwBpAG8AbgA+AGYAYQBsAHMAZQA8AC8AUgBlAHEAdQBpAGUAcgBlAEgAbwBtAG8AbABvAGcAYQBjAGkAbwBuAD4APABGAGEAYwB1AGwAdABhAHQAaQB2AG8APgA8AEMATgBQAD4ANQA3ADIAMAA3ADkAPAAvAEMATgBQAD4APABOAG8AbQBiAHIAZQA+AFIATwBTAEEATABJAEEAPAAvAE4AbwBtAGIAcgBlAD4APABBAHAAZQBsAGwAaQBkAG8AMQA+AFAASQDRAEUASQBSAE8APAAvAEEAcABlAGwAbABpAGQAbwAxAD4APABBAHAAZQBsAGwAaQBkAG8AMgA+AE0AQQBSAFQASQBOAEUAWgA8AC8AQQBwAGUAbABsAGkAZABvADIAPgA8AEQAZQBzAGMAcgBpAHAAQwBlAG4AdAByAG8APgBDAEUATgBUAFIATwAgAFMAQQBVAEQARQAgAEMAQQBSAEEATgBaAEEAPAAvAEQAZQBzAGMAcgBpAHAAQwBlAG4AdAByAG8APgA8AE4AdQBtAEMAbwBsAGUAZwBpAGEAZABvAD4AMQA1ADAANgA5ADkAMAAzADwALwBOAHUAbQBDAG8AbABlAGcAaQBhAGQAbwA+ADwALwBGAGEAYwB1AGwAdABhAHQAaQB2AG8APgA8AEYAZQBjAGgAYQBDAHIAZQBhAGMAaQBvAG4APgAyADAAMgAxAC0AMQAwAC0AMAA4AFQAMAAwADoAMAAwADoAMAAwADwALwBGAGUAYwBoAGEAQwByAGUAYQBjAGkAbwBuAD4APAAvAFIAZQBjAGUAdABhAD4APAAvAFAAZQByAGkAbwBkAG8AUgBlAGMAZQB0AGEAZABvAD4APABEAGUAcwBjAHIAaQBwAFYAaQBhAD4AVQBTAE8AIABDAFUAVADBAE4ARQBPADwALwBEAGUAcwBjAHIAaQBwAFYAaQBhAD4APABEAHUAcgBhAGMAaQBvAG4AVAByAGEAdABhAG0AaQBlAG4AdABvAD4ANwA8AC8ARAB1AHIAYQBjAGkAbwBuAFQAcgBhAHQAYQBtAGkAZQBuAHQAbwA+ADwAVQBuAGkAZABhAGQARAB1AHIAYQBjAGkAbwBuAFQAcgBhAHQAYQBtAGkAZQBuAHQAbwA+AEQAzQBBAFMAPAAvAFUAbgBpAGQAYQBkAEQAdQByAGEAYwBpAG8AbgBUAHIAYQB0AGEAbQBpAGUAbgB0AG8APgA8AC8AUAByAGUAcwBjAHIAaQBwAGMAaQBvAG4APgA8AC8ARABhAHQAbwBzAEYAaQByAG0AYQBkAG8AcwA+AA==</DocFirmaReceta><FirmaFacultativoEmisor xmlns="">MIIQoQYJKoZIhvcNAQcCoIIQkjCCEI4CAQExCzAJBgUrDgMCGgUAMAsGCSqGSIb3DQEHAaCCDoQwggbaMIIEwqADAgECAhBFXzrhXCHNulRPgqpHUevbMA0GCSqGSIb3DQEBCwUAMDsxCzAJBgNVBAYTAkVTMREwDwYDVQQKDAhGTk1ULVJDTTEZMBcGA1UECwwQQUMgUkFJWiBGTk1ULVJDTTAeFw0xNDEwMjgxMTQ4NThaFw0yOTEwMjgxMTQ4NThaMEsxCzAJBgNVBAYTAkVTMREwDwYDVQQKDAhGTk1ULVJDTTEOMAwGA1UECwwFQ2VyZXMxGTAXBgNVBAMMEEFDIEZOTVQgVXN1YXJpb3MwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCdIAQmLfstaTDL2ZN/peWu1HBy75S+RWvlj7IL+bozhiWvhvHA2Nu2P77xvokFpv3DIeGS1VIgFr52JiF+wexZVaCQ6VLM0g+pM8o6aNi0vdQm6hbcBukM1kkRUWASiWQKDnXBcoyM7s7kJ8nAgDeJXZ9t55HhgA6az/WaqbQtKStaLDCVgX1Wfxqqv94CdP93wp1gLln/0xzVrNYdY3vMnoxN25n09xWMybvSK+IdqiGARS73v1vLbdpzHr2ruos+MeRigaF/Z+3W1CpiaOz2JyDA+GvMvLLXPNdjLQeh4WezhuLY34wFOal/+Lwdk4roHLcxLZSUKyNeEeHNqbBHAgMBAAGjggLIMIICxDASBgNVHRMBAf8ECDAGAQH/AgEAMA4GA1UdDwEB/wQEAwIBBjAdBgNVHQ4EFgQUsdRPxCN5+kQFCcbrOc/oNbC4IGQwgZgGCCsGAQUFBwEBBIGLMIGIMEkGCCsGAQUFBzABhj1odHRwOi8vb2NzcGZubXRyY21jYS5jZXJ0LmZubXQuZXMvb2NzcGZubXRyY21jYS9PY3NwUmVzcG9uZGVyMDsGCCsGAQUFBzAChi9odHRwOi8vd3d3LmNlcnQuZm5tdC5lcy9jZXJ0cy9BQ1JBSVpGTk1UUkNNLmNydDAfBgNVHSMEGDAWgBT3fcX9xOiaG3dkp/UdoMy/h2CabTCB6wYDVR0gBIHjMIHgMIHdBgRVHSAAMIHUMCkGCCsGAQUFBwIBFh1odHRwOi8vd3d3LmNlcnQuZm5tdC5lcy9kcGNzLzCBpgYIKwYBBQUHAgIwgZkMgZZTdWpldG8gYSBsYXMgY29uZGljaW9uZXMgZGUgdXNvIGV4cHVlc3RhcyBlbiBsYSBEZWNsYXJhY2nDs24gZGUgUHLDoWN0aWNhcyBkZSBDZXJ0aWZpY2FjacOzbiBkZSBsYSBGTk1ULVJDTSAoIEMvIEpvcmdlIEp1YW4sIDEwNi0yODAwOS1NYWRyaWQtRXNwYcOxYSkwgdQGA1UdHwSBzDCByTCBxqCBw6CBwIaBkGxkYXA6Ly9sZGFwZm5tdC5jZXJ0LmZubXQuZXMvQ049Q1JMLE9VPUFDJTIwUkFJWiUyMEZOTVQtUkNNLE89Rk5NVC1SQ00sQz1FUz9hdXRob3JpdHlSZXZvY2F0aW9uTGlzdDtiaW5hcnk/YmFzZT9vYmplY3RjbGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludIYraHR0cDovL3d3dy5jZXJ0LmZubXQuZXMvY3Jscy9BUkxGTk1UUkNNLmNybDANBgkqhkiG9w0BAQsFAAOCAgEAjD0otOB+DfNuXNpcdz2AZB5O6RK4yeay/yuAoHg9hEwsZYsv3PFjK+fdUkHbr/wXC4yahPIJ1F1Wop75gmbAhV6cXuqD53xGjn5f5mPtq2LvRk4nYZWBvU0CPak0D5n55mtWlQOffUv7fOJOEu+kC0S1PHoBMVsmYSCSlHUCdtbO+6zDBQgxQGylHTaeIIjOoIlWba7ZTL2QfD52IElG7BVimkFlq+CfsQI0768p4gApmZ75Yx3RlBOGQNFgjEUXBiFYWhzVMT4t/SdVsRrmP+/qhVxq4/7Z3IuMf+tN1WGHgucj8Mo8Yod25Dype6FvGBsiK7yMFP/Sfd1ZA8UHei736weWVP25JRUau0r4rKOAYsfmh7yLgY5sfsYlS2GRTARjMaKOD9aYq+b6ODSCeVZPseJTQrh8RaV0gGX2c1qHXbJI9U3rer/yQJdLclHxwzzZl6zMtWe0+zriK1XZYquSs0D4u27hn9RNjiW4f4hF6+j2t5Prv3QxC9isLCNKy40Ph9cjzr+YYRIa+FvAQKamF7wv+NXS5nTXIjmaaCF50Gvlaoq/rgSYhc0VVnbf6aHxEUKCo9mxq1VpWgFCrUV686E8yMS/GIyDM9e97YDeBKaeD9QoNwobMVvIv695JmF0/zniY+Tcg8QJhkQ2oBhZeMGW2bxQNGZQG3XCmBEwggeiMIIGiqADAgECAhBnv6/batz4yGD/v7yXxwFBMA0GCSqGSIb3DQEBCwUAMEsxCzAJBgNVBAYTAkVTMREwDwYDVQQKDAhGTk1ULVJDTTEOMAwGA1UECwwFQ2VyZXMxGTAXBgNVBAMMEEFDIEZOTVQgVXN1YXJpb3MwHhcNMjEwNzI3MDgxMTQwWhcNMjUwNzI3MDgxMTQwWjCBnTELMAkGA1UEBhMCRVMxGDAWBgNVBAUTD0lEQ0VTLTMyNjMyNzQxTDEcMBoGA1UEKgwTUk9TQUxJQSBDT05TT0xBQ0lPTjEaMBgGA1UEBAwRUEnDkUVJUk8gTUFSVElORVoxOjA4BgNVBAMMMVBJw5FFSVJPIE1BUlRJTkVaIFJPU0FMSUEgQ09OU09MQUNJT04gLSAzMjYzMjc0MUwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCheo5T9enXdkZueSHkGmMnEhyt00ztlHb3Uc0sGKt+Esf8EwsuS4CEHt4Xtv/hzJKNo0chItJfQiVK69Xppl6BAMT3bG63SEELBAldImyOmjctOHdiMl8Wy1GpHLTQkea7glXNrUWFTCFhFQwZEsZOqvimNNjju1kQmLyi+YMahBpbTCA0thZMymzEhW7zwh8sTl8yabA8kgGlPHym3a4haLu18y+JGjbU97NOq1rtlzLsDG2h3+deUIWToegrr5H3NU43NX8DTJtWgkGHTj/WVFAR0sodo5nI8Pfmy0FvoDa0vwKxWOFSWN2EQE0oN4bujduWn1PDvE5lO850HYXXAgMBAAGjggQtMIIEKTCBlgYDVR0RBIGOMIGLgRJSUElOTUFSMkBHTUFJTC5DT02kdTBzMRgwFgYJKwYBBAGsZgEEDAkzMjYzMjc0MUwxGDAWBgkrBgEEAaxmAQMMCU1BUlTDjU5FWjEXMBUGCSsGAQQBrGYBAgwIUEnDkUVJUk8xJDAiBgkrBgEEAaxmAQEMFVJPU0FMw41BIENPTlNPTEFDScOTTjAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIwHQYDVR0OBBYEFGVc/ON1YgjMbu88T66gj2/JeClzMB8GA1UdIwQYMBaAFLHUT8QjefpEBQnG6znP6DWwuCBkMIGCBggrBgEFBQcBAQR2MHQwPQYIKwYBBQUHMAGGMWh0dHA6Ly9vY3NwdXN1LmNlcnQuZm5tdC5lcy9vY3NwdXN1L09jc3BSZXNwb25kZXIwMwYIKwYBBQUHMAKGJ2h0dHA6Ly93d3cuY2VydC5mbm10LmVzL2NlcnRzL0FDVVNVLmNydDCCARUGA1UdIASCAQwwggEIMIH6BgorBgEEAaxmAwoBMIHrMCkGCCsGAQUFBwIBFh1odHRwOi8vd3d3LmNlcnQuZm5tdC5lcy9kcGNzLzCBvQYIKwYBBQUHAgIwgbAMga1DZXJ0aWZpY2FkbyBjdWFsaWZpY2FkbyBkZSBmaXJtYSBlbGVjdHLDs25pY2EuIFN1amV0byBhIGxhcyBjb25kaWNpb25lcyBkZSB1c28gZXhwdWVzdGFzIGVuIGxhIERQQyBkZSBsYSBGTk1ULVJDTSBjb24gTklGOiBRMjgyNjAwNC1KIChDL0pvcmdlIEp1YW4gMTA2LTI4MDA5LU1hZHJpZC1Fc3Bhw7FhKTAJBgcEAIvsQAEAMIG6BggrBgEFBQcBAwSBrTCBqjAIBgYEAI5GAQEwCwYGBACORgEDAgEPMBMGBgQAjkYBBjAJBgcEAI5GAQYBMHwGBgQAjkYBBTByMDcWMWh0dHBzOi8vd3d3LmNlcnQuZm5tdC5lcy9wZHMvUERTQUNVc3Vhcmlvc19lcy5wZGYTAmVzMDcWMWh0dHBzOi8vd3d3LmNlcnQuZm5tdC5lcy9wZHMvUERTQUNVc3Vhcmlvc19lbi5wZGYTAmVuMIG1BgNVHR8Ega0wgaowgaeggaSggaGGgZ5sZGFwOi8vbGRhcHVzdS5jZXJ0LmZubXQuZXMvY249Q1JMNDY4Myxjbj1BQyUyMEZOTVQlMjBVc3VhcmlvcyxvdT1DRVJFUyxvPUZOTVQtUkNNLGM9RVM/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdDtiaW5hcnk/YmFzZT9vYmplY3RjbGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludDANBgkqhkiG9w0BAQsFAAOCAQEAHVwqc8i0ez9jLw7yzvzTJQSKTifnRUYrQjiz5hArwE5RzO5+JA/oVi2scfIN40iTBCQ5VQcyYo4YPfSoffi4Hgh9A/p578hPEOZNR8wDt651MRq9ipeHM8HYWOks66X5KOD1bjn+sxJ58UAAktbKdAajwxBKvz+skMt6GF8fMn+98gIVAkpHm+1LMtDpzTmexSAfCpvLn396nBwQAc/6cFA+VaPLKvtLyLzOMO3+AgPe6jvp+/uMzTAe/39i+ESya4gulhCeDIbLs37kxqZN7mfvpTjx8kPtN0rxKpVHC1GXH/xHynE8FEBgMyIT2PhJWv47ZT3hoZE6xmh7ggrnwjGCAeUwggHhAgEBMF8wSzELMAkGA1UEBhMCRVMxETAPBgNVBAoMCEZOTVQtUkNNMQ4wDAYDVQQLDAVDZXJlczEZMBcGA1UEAwwQQUMgRk5NVCBVc3VhcmlvcwIQZ7+v22rc+Mhg/7+8l8cBQTAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjExMDA4MTUyNjEzWjAjBgkqhkiG9w0BCQQxFgQUMhGocfkQJEoIHCc8lH4Wr1JAtZYwDQYJKoZIhvcNAQEBBQAEggEAjzbJ85xRVCoYASJIXvhLC7UCjvlH8wPe92yxWtQ8eaj9uHe+6CUa1VEOID0WCliTLpOO3qf/z6DMskKJSOUQtS+ssmLOYKrUwJH3f3Tapuy3X2cm2YnMr5G/+K7I40YSy+yi/9eji9zKQHUtiYkOw323r1mEQpwmJc3yGISdcJkHGitgF6AWSPHMizZKqKjqGRWgYLblXt+2XC+yQKuXjWjvZYwzIbv/EQhaPmEecWst/MVQzOkX8wxeq9X2gUXEIUi+et2c8B1ZSpttCC2NjtvXrQ8ZVogxSDiHCeA868udK6hAVvSbHhLfw3GY1/Ficfx0V3Ij7HxC1X1Clh8NyA==</FirmaFacultativoEmisor><DatosPropiosDispensacion xmlns=""><FechaDispensacion>2021-10-09T12:31:53.210+02:00</FechaDispensacion><IdentificacionFarmaceuticoDispensador><NumeroColegiado>32683647A</NumeroColegiado><NombreFarmaceutico>MARIA MERCEDES</NombreFarmaceutico><Apellidos>SABIN ORJALES</Apellidos></IdentificacionFarmaceuticoDispensador><CampanaSanitaria>false</CampanaSanitaria><IdentificacionFarmacia><CodigoNacionalFarmacia>CO0647</CodigoNacionalFarmacia></IdentificacionFarmacia><ProductoDispensado><CodigoNacional>140031</CodigoNacional><NombreProducto>SULFATO DE COBRE 1/1000 250 ML SOLUCION TOPICA (PO)</NombreProducto><TipoProducto>formulas_y_otros</TipoProducto><EsPsicotropo>false</EsPsicotropo><EsEstupefaciente>false</EsEstupefaciente><PVPNomenclator>17.58</PVPNomenclator><AportacionPaciente>0.00</AportacionPaciente></ProductoDispensado><NumeroEnvasesDispensados>0</NumeroEnvasesDispensados><ExpedicionReceta><Es_eReceita>true</Es_eReceita><EsImpresa>false</EsImpresa></ExpedicionReceta><DispensacionForzada>false</DispensacionForzada><DispensacionCDR>false</DispensacionCDR><TipoRecetaDispensada>V_activo_verde</TipoRecetaDispensada><TipoAportacionDispensacion><TipoReceta>V_activo_verde</TipoReceta><AportacionTotalReceta>0.0</AportacionTotalReceta></TipoAportacionDispensacion></DatosPropiosDispensacion></DocFirmaDispensacion>]]]]>><![CDATA[</Contenido>    </FirmaDispensacion>    <TipoAportacion>      <TipoReceta>TSI 001</TipoReceta>      <AportacionTotalReceta>0.0</AportacionTotalReceta>    </TipoAportacion>  </RegistroDispensacion></PeticionRegistroDispensacion_eReceita>]]></EnClaro>  </MensajePeticion></PeticionGenerica>
+2021-10-09 12:32:41,101 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | INICIO registroDispensacion_eReceita
+2021-10-09 12:32:41,101 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | <datos><farmacia>CO0647</farmacia><farmaceutico>32683647A</farmaceutico><tipodocumento>IdTIS</tipodocumento><documento>8402448237055</documento><fuente>LECTURA_TIS</fuente></datos>
+2021-10-09 12:32:41,102 | INFO  | BLServicioIdentificacion | [649ca97a-721973588803] | INICIO identificacionFarmaceutico
+2021-10-09 12:32:41,102 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: getObject
+2021-10-09 12:32:41,104 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: getObject | Tiempo: 2 ms.
+2021-10-09 12:32:41,104 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarFarmacias
+2021-10-09 12:32:41,104 | INFO  | DiselPersistenceIdentificacionImpl | [649ca97a-721973588803] | consultarFarmacias: Inicio
+2021-10-09 12:32:41,104 | INFO  | DiselDaoIdentificacionImpl | [649ca97a-721973588803] | loadFarmacias sFarmacia:CO0647
+2021-10-09 12:32:41,106 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarFarmacias | Tiempo: 2 ms.
+2021-10-09 12:32:41,106 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:32:41,106 | INFO  | DiselPersistenceIdentificacionImpl | [649ca97a-721973588803] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:32:41,106 | INFO  | DiselDaoIdentificacionImpl | [649ca97a-721973588803] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:CO0647,sColegiado:32683647A
+2021-10-09 12:32:41,114 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 8 ms.
+2021-10-09 12:32:41,114 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarHorarios
+2021-10-09 12:32:41,114 | INFO  | DiselPersistenceIdentificacionImpl | [649ca97a-721973588803] | consultarHorarios: Inicio
+2021-10-09 12:32:41,114 | INFO  | DiselDaoIdentificacionImpl | [649ca97a-721973588803] | loadHorariosFarmaFarmaceutico idFarmacia:CO0647,nroColegiado:32683647A,dia:6,fechaInicio:Sat Oct 09 00:00:00 CEST 2021
+2021-10-09 12:32:41,149 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarHorarios | Tiempo: 35 ms.
+2021-10-09 12:32:41,150 | INFO  | BLServicioIdentificacion | [649ca97a-721973588803] | FIN identificacionFarmaceutico
+2021-10-09 12:32:41,150 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarListaValores
+2021-10-09 12:32:41,150 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarListaValores: Inicio
+2021-10-09 12:32:41,151 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadListaValores 
+2021-10-09 12:32:41,152 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarListaValores | Tiempo: 2 ms.
+2021-10-09 12:32:41,152 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarListaValores.GA.tipoDocumentoRegistroEReceita_.true
+2021-10-09 12:32:41,152 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,152 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,152 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:LimiteActivo
+2021-10-09 12:32:41,153 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,153 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.LimiteActivo
+2021-10-09 12:32:41,153 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,153 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,153 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:lectura_banda_confiable
+2021-10-09 12:32:41,154 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,154 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.lectura_banda_confiable
+2021-10-09 12:32:41,154 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,154 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,154 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:transformacion_TSI_receta
+2021-10-09 12:32:41,155 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,155 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.transformacion_TSI_receta
+2021-10-09 12:32:41,155 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,156 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,156 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:AplicarLimiteVirtual
+2021-10-09 12:32:41,156 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,156 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.AplicarLimiteVirtual
+2021-10-09 12:32:41,157 | INFO  | ValidatePeticionRegistroDispensacionEReceita | [649ca97a-721973588803] | Paciente validado
+2021-10-09 12:32:41,157 | INFO  | BLServicioDispensacionesFarmacia | [649ca97a-721973588803] | INICIO registroDispensacion_eReceita
+2021-10-09 12:32:41,157 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:32:41,157 | INFO  | DiselPersistenceIdentificacionImpl | [649ca97a-721973588803] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:32:41,157 | INFO  | DiselDaoIdentificacionImpl | [649ca97a-721973588803] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:CO0647,sColegiado:32683647A
+2021-10-09 12:32:41,163 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 6 ms.
+2021-10-09 12:32:41,163 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,163 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,164 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:LimiteActivo
+2021-10-09 12:32:41,165 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,165 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.LimiteActivo
+2021-10-09 12:32:41,168 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,168 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,168 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:verificar_cert_AC
+2021-10-09 12:32:41,171 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 3 ms.
+2021-10-09 12:32:41,171 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.verificar_cert_AC
+2021-10-09 12:32:41,394 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: getObject
+2021-10-09 12:32:41,396 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: getObject | Tiempo: 2 ms.
+2021-10-09 12:32:41,401 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,401 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,402 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:financiacionSelectiva
+2021-10-09 12:32:41,403 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,403 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.financiacionSelectiva
+2021-10-09 12:32:41,404 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,404 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,405 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:codigoExcepcionIndicacionNoFinanciada
+2021-10-09 12:32:41,405 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,405 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.codigoExcepcionIndicacionNoFinanciada
+2021-10-09 12:32:41,406 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,406 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,406 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:codigoExcepcionHipercolesterolemia
+2021-10-09 12:32:41,406 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 0 ms.
+2021-10-09 12:32:41,406 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.codigoExcepcionHipercolesterolemia
+2021-10-09 12:32:41,407 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | INICIO validacion
+2021-10-09 12:32:41,408 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | Peticion validacion: /n<xml-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cabecera>
+    <Version>3.0</Version>
+    <Software>
+      <FabricanteProducto>DXC</FabricanteProducto>
+      <Version>1.0</Version>
+    </Software>
+    <FechaHora>2021-10-09T12:32:41.080+02:00</FechaHora>
+    <IdFarmaceutico>
+      <NumeroColegiado>32683647A</NumeroColegiado>
+      <NombreFarmaceutico>MARIA MERCEDES</NombreFarmaceutico>
+      <Apellidos>SABIN ORJALES</Apellidos>
+    </IdFarmaceutico>
+    <IdFarmacia>
+      <CodigoNacionalFarmacia>CO0647</CodigoNacionalFarmacia>
+    </IdFarmacia>
+    <Idioma>ES</Idioma>
+    <IP>192.168.200.211</IP>
+  </Cabecera>
+  <IdentificacionPaciente>
+    <FuenteDatos>lectura_TIS</FuenteDatos>
+    <Documento>8402448237055</Documento>
+    <TipoDocumento>IdTIS</TipoDocumento>
+  </IdentificacionPaciente>
+  <IdPrescripcion>145845464</IdPrescripcion>
+  <IdReceta>1217078067</IdReceta>
+  <TipoExpedicionReceta>
+    <Es_eReceita>true</Es_eReceita>
+    <EsImpresa>false</EsImpresa>
+  </TipoExpedicionReceta>
+  <CodigoNacionalProductoDispensado>140031</CodigoNacionalProductoDispensado>
+  <NumeroEnvasesDispensados>1</NumeroEnvasesDispensados>
+  <PVPReal>17.58</PVPReal>
+  <AportacionPaciente>0.0</AportacionPaciente>
+  <Diligencia xsi:nil="true"/>
+  <NIF_RecogeDispensacion xsi:nil="true"/>
+  <Documento xsi:nil="true"/>
+  <ColorReceta>V_activo_verde</ColorReceta>
+  <limitePaciente>0.0</limitePaciente>
+  <porcentajeAportacion>0.0</porcentajeAportacion>
+  <TipoAportacion>
+    <TipoReceta>TSI 001</TipoReceta>
+    <AportacionTotalReceta>0.0</AportacionTotalReceta>
+  </TipoAportacion>
+  <CampaniaSanitaria>false</CampaniaSanitaria>
+  <RecetaHomologada>false</RecetaHomologada>
+  <AportacionUnitaria>0.00</AportacionUnitaria>
+  <Tramo>TSI 001</Tramo>
+  <Estupefaciente>false</Estupefaciente>
+  <Psicotropo>false</Psicotropo>
+</xml-fragment>
+2021-10-09 12:32:41,408 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | INICIO ValidaDispensacion
+2021-10-09 12:32:41,409 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarFarmaciaFarmaceutico
+2021-10-09 12:32:41,409 | INFO  | DiselPersistenceIdentificacionImpl | [649ca97a-721973588803] | consultarFarmaciaFarmaceutico: Inicio
+2021-10-09 12:32:41,409 | INFO  | DiselDaoIdentificacionImpl | [649ca97a-721973588803] | loadFarmaciaFarmaceutico fechaInicio:Sat Oct 09 00:00:00 CEST 2021,sFarmacia:CO0647,sColegiado:32683647A
+2021-10-09 12:32:41,414 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarFarmaciaFarmaceutico | Tiempo: 5 ms.
+2021-10-09 12:32:41,416 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: obtenerCategoria
+2021-10-09 12:32:41,416 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:32:41,418 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: obtenerCategoria | Tiempo: 2 ms.
+2021-10-09 12:32:41,418 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:32:41,418 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | ****************************** tipo de farmacia: V
+2021-10-09 12:32:41,418 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | INICIO validaReceta
+2021-10-09 12:32:41,418 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: getObject
+2021-10-09 12:32:41,419 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: getObject | Tiempo: 1 ms.
+2021-10-09 12:32:41,424 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,424 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,424 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:habilita_advertencia_producto_homologacion
+2021-10-09 12:32:41,425 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,425 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.habilita_advertencia_producto_homologacion
+2021-10-09 12:32:41,426 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,426 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,426 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:habilita_regla_disp_fin_tratamiento
+2021-10-09 12:32:41,428 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,428 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.habilita_regla_disp_fin_tratamiento
+2021-10-09 12:32:41,428 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,428 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,428 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:dias_rango_validez_receta
+2021-10-09 12:32:41,430 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,430 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.dias_rango_validez_receta
+2021-10-09 12:32:41,430 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,430 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,430 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:margen_restriccion_acopio
+2021-10-09 12:32:41,431 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,431 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.margen_restriccion_acopio
+2021-10-09 12:32:41,432 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,432 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,432 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:transformacion_TSI_receta
+2021-10-09 12:32:41,433 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,433 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.transformacion_TSI_receta
+2021-10-09 12:32:41,433 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,433 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,433 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:AplicarLimiteVirtual
+2021-10-09 12:32:41,435 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,435 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.AplicarLimiteVirtual
+2021-10-09 12:32:41,509 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | No coinciden los CIP
+2021-10-09 12:32:41,509 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | FIN validaReceta: 0
+2021-10-09 12:32:41,509 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,510 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,510 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_metodo
+2021-10-09 12:32:41,512 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 3 ms.
+2021-10-09 12:32:41,512 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.consulta_gasto_metodo
+2021-10-09 12:32:41,512 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,512 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,512 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_calcular_suma_hasta
+2021-10-09 12:32:41,514 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,514 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.consulta_gasto_calcular_suma_hasta
+2021-10-09 12:32:41,514 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | INICIO validaProducto
+2021-10-09 12:32:41,516 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: obtenerCategoria
+2021-10-09 12:32:41,516 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:32:41,517 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: obtenerCategoria | Tiempo: 1 ms.
+2021-10-09 12:32:41,517 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:32:41,517 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,517 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,517 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:financiacionSelectiva
+2021-10-09 12:32:41,519 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,519 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.financiacionSelectiva
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | aportacionProducto_CEPF: 0
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | aportacionProducto_CEPF * num Envases: 0
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | aportacionPaciente_Validado: 0
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | creditoRestante: 0
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | FIN validaProducto
+2021-10-09 12:32:41,519 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | FIN validacion
+2021-10-09 12:32:41,520 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | Respuesta validacion: /n<xml-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RespuestaOperacion>
+    <FechaHora>2021-10-09T12:32:41.520+02:00</FechaHora>
+    <CodigoRespuesta>NE0000</CodigoRespuesta>
+    <DescripcionCorta>Operacion realizada con exito</DescripcionCorta>
+    <Descripcion>Operacion realizada con exito</Descripcion>
+  </RespuestaOperacion>
+  <Validacion>
+    <Fecha>2021-10-09T12:32:41.408+02:00</Fecha>
+    <ValidadoSatisfactorio>true</ValidadoSatisfactorio>
+    <FechaBaja xsi:nil="true"/>
+  </Validacion>
+</xml-fragment>
+2021-10-09 12:32:41,520 | INFO  | BLServicioValidacionFarmacia | [649ca97a-721973588803] | FIN validacion
+2021-10-09 12:32:41,520 | INFO  | RegistroDispensacionActionDelegate$RegistroDispensacionIndividualActionDelegate | [649ca97a-721973588803] | Verificando firma...
+2021-10-09 12:32:41,520 | INFO  | RegistroDispensacionActionDelegate$RegistroDispensacionIndividualActionDelegate | [649ca97a-721973588803] | Firma Detached
+2021-10-09 12:32:41,526 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,527 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,527 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:comprobar_identidad_firma
+2021-10-09 12:32:41,528 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,528 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.comprobar_identidad_firma
+2021-10-09 12:32:41,529 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,529 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,529 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:eticket_identificador_unico_envase
+2021-10-09 12:32:41,530 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,530 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.eticket_identificador_unico_envase
+2021-10-09 12:32:41,545 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,545 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,546 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:activar_hint_consulta_dispensaciones_recetas
+2021-10-09 12:32:41,547 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,547 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.activar_hint_consulta_dispensaciones_recetas
+2021-10-09 12:32:41,547 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarEstadosDispensacionRecetasDispensaciones
+2021-10-09 12:32:41,547 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | consultarEstadosDispensacionRecetasDispensaciones: Inicio
+2021-10-09 12:32:41,547 | INFO  | DiselDaoDispensacionesImpl | [649ca97a-721973588803] | consultarDispensacionesPorRecetas
+2021-10-09 12:32:41,547 | INFO  | DiselDaoDispensacionesImpl | [649ca97a-721973588803] | Se usa el hint en consultarDispensacionesPorRecetas: true
+2021-10-09 12:32:41,549 | INFO  | DiselDaoDispensacionesImpl | [649ca97a-721973588803] | Número de dispensaciones recuperadas: 0
+2021-10-09 12:32:41,550 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarEstadosDispensacionRecetasDispensaciones | Tiempo: 3 ms.
+2021-10-09 12:32:41,551 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: obtenerCategoria
+2021-10-09 12:32:41,552 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | getCategoriaAportacion: TSI 001.
+2021-10-09 12:32:41,553 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: obtenerCategoria | Tiempo: 2 ms.
+2021-10-09 12:32:41,553 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave obtenerCategoria.TSI 001.2021-9-9
+2021-10-09 12:32:41,554 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,554 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,554 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:consulta_gasto_actualizar_sumarizada
+2021-10-09 12:32:41,555 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,555 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.consulta_gasto_actualizar_sumarizada
+2021-10-09 12:32:41,555 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,555 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,556 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:habilita_swap_firmadispensacion
+2021-10-09 12:32:41,557 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,557 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.habilita_swap_firmadispensacion
+2021-10-09 12:32:41,557 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,557 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,558 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:habilita_regla_disp_dtc
+2021-10-09 12:32:41,558 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 1 ms.
+2021-10-09 12:32:41,558 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.habilita_regla_disp_dtc
+2021-10-09 12:32:41,559 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: consultarParametrosCache
+2021-10-09 12:32:41,559 | INFO  | DiselPersistenceConfiguracionImpl | [649ca97a-721973588803] | consultarParametrosCache: Inicio
+2021-10-09 12:32:41,559 | INFO  | DiselDaoConfiguracionImpl | [649ca97a-721973588803] | loadParametrosConfiguracionCache tipoParametro:duracion_tratamiento_cubrir
+2021-10-09 12:32:41,561 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: consultarParametrosCache | Tiempo: 2 ms.
+2021-10-09 12:32:41,561 | INFO  | DiselPlataformaCacheInterceptor | [649ca97a-721973588803] | invoke: se añade resultado del método a la caché con clave PERSISTENCE.consultarParametrosCache.ES.duracion_tratamiento_cubrir
+2021-10-09 12:32:41,561 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Petición | Operación: procesarRegistroDispensacion
+2021-10-09 12:32:41,561 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroDispensacion: Inicio
+2021-10-09 12:32:41,562 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroPaciente: Inicio
+2021-10-09 12:32:41,565 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroFarmaceutico: Inicio
+2021-10-09 12:32:41,565 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroDispensacionModular: Inicio
+2021-10-09 12:32:41,572 | INFO  | DiselDaoDispensacionesImpl | [649ca97a-721973588803] | updateUltimoEstadoFalsoIdentificadoresUnicos []
+2021-10-09 12:32:41,572 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroDispensacionModular: Fin
+2021-10-09 12:32:41,572 | INFO  | DiselPersistenceDispensacionesFarmaciaImpl | [649ca97a-721973588803] | procesarRegistroDispensacion: Fin
+2021-10-09 12:32:41,623 | INFO  | DiselPersistenceInterceptor | [649ca97a-721973588803] | Respuesta | Operación: procesarRegistroDispensacion | Tiempo: 62 ms.
+2021-10-09 12:32:41,623 | INFO  | BLServicioDispensacionesFarmacia | [649ca97a-721973588803] | FIN registroDispensacion_eReceita
+2021-10-09 12:32:41,624 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | FIN registroDispensacion_eReceita
+2021-10-09 12:32:41,624 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | Respuesta Petición: 
+<?xml version="1.0" encoding="UTF-8"?>
+<RespuestaRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ConfirmacionRegistroDispensacion xmlns="">
+    <IdReceta>1217078067</IdReceta>
+    <RespuestaOperacion>
+      <FechaHora>2021-10-09T12:32:41.572+02:00</FechaHora>
+      <CodigoRespuesta>NE0000</CodigoRespuesta>
+      <DescripcionCorta>Operacion realizada con exito</DescripcionCorta>
+      <Descripcion>Operacion realizada con exito</Descripcion>
+    </RespuestaOperacion>
+    <IdDispensacion>649cab38-3593-59be-275949115042</IdDispensacion>
+    <ValidacionErronea>
+      <Fecha>2021-10-09T12:32:41.408+02:00</Fecha>
+      <ValidadoSatisfactorio>true</ValidadoSatisfactorio>
+      
+    </ValidacionErronea>
+  </ConfirmacionRegistroDispensacion>
+</RespuestaRegistroDispensacion_eReceita>
+2021-10-09 12:32:41,624 | INFO  | DiselPlataformaUtils | [649ca97a-721973588803] | inicio generarMsjeRptaGenericaRegDisp
+2021-10-09 12:32:41,624 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | Respuesta genérica :
+<RespuestaGenerica xmlns="http://disel/esquemas/peticionesyrespuestas">  <FechaHora xmlns="">2021-10-09T12:32:41.624+02:00</FechaHora>  <IdTransaccion xmlns="">649ca97a-721973588803</IdTransaccion>  <ListaRecetaDispensacion xmlns="">    <IdReceta>1217078067</IdReceta>    <IdDispensacion>649cab38-3593-59be-275949115042</IdDispensacion>  </ListaRecetaDispensacion>  <MensajeRespuesta xmlns="">    <EnClaro><![CDATA[<?xml version="1.0" encoding="UTF-8"?><RespuestaRegistroDispensacion_eReceita xmlns="http://disel/esquemas/peticionesyrespuestas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  <ConfirmacionRegistroDispensacion xmlns="">    <IdReceta>1217078067</IdReceta>    <RespuestaOperacion>      <FechaHora>2021-10-09T12:32:41.572+02:00</FechaHora>      <CodigoRespuesta>NE0000</CodigoRespuesta>      <DescripcionCorta>Operacion realizada con exito</DescripcionCorta>      <Descripcion>Operacion realizada con exito</Descripcion>    </RespuestaOperacion>    <IdDispensacion>649cab38-3593-59be-275949115042</IdDispensacion>    <ValidacionErronea>      <Fecha>2021-10-09T12:32:41.408+02:00</Fecha>      <ValidadoSatisfactorio>true</ValidadoSatisfactorio>          </ValidacionErronea>  </ConfirmacionRegistroDispensacion></RespuestaRegistroDispensacion_eReceita>]]></EnClaro>  </MensajeRespuesta>  <RespuestaOperacion xmlns="">    <FechaHora>2021-10-09T12:32:41.624+02:00</FechaHora>    <CodigoRespuesta>NE0000</CodigoRespuesta>    <DescripcionCorta>Operación realizada con exito</DescripcionCorta>    <Descripcion>Operación realizada con éxito</Descripcion>  </RespuestaOperacion></RespuestaGenerica>
+2021-10-09 12:32:41,624 | INFO  | OFServicioDispensacionesAC | [649ca97a-721973588803] | FIN registroDispensacion_eReceitaPeticionGenerica
+2021-10-09 12:32:41,624 | INFO  | BindingServicioDispensacionesACImpl | [649ca97a-721973588803] | Respuesta | Servicio: ServicioDispensaciones | Operación: registroDispensacion_eReceitaAC | Cliente: AC | 1645 | 524

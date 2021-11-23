@@ -16,7 +16,21 @@ Para la gestión de los logs y producción de alertas se tuvieron en cuenta las 
 
 Graylog comenzó en Alemania en 2011 y ahora se ofrece como una herramienta de código abierto o una solución comercial. Está diseñado para ser un sistema de administración de registros centralizado que recibe flujos de datos de varios servidores o puntos finales y le permite navegar o analizar esa información rápidamente.
 
-Graylog se ha ganado una reputación positiva entre los administradores de sistemas debido a su facilidad de escalabilidad. La mayoría de los proyectos web comienzan con poco, pero pueden crecer exponencialmente. Graylog puede equilibrar cargas en una red de servidores backend y manejar varios terabytes de datos de registro cada día.
+Graylog dispone de las siguientes funcionalidades:
+
+\begin{itemize}
+\item \textbf{Recolección y procesado de logs}: implemente la necesidad de leer distintos tipos de logs de distintas fuentes para ser tratados de forma descentralizada, así como la posibilidad de integración con directorios LDAP.
+
+\item \textbf{Transformación de datos}: ofrece la posibilidad de transformar los datos de entrada para publicador a otras aplicaciones como fuente de datos refinada.
+
+\item \textbf{Análisis e investigación}: proporciona la capacidad para buscar y analizar información  de distintas fuentes de datos en una única consulta.
+
+\item \textbf{Grafos y estadísticas}: dispone de múltiples gráficos para analizar los datos de forma sencilla accesibles mediante interfaz web.
+
+\item \textbf{Alertas}: provee de la capacidad de crear disparadores y acciones que se activen cuando se produce un evento determinado en los logs. 
+\end{itemize}
+
+La arquitectura está compuesta por una serie de nodos que se encargan de leer la información de las máquinas a monitorizar y enviarla a los nodos de Elastic Search que almacenan y procesan todos los logs y mensajes recibidos. Para almacenar los metadatos se utiliza MongoDB y fivalmente se proporciona una interfaz web para visualizar los datos recolectados y procesados.
 
 Los administradores de TI encontrarán que la interfaz frontend de Graylog es fácil de usar y robusta en su funcionalidad. Graylog se basa en el concepto de paneles, que le permite elegir qué métricas o fuentes de datos le parecen más valiosas y ver rápidamente las tendencias a lo largo del tiempo.
 
@@ -34,9 +48,11 @@ Como parte de la auditoría de red, Nagios filtrará los datos de registro segú
 
 \subsection{ELK Stack}
 
-1806 / 5000
-Resultados de traducción
 Elastic Stack, a menudo llamado ELK Stack, es una de las herramientas de código abierto más populares entre las organizaciones que necesitan examinar grandes conjuntos de datos y dar sentido a los registros de su sistema.
+
+Se trata de un proyecto OpenSource multiplataforma que contempla una serie de productos y soluciones con el objetivo de dotar facilitar al usuario el tratamiento de la información. Las funciones básicas con extraer, buscar, analizar y visualizar datos en tiempo real.
+
+ElasticSerch proporciona distintas formas de implementación, tanto de forma local e una única máquina o de forma distribuida utilizando un modelo SaaS (Software as service).
 
 Su oferta principal se compone de tres productos separados: Elasticsearch, Kibana y Logstash:
 
@@ -50,8 +66,9 @@ Su oferta principal se compone de tres productos separados: Elasticsearch, Kiban
 
 \end{itemize}
 
-Una característica única de ELK Stack es que le permite monitorear aplicaciones creadas en instalaciones de código abierto de WordPress. A diferencia de la mayoría de las herramientas de registro de auditoría de seguridad listas para usar que rastrean los registros de administración y PHP, pero poco más, ELK Stack puede examinar los registros del servidor web y de la base de datos.
+\subsection{Conclusiones}
 
-El seguimiento de registros y la gestión de bases de datos deficientes son una de las causas más comunes del rendimiento deficiente de un sitio web. No verificar, optimizar y vaciar regularmente los registros de la base de datos no solo puede ralentizar un sitio, sino que también puede provocar un bloqueo completo. Por lo tanto, ELK Stack es una excelente herramienta para el kit de herramientas de todos los desarrolladores de WordPress.
+Tras el análisis realizado de posibles herramientas utilizadas en el mercado se ha optado utilizar por una de ellas, concretamente ELK debido a la extensa documentación y comunidad, así como su posibilidad de escalado y a la rapidez de búsqueda. De esta forma aun teniendo que emplear tiempo en el conocimiento de las funcionalidades de la herramienta, será más eficiente que desarrollar una herramienta desde 0. De esta forma se podrá asignar mas tiempo a las posibilidades de parametrización de la solución para poder ser aplicada a otros proyectos y en otros entornos.
+
 
 

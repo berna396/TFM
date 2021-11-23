@@ -2,8 +2,7 @@
 \hyphenation{In-te-re-se}
 
 Para un sistema de máxima disponibilidad como es el caso de sistemas de dispensación farmacéutica,
-los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una
-cantidad masiva de logs.
+los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una cantidad masiva de logs.
 
 Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
 
@@ -25,11 +24,13 @@ demasiado largo en caso de que no se pueden producir cortes en el servicio.
 \item La finalidad del proyecto será disponer de una plataforma para detectar en tiempo real posibles problemas e incidencias y
 clasificarlas según experiencias pasadas reducirá ese tiempo de espera en gran medida. La funcionalidad de la clasificación de la alerta entre problemas conocidos supondría una mejora significativa en la gestión operacional de la aplicación.
 
-\item Registrar las incidencias alertadas supone un extra añadido, ya que se dispondrá de un histórico
+\item Registrar las incidencias alertadas de errores no conocidos supone un extra añadido, ya que se dispondrá de un histórico
 con el que saldrán a la luz posibles bugs o errores frecuentes de cara a poder llevar un control
 y análisis de la aplicación más exhaustiva.  
 
 \item El proyecto deberá estar desacoplado de la aplicación principal y estar preparado para adaptarse a cambios y nuevas funcionalidades.
+
+\item En caso de detectar un detectar errores desconocidos, de los cuales la aplicación no conoce la causa, se deberá implementar un sistema de obtención de anomalías en los logs para mostrar las excepciones causantes del error.
 
 \end{itemize}
 
@@ -68,7 +69,7 @@ El principal objetivo del proyecto es la construcción de una plataforma con las
 \bf{OBJ-02} \cellcolor{Gray} & \textbf{Registro de las incidencias encontradas con la información necesaria para su posterior
 tratamiento.} \\
 \hline
-\bf{Descripción} \cellcolor{Gray} & Se deberá llevar un registro de las incidencias detectadas y de los logs de la aplicación obtenidos. De esta forma una vez solucionada la incidencia se podrá catalogar y registrar los errores producidos en la aplicación con el fin de un análisis posterior en el que se podrán detectar posibles vulnerabilidades o bugs.
+\bf{Descripción} \cellcolor{Gray} & Se deberá llevar un registro de las incidencias detectadas de errores no identificados y de los logs de la aplicación obtenidos. De esta forma una vez solucionada la incidencia se podrá catalogar y registrar los errores producidos en la aplicación con el fin de un análisis posterior en el que se podrán detectar posibles vulnerabilidades o bugs.
 \\
 \hline
 \end{tabular}
@@ -82,7 +83,7 @@ tratamiento.} \\
 
 \bf{OBJ-03} \cellcolor{Gray} & \textbf{Clasificar el error mediante los logs de la aplicación} \\
 \hline
-\bf{Descripción} \cellcolor{Gray} & La plataforma deberá utilizar técnicas de machine learning para la clasificación de la incidencia en base a los logs producidos en la aplicación. De esta forma se podrá plantear el envío de los pasos conocidos para su solución en cuanto se detecte el error.
+\bf{Descripción} \cellcolor{Gray} & La plataforma deberá clasificar de la incidencia en base a los logs producidos en la aplicación. De esta forma se podrá plantear el envío de los pasos conocidos para su solución en cuanto se detecte el error. En caso de que se trate de un error no conocido se aplicarán técnicas de Machine Learning para la obtención de anomalías en los registros.
 \\
 \hline
 \end{tabular}
@@ -91,7 +92,7 @@ tratamiento.} \\
 
 \section{Alcance}
 
-La solución alcanzada deberá cumplir los objetivos definidos en el apartado anterior. Por un lado la plataforma a desarrollar deberá incorporar las herramientas necesarias que permitan de forma simple para un usuario la creación de alertas y modificación de las mismas en base a criterios acordados y a la experiencia obtenida. Por otro deberá utilizar los datos obtenidos con la finalidad de aplicar herramientas de Machine Learning con el fin de clasificar la incidencia ocurrida.
+La solución alcanzada deberá cumplir los objetivos definidos en el apartado anterior. Por un lado la plataforma a desarrollar deberá incorporar las herramientas necesarias que permitan de forma simple para un usuario la creación de alertas y modificación de las mismas en base a criterios acordados y a la experiencia obtenida. Por otro deberá utilizar los datos obtenidos con la finalidad de aplicar herramientas de Machine Learning con el fin de obtener la información más útil para la solución de la incidencia.
 
 Se deberá tener en cuenta que no se podrán utilizar datos reales de la aplicación actual debido a que se estarían utilizando datos personales de terceros lo que incumpliría la normativa de protección de datos. En su lugar se utilizarán logs de entornos de desarrollo sobre los cuales se implementará una solución que permita crear un escenario equivalente al entorno real sin datos personales y a menor escala.
 
