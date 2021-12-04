@@ -8,24 +8,24 @@ from elasticsearch import Elasticsearch
 elastic_client = Elasticsearch(hosts=["localhost"])
 
 # User makes a request on client side
-user_request = "378520ca-228182532853"
-
+#request = "378520ca-228182532853"
+request = "3782f2b2-007248212921"
 # Take the user's parameters and put them into a Python
 # dictionary structured like an Elasticsearch query:
 query_body = {
   "query": {
-    "bool": {
-      "must": {
-        "match_all": {
-          "some_field": user_request
-        }
+    "regexp": {
+      "message": {
+        "value": ".*" + request + ".*",
       }
     }
   }
 }
 
+print(query_body)
+
 # call the client's search() method, and have it return results
-result = elastic_client.search(index="some_index", body=query_body)
+result = elastic_client.search(index="registered_user", body=query_body, http_auth=('elastic','changeme'))
 
 # see how many "hits" it returned using the len() function
 print ("total hits:", len(result["hits"]["hits"]))
@@ -35,7 +35,7 @@ print ("total hits:", len(result["hits"]["hits"]))
 MAKE ANOTHER CALL THAT RETURNS
 MORE THAN 10 HITS BY USING THE 'size' PARAM
 '''
-result = elastic_client.search(index="some_index", body=query_body, size=999)
+result = elastic_client.search(index="registered_user", body=query_body, size=999, http_auth=('elastic','changeme'))
 all_hits = result['hits']['hits']
 
 # see how many "hits" it returned using the len() function

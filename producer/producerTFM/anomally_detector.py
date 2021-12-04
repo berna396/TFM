@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from logreduce import Classifier, Tokenizer, render_html
 
 clf = Classifier(
@@ -9,8 +10,9 @@ clf = Classifier(
     process_line=Tokenizer.process
 )
 
-clf.train(["/home/adrian/Desktop/TFM/Modelo/LOG_OK"])
+clf.train(["/home/adrian/Desktop/TFM/Modelo/LOG_OK/log_success1.log"])
 
-result = clf.process(["/home/adrian/Desktop/TFM/Modelo/LOG_ERROR"])
-with open("report.html", "w") as of:
+
+result = clf.process(["/home/adrian/Desktop/TFM/Modelo/LOG_ERROR/log_fail1.log"])
+with open("reports/report1.html", "w") as of:
     of.write(render_html(result))
