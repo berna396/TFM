@@ -2,19 +2,21 @@
 \hyphenation{In-te-re-se}
 
 Para un sistema de máxima disponibilidad como es el caso de sistemas de dispensación farmacéutica,
-los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una cantidad masiva de logs.
+los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una cantidad masiva de logs. Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
 
-Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
+El objetivo del proyecto será aportar una plataforma que se encargue de generar alertas en caso de una incidencia importante, analizando los logs de actividad hasta dar con el componente afectado. De esta forma el sistema deberá responder en tiempo real con el fin de agilizar el proceso y mejorar el servicio. Con esta nueva operativa se podría registrar estas alertas para poder dotar al equipo de un informe de las incidencias y sus componentes afectados, con el fin de elaborar soluciones a problemas comunes y poder formar de una manera más eficiente y exacta a los encargados del correcto funcionamiento del sistema principal. 
 
-El objetivo del proyecto será aportar una plataforma que se encargue de generar alertas en caso de
-una incidencia importante, analizando los logs de actividad hasta dar con el componente afectado. De esta forma el sistema deberá responder en tiempo real con el fin de agilizar el proceso y mejorar el servicio. Con esta nueva operativa se podría registrar estas alertas para poder dotar al equipo de un informe de las incidencias y sus componentes afectados, con el fin de elaborar soluciones a problemas comunes y poder formar de una manera más eficiente y exacta a los encargados del correcto funcionamiento del sistema principal.
+Un ejemplo de uso concreto sería la caída de una base de datos sobre la que opera la aplicación. En este caso se buscaría poder recibir una alerta lo antes posible con la información necesaria para la identificación del problema y su posible solución. Este tipo de sistemas se tienen que basar sus principios en:
 
-Se buscará que la alerta generada sea lo más descriptible posible y que consiga dar un indicio de la causa
-del problema. De esta manera se podrá dar una respuesta con tiempos mínimos tiempos de espera, lo
-cual supondría tanto una mejora en el servicio como la facilitación del trabajo de cara al equipo
-encargado de la supervisión de la aplicación.
+\begin{itemize}
+	\item Fiabilidad, la solución no deberán generar falsos positivos ni obviar problemas que suponen una alerta.
+	\item Tiempo real, la información debe llegar al destino lo antes posible después de su generación.
+	\item Adaptabilidad, la solución deberá estar desacoplada de la aplicación a monitorizar y será resiliente a cambios.
+\end{itemize}
 
-A la hora realizar el diseño de la plataforma se deberá tener los siguientes puntos como claves: 
+En la actualidad existen ciertas opciones que se adecúan en cierta medida, como puede ser el caso de elasticsearch y kivana o graylog. Sin embargo, las funcionalidades necesarias para cumplir la funcionalidad no forman parte de la licencia gratuíta de las aplicaciones, o la gestión de alertas (activadores y funciones) no es lo suficientemente flexible ni abarca aquellos eventos que se espera que realice la solución planteada.
+
+Se buscará que la alerta generada sea lo más descriptible posible y que consiga dar un indicio de la causa del problema. De esta manera se podrá dar una respuesta con tiempos mínimos tiempos de espera, lo cual supondría tanto una mejora en el servicio como la facilitación del trabajo de cara al equipo encargado de la supervisión de la aplicación. A la hora realizar el diseño de la plataforma se deberá tener los siguientes puntos como claves: 
 
 \begin{itemize}
 \item Dada una aplicación que tenga una disponibilidad total y sobre la que opere un número elevado
@@ -33,6 +35,7 @@ y análisis de la aplicación más exhaustiva.
 \item En caso de detectar un detectar errores desconocidos, de los cuales la aplicación no conoce la causa, se deberá implementar un sistema de obtención de anomalías en los logs para mostrar las excepciones causantes del error.
 
 \end{itemize}
+
 
 
 
