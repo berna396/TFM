@@ -1,16 +1,14 @@
-\chapter{Revisión de solucións comerciais}
+\chapter{Revisión de soluciones comerciales}
 
 \section{Gestión de alertas}
 
 La monitorización de la actividad en la red puede ser un trabajo tedioso, sin embargo existen buenas razones pare hacerlo. Por un lado permite buscar e investigar inicios de sesión sospechosos en estaciones de trabajo, dispositivos conectados a redes y servidores mientras identifica las posibles deficiencia de seguridad en la administración del sistema. También puede rastrear las instalaciones software y las transferencias de datos para identificar problemas potenciales en tiempo real en lugar que después de que el daño esté hecho.
 
-Estos logs también contribuyen en gran medida a que la organización cumpla con el reglamento general de protección de datos  (GHDPR) que se aplica a cualquier entidad que opere en la unión europea.
-
 El registro, tanto el seguimiento como el análisis debe ser un proceso fundamental en cualquier infraestructura de monitorización. Es necesario un archivo de registro de transacciones para recuperar una base de datos de un desastre. Además, al rastrear los archivos de registro, los equipo de DevOps y los administradores base de datos (DBA) pueden mantener un rendimiento óptimo de la base de datos o encontrar evidencia de actividad no autorizada en el caso de un ciberataque. Por esta razón, es importante monitorizar y analizar regularmente los registro del sistema. Es una forma confiable de recrear la cadena de eventos que condujo a cualquier problema que haya surgido.
 
 Debido a esta serie de problemáticas, existen un número considerable de registro de código abierto y herramientas de análisis disponibles en la actualidad, lo que hace que elegir los recursos adecuados para los registros de actividad sea un trabajo considerable. La comunidad de software de código abierto y gratuito ofrece diseños de registros que funcionan con todo tipo de sitios y prácticamente con cualquier sistema operativo. 
 
-Para la gestión de los logs y producción de alertas se analizaron las siguientes soluciones comerciales:
+En esta sección se tratará de analizar los productos y herramientas existentes enfocados al tratamiento de log con el fin de averiguar si cumplen con los requisitos planteados o si pueden resultar una ayuda de cara a la implementación de la solución.
 
 \subsection{Graylog}
 
@@ -65,7 +63,7 @@ Como breve resumen de los elementos mostrados en la imagen serían:
 \item \textbf{Logs:} logs en el servidor que serán analizados e identificados.
 \item \textbf{Logstash:} recoge logs y eventos que puede parsear y transformar.
 \item \textbf{ElasticSearch:} almacena la información recogida por logstash y la indexa.
-\itemn \textbf{Kibana:} se encarga de explorar, visualizar y compartir los datos almacenados en ElasticSearch.
+\item \textbf{Kibana:} se encarga de explorar, visualizar y compartir los datos almacenados en ElasticSearch.
 \end{itemize}
 
 \subsubsection{ElasticSearch}
@@ -95,11 +93,6 @@ Dispone de gran variedad de gráficas, métricas histogramas y visualizaciones c
 
 \subsection{Conclusiones}
 
-Tras el análisis realizado de posibles herramientas utilizadas en el mercado se ha decidido eliminar GrayLog ya que se parte del requisito de que la solución deberá utilizar productos OpenSource, y en este caso la licencia gratuíta de GrayLog solo permite el tratamiento de 2 GB diarios, lo cual no es lo suficiente para una aplicación como sobre la que va a actuar la solución. Por otro lado, Nagios no dispone de una licencia OpenSource y se descarta por este motivo.
+Las herramientas mencionadas en esta sección proporcionan parte de la funcionalidad que se busca con este proyecto, sin embargo no consiguen todos los objetivos propuestos. Esto no quita que se pueda utilizar parte de la funcionalidad propuesta por la herramienta con el fin de construir la solución final del proyecto. Tras el análisis realizado de posibles herramientas utilizadas en el mercado se ha decidido eliminar GrayLog ya que se parte del requisito de que la solución deberá utilizar productos OpenSource, y en este caso la licencia gratuita de GrayLog solo permite el tratamiento de 2 GB diarios, lo cual no es lo suficiente para una aplicación como sobre la que va a actuar la solución. Por otro lado, Nagios no dispone de una licencia OpenSource y se descarta por este motivo.
 
-Tras el análisis realizado de posibles herramientas utilizadas en el mercado se ha optado utilizar por una de ellas, concretamente ELK debido a la extensa documentación y comunidad, así como su posibilidad de escalado y a la rapidez de búsqueda gracias al indexado de la información. Utilizando las últimas versiones de kibana se podría utilizar las herramientas de gestión de alertas para la generación de eventos, sin embargo, esto no entra dentro de la licencia OpenSource y los triggers que dispone son limitados.
-
-De esta forma aun teniendo que emplear tiempo en el conocimiento de las funcionalidades de la herramienta, será más eficiente que desarrollar una herramienta desde 0. Así se podrá asignar mas tiempo a las posibilidades de parametrización de la solución para poder ser aplicada a otros proyectos y en otros entornos.
-
-
-
+Finalmente se ha optado utilizar por una de ellas, concretamente ELK debido a la extensa documentación y comunidad, así como su posibilidad de escalado y a la rapidez de búsqueda gracias al indexado de la información. Utilizando las últimas versiones de kibana se podría utilizar las herramientas de gestión de alertas para la generación de eventos, sin embargo, esto no entra dentro de la licencia OpenSource y los triggers que dispone son limitados. De esta forma aun teniendo que emplear tiempo en el conocimiento de las funcionalidades de la herramienta, será más eficiente que desarrollar una herramienta desde 0. Así se podrá asignar mas tiempo a las posibilidades de parametrización de la solución para poder ser aplicada a otros proyectos y en otros entornos.

@@ -1,4 +1,4 @@
-\chapter{Proposta de solución}
+\chapter{Propuesta de solución}
 
 
 Los archivos de registro de actividad que sobre los que se obtendrá la información del sistema se dividen en varios archivos, cada uno con un objetivo concreto. En concreto se monitorizarán tres ficheros, los cuales poseen un ciclo de vida que consiste en pasar por un fichero plano, para una vez alcanzado un tamaño determino comprimirse y guardarse como histórico. Si el histórico tiene una antigüedad superior a los días establecidos como máximo se enviarán a un servidor que funcionará como almacenamiento. Estos tres ficheros tienen los siguientes acometidos:
@@ -41,12 +41,12 @@ ElastAlert es un componente originalmente diseñado por Yelp que es capaz de det
 ElastAlert consulta periódicamente a ElasticSearch y los datos se trasladan al tipo de regla, la cual determina cuando se encuentra una coincidencia. Cuando se produce una coincidencia, se envía a una o más alertas que toman medidas en función de la coincidencia. Esto se configura mediante un conjunto de reglas, cada una de las cuales define una consulta, un tipo de regla y un conjunto de alertas. Se podrán definir tipos de regla del estilo:
 
 \begin{itemize}
-\item \textbf{Frequency}: existen una serie de X eventos en un tiempo Y.
-\item \textbf{Spike}:la tasa de eventos aumenta/disminuye
-\item \textbf{Flatline}: menos de X eventos en Y tiempo.
-\item \textbf{Blacklist/Whitelist}: cuando un determinado campo coincide con una lista negra.
-\item \textbf{Any}: cualquier evento que coincida con un filtro dado.
-\item \textbf{Change}: un campo tiene dos valores diferentes dentro de un tiempo.4	
+\item \textbf{Frequency}: existen una serie de X eventos en un tiempo Y. (Mismos códigos de error en un minuto)
+\item \textbf{Spike}:la tasa de eventos aumenta/disminuye. (Número de peticiones por minuto sobre una operación concreta aumentan considerablemente) 
+\item \textbf{Flatline}: menos de X eventos en Y tiempo. (No se realizan un mínimo de consultas a la bbdd en 1 minuto)
+\item \textbf{Blacklist/Whitelist}: cuando un determinado campo coincide con una lista negra. (Se establecen unos códigos asociados a la indisponibilidad del sistema y en caso de detectarse se genera la alarma).
+\item \textbf{Any}: cualquier evento que coincida con un filtro dado (Un código de error al que se le dará un trato especial).
+\item \textbf{Change}: un campo tiene dos valores diferentes dentro de un tiempo (Una medida asociada a la temperatura varía drásticamente en un tiempo determinado´).
 
 \end{itemize}
 

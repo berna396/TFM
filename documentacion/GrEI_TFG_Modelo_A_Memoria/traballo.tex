@@ -10,10 +10,12 @@
 % Como se incluyen figuras eps hay que compilar con: latex traballo , dvipdf traballo
 %
 
-\documentclass[12pt,twoside,a4paper]{book}
+\documentclass[12pt,twoside,a4paper,xcolor=table]{book}
 % pódense engadir todos os packages necesarios
 \usepackage[spanish]{babel}
 
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{graphicx}
 \usepackage[dvips]{epsfig}
 \usepackage{amssymb}
@@ -51,8 +53,10 @@
 \include{capitulos/introducion}
 \clearpage
 \include{capitulos/cap2}
-\clearpage
+\clearpage 
 \include{capitulos/cap3}
+\clearpage
+\include{capitulos/cap4}
 %
 % Engadir os capitulos que fagan falta
 %

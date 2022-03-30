@@ -45,54 +45,14 @@ El objetivo general del proyecto será la implementación de una herramienta que
 
 Una vez planteado el contexto se identifican los siguientes objetivos a más bajo nivel:
 
-\definecolor{Gray}{gray}{0.85}
-\newcolumntype{a}{&gt;{\columncolor{Gray}}c}
-\newcolumntype{b}{&gt;{\columncolor{white}}c}
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{| p{2.5cm} | p{10cm} |}
-\hline
-\bf{OBJ-01} \cellcolor{Gray} & \textbf{Emisión de alertas con información relevante tras la detección de posibles errores o
-incidencias. Se buscará enviar la posible causa del problema raíz.} \\
-\hline
-\bf{Descripción} \cellcolor{Gray} & 
-El principal objetivo del proyecto es la construcción de una plataforma con las herramientas necesarias para la emisión de alertas tempranas en caso de producirse una incidencia en la aplicación a monitorizar. Se espera que la alertas se generen en near real time con el fin de una recuperación del servicio los más rápida y eficiente posible. La plataforma deberá ser configurable ya que nace de la necesidad de coexistir servicio a un sistema con disponibilidad total que está en continuo desarrollo y evolución.
-\\
-\hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{| p{2.5cm} | p{10cm} |}
-\hline
-
-\bf{OBJ-02} \cellcolor{Gray} & \textbf{Registro de las incidencias encontradas con la información necesaria para su posterior
-tratamiento.} \\
-\hline
-\bf{Descripción} \cellcolor{Gray} & Se deberá llevar un registro de las incidencias detectadas de errores no identificados y de los logs de la aplicación obtenidos. De esta forma una vez solucionada la incidencia se podrá catalogar y registrar los errores producidos en la aplicación con el fin de un análisis posterior en el que se podrán detectar posibles vulnerabilidades o bugs.
-\\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{| p{2.5cm} | p{10cm} |}
-\hline
-
-\bf{OBJ-03} \cellcolor{Gray} & \textbf{Clasificar el error mediante los logs de la aplicación} \\
-\hline
-\bf{Descripción} \cellcolor{Gray} & La plataforma deberá clasificar de la incidencia en base a los logs producidos en la aplicación. De esta forma se podrá plantear el envío de los pasos conocidos para su solución en cuanto se detecte el error. En caso de que se trate de un error no conocido se aplicarán técnicas de Machine Learning para la obtención de anomalías en los registros.
-\\
-\hline
-\end{tabular}
-\end{table}
+\begin{enumerate}
+	\item \textbf{Emisión de alertas en Near Real Time con información relevante tras la detección de posibles errores o
+incidencias. Se buscará enviar la posible causa del problema raíz:} El principal objetivo del proyecto es la construcción de una plataforma con las herramientas necesarias para la emisión de alertas tempranas en caso de producirse una incidencia en la aplicación a monitorizar. Se espera que la alertas se generen en near real time con el fin de una recuperación del servicio los más rápida y eficiente posible. La plataforma deberá ser configurable ya que nace de la necesidad de coexistir servicio a un sistema con disponibilidad total que está en continuo desarrollo y evolución.
+	\item \textbf{Registro de las incidencias encontradas con la información necesaria para su posterior
+tratamiento:} Se deberá llevar un registro de las incidencias detectadas de errores no identificados y de los logs de la aplicación obtenidos. De esta forma una vez solucionada la incidencia se podrá catalogar y registrar los errores producidos en la aplicación con el fin de un análisis posterior en el que se podrán detectar posibles vulnerabilidades o bugs.
+	\item \textbf{Clasificar el error mediante los logs de la aplicación:} La plataforma deberá clasificar de la incidencia en base a los logs producidos en la aplicación. De esta forma se podrá plantear el envío de los pasos conocidos para su solución en cuanto se detecte el error. En caso de que se trate de un error no conocido se aplicarán técnicas de Machine Learning para la obtención de anomalías en los registros.
+\end{enumerate}
+	
 
 
 \section{Alcance}
