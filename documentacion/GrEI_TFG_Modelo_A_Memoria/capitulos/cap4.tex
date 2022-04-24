@@ -2,7 +2,7 @@
 
 Con el fin de comprobar el correcto funcionamiento de la solución se realizarán distintas pruebas para corroborar que las alertas se generan correctamente y en un tiempo que pueda ser comprendido dentro de un sistema near real time. Para ello se obtendrá un conjunto de logs correctos y errores que se querrá identificar como una alerta (tanto de un error conocido con un error desconocido) con el objetivo de forzar una alerta y así comprobar que se recibe dentro del margen temporal esperado.
 
-Debido a esto será necesario un trabajo previo de separación de logs en operaciones con errores y operaciones con funcionamiento correcto. Esto se llevará a cabo con un script Python, que separará en ficheros los dos tipos de operaciones a partir de logs producidos en un entorno de desarrollo de la aplicación. Una vez realizada la separación se podrá replicar el comportamiento de la aplicación a monitorizar, para lo que se desarrollará otro script Python que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido). Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones.
+Debido a esto será necesario un trabajo previo de separación de logs en operaciones con errores y operaciones con funcionamiento correcto. Esto se llevará a cabo con un script Python, que separará en ficheros los dos tipos de operaciones a partir de logs producidos en un entorno de desarrollo de la aplicación. Una vez realizada la separación se podrá replicar el comportamiento de la aplicación a monitorizar, para lo que se desarrollará otro script Python que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido). Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones. Por otro lado se desarrollará otro script que funcione como productor de la ingesta inicial de datos.
 
 También interesa medir si se la información obtenida de aplicar la detección de anomalías sobre la traza de logs de errores desconocidos se considere útil. Para ello una vez obtenida la alerta en el informe generado deberá estar resaltado aquellas líneas de log que en un trabajo previo se han clasificado como las que contienen la causa de la incidencia.`
 
@@ -23,11 +23,11 @@ Con la realización de las pruebas se intentará conseguir tres objetivos:
 
 \end{itemize}
 
-Para cada una de las pruebas se realizará el siguiente procedimiento:
+Para cada una de las pruebas con distintos número de reglas desplegadas se realizará el siguiente procedimiento:
+
 \begin{enumerate}
 	\item Despliegue de los contenedores Docker con la configuración y sin datos cargados.
-	\item Ingesta inicial de los datos mockeados con el tamaño deseado para la realización de las pruebas.
-	\item Inyección de los logs que provocan la alarma.
+	\item Para cada fila de la tabla se realiza la ingesta inicial de los datos   hasta el tamaño deseado ejecución del script que genera la alarma para distintos números de entradas por segundo.
 	\item Registro de tiempos de respuesta y de recursos utilizados en los contenedores.
 	\item Parado y borrado de los dockers con el fin de utilizar una instancia nueva en cada prueba.
 \end{enumerate}
@@ -75,7 +75,7 @@ Pruebas con \textbf{una} regla desplegada:
 \end{table}
 
 
-Pruebas con \textbf{dos} reglas desplegadas
+Pruebas con \textbf{cinco} reglas desplegadas:
 
 \begin{table}[H]
 \begin{tabular}{|l|l|l|l|l|}
@@ -100,8 +100,16 @@ Pruebas con \textbf{dos} reglas desplegadas
 \end{tabular}
 \end{table}
 
+\subsubsection{Muestra de los datos}
+
+--TODO--
+
+En esta parte se mostrará una gráfica con los resultados obtenidos (Tiempo respuesta/Carga inicial) para cada uno de las distintos números de reglas.
+
 
 \subsection{Pruebas del detector de anomalías en errores desconocidos}
+
+Como objetivo secundario de la aplicación se buscará probar que para los errores desconocidos se proporciona una herramienta que pueda ayudar a la resolución de la alerta.
 
 Para esta prueba se han buscado operaciones fallidas con un error desconocido en las que se distinguieron claramente la causa del error. En este caso varias operaciones en las que se produjo una excepción java no controlada que llegó a registrarse.
 
@@ -115,11 +123,6 @@ Se definirá como correcto los casos en los que se diferencien aquellas líneas 
 \label{enlace1}
 \end{figure}
 
-\subsubsection{Muestra de los datos}
-
---TODO--
-
-En esta parte se mostrará una gráfica con los resultados obtenidos (Tiempo respuesta/Carga inicial) para cada uno de las distintos números de reglas.
 
 
 

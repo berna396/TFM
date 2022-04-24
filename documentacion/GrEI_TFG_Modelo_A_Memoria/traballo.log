@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.21)  30 MAR 2022 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.21)  1 APR 2022 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,10 +711,7 @@ Overfull \hbox (58.89043pt too wide) in paragraph at lines 55--75
 [][] 
  []
 
-
-Underfull \vbox (badness 2401) has occurred while \output is active []
-
- [21]
+[21]
 Overfull \hbox (58.89043pt too wide) in paragraph at lines 81--101
 [][] 
  []
@@ -728,15 +725,16 @@ LaTeX Info: Redefining \% on input line 107.
 <figuras/report.png, id=106, 1129.21875pt x 648.4225pt>
 File: figuras/report.png Graphic file (type png)
 <use figuras/report.png>
-Package pdftex.def Info: figuras/report.png  used on input line 113.
+Package pdftex.def Info: figuras/report.png  used on input line 121.
 (pdftex.def)             Requested size: 426.79134pt x 245.0773pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23 <./figuras/report.png>])
+ [23])
 LaTeX Info: Redefining \. on input line 59.
 LaTeX Info: Redefining \% on input line 59.
- [24]
+
+[24 <./figuras/report.png>]
 \openout2 = `capitulos/conclusions.aux'.
 
  (./capitulos/conclusions.tex
@@ -786,7 +784,7 @@ Here is how much of TeX's memory you used:
  29553 multiletter control sequences out of 15000+600000
  541643 words of font info for 59 fonts, out of 8000000 for 9000
  63 hyphenation exceptions out of 8191
- 60i,11n,60p,900b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,60p,1003b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/adrian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/
@@ -794,7 +792,7 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on traballo.pdf (31 pages, 350682 bytes).
+Output written on traballo.pdf (31 pages, 350926 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  98 compressed objects within 1 object stream
