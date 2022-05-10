@@ -20,19 +20,18 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          value_serializer=json_serializer)
 
 if __name__ == "__main__":
-    for i in range(0, 1000000):
-        with open(filename, encoding='latin-1') as file_in:
-            document = None
-            for line in file_in:
-                if line.startswith("2021"):
-                    if document is None:
-                        document = line
-                    else:
-                        print(document)
-                        producer.send("registered_user", document)
-                        document = line
+    with open(filename, encoding='latin-1') as file_in:
+        document = None
+        for line in file_in:
+            if line.startswith("2021"):
+                if document is None:
+                    document = line
                 else:
-                    document = document + "\n" + line
-            producer.send("registered_user", document)
-#    print("Current Time =", datetime.now().time())
-#    producer.send("registered_user", "prueba4")
+                    print(document)
+                    producer.send("registered_user", document)
+                    document = line
+            else:
+                document = document + "\n" + line
+        producer.send("registered_user", document)
+    print("Current Time =", datetime.now().time())
+    producer.send("registered_user", "prueba4")

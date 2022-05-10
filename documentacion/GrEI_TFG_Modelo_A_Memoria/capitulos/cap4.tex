@@ -2,7 +2,19 @@
 
 Con el fin de comprobar el correcto funcionamiento de la solución se realizarán distintas pruebas para corroborar que las alertas se generan correctamente y en un tiempo que pueda ser comprendido dentro de un sistema near real time. Para ello se obtendrá un conjunto de logs correctos y errores que se querrá identificar como una alerta (tanto de un error conocido con un error desconocido) con el objetivo de forzar una alerta y así comprobar que se recibe dentro del margen temporal esperado.
 
-Debido a esto será necesario un trabajo previo de separación de logs en operaciones con errores y operaciones con funcionamiento correcto. Esto se llevará a cabo con un script Python, que separará en ficheros los dos tipos de operaciones a partir de logs producidos en un entorno de desarrollo de la aplicación. Una vez realizada la separación se podrá replicar el comportamiento de la aplicación a monitorizar, para lo que se desarrollará otro script Python que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido). Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones. Por otro lado se desarrollará otro script que funcione como productor de la ingesta inicial de datos.
+Debido a esto será necesario un trabajo previo de separación de logs en operaciones con errores y operaciones con funcionamiento correcto. Esto se llevará a cabo con un script Python, que separará en ficheros los dos tipos de operaciones a partir de logs producidos en un entorno no productivo de la aplicación. Una vez realizada la separación se podrá replicar el comportamiento de la aplicación a monitorizar, para lo que se desarrollarán dos scripts Python con las siguientes funciones:
+
+\begin{itemize}
+\item Script de carga inicial que permita una ingesta de datos hasta el tamaño deseado en Elastic Search. Para controlar el tamaño de datos cargados en elastic se podrá utilizar el comando:
+
+\begin{verbatim}
+curl 'elasticsearch:9200/_cat/indices?v' -H "Authorization: Basic ********************"
+\end{verbatim}
+
+\item Script que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido).
+\end{itemize}
+
+Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones. Por otro lado se desarrollará otro script que funcione como productor de la ingesta inicial de datos.
 
 También interesa medir si se la información obtenida de aplicar la detección de anomalías sobre la traza de logs de errores desconocidos se considere útil. Para ello una vez obtenida la alerta en el informe generado deberá estar resaltado aquellas líneas de log que en un trabajo previo se han clasificado como las que contienen la causa de la incidencia.`
 
@@ -27,12 +39,12 @@ Para cada una de las pruebas con distintos número de reglas desplegadas se real
 
 \begin{enumerate}
 	\item Despliegue de los contenedores Docker con la configuración y sin datos cargados.
-	\item Para cada fila de la tabla se realiza la ingesta inicial de los datos   hasta el tamaño deseado ejecución del script que genera la alarma para distintos números de entradas por segundo.
+	\item Para cada prueba individual se realiza la ingesta inicial de los datos   hasta el tamaño propuesto.
+	\item Ejecución del script que genera la alarma con números distintos de reglas desplegadas.
 	\item Registro de tiempos de respuesta y de recursos utilizados en los contenedores.
-	\item Parado y borrado de los dockers con el fin de utilizar una instancia nueva en cada prueba.
+	\item Los puntos 4 y 5 se repetirá unas 5 veces y se calculará la media de los tiempos.
 \end{enumerate}
 
-Para registrar las pruebas se seguirá un esquema de tabla especificando el estado de la aplicación a la hora de provocarse  la incidencia, la salida el tiempo empleado y los recursos utilizados.
 
 Con el fin de comprobar como afecta el número de reglas que se tengan desplegadas se repetirán las pruebas con un número distinto y así establecer una aproximación de los recursos utilizados con varias pruebas. Además para facilitar el proceso durante las pruebas se establecerá que las alertas se ejecutan cuando se encuentre el primer error especificando con los parámetros:
 
@@ -49,62 +61,31 @@ timeframe:
     
 \end{verbatim}
 
-Pruebas con \textbf{una} regla desplegada:
-
-\begin{table}[H]
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-\rowcolor[HTML]{ECF4FF} 
-{\color[HTML]{000000} \textbf{Tam logs cargados en ELK}} & {\color[HTML]{000000} \textbf{Num. logs/segundo}} & {\color[HTML]{000000} \textbf{Alerta}} & {\color[HTML]{000000} \textbf{Tiempo}} & {\color[HTML]{000000} \textbf{Recursos}} \\ \hline
-                                                         & 10 entrada/segundo                                &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{10 MB}                                  & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entrada/segundo                                &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{50 MB}                                  & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{100 MB}                                 & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{500 MB}                                 & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{1 GB}                                   & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-\end{tabular}
-\end{table}
-
-
-Pruebas con \textbf{cinco} reglas desplegadas:
-
-\begin{table}[H]
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-\rowcolor[HTML]{ECF4FF} 
-{\color[HTML]{000000} \textbf{Tam logs cargados en ELK}} & {\color[HTML]{000000} \textbf{Num. logs/segundo}} & {\color[HTML]{000000} \textbf{Alerta}} & {\color[HTML]{000000} \textbf{Tiempo}} & {\color[HTML]{000000} \textbf{Recursos}} \\ \hline
-                                                         & 10 entrada/segundo                                &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{10 MB}                                  & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entrada/segundo                                &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{50 MB}                                  & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{100 MB}                                 & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{500 MB}                                 & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-                                                         & 10 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-                                                         & 50 entradas/segundo                               &                                        &                                        &                                                 \\ \cline{2-5} 
-\multirow{-3}{*}{1 GB}                                   & 100 entradas/segundo                              &                                        &                                        &                                                 \\ \hline
-\end{tabular}
-\end{table}
 
 \subsubsection{Muestra de los datos}
 
---TODO--
+En la primera gráfica se mostrará la media de los tiempos obtenidos frente a los datos cargados en elastic search.
 
-En esta parte se mostrará una gráfica con los resultados obtenidos (Tiempo respuesta/Carga inicial) para cada uno de las distintos números de reglas.
+Como podemos observar un aumento substancial en la cantidad de datos de elastic search no supone un aumento significativo del tiempo de alerta. Tratándose de una POC en un entorno limitado el resultado obtenido supera con creces a lo esperado. Se puede esperar que en un entorno productivo el sistema funcione dentro de un rango de tiempo que suponga una mejora en el sistema de monitorizado. 
+
+Por otro lado el consumo de recursos dependiendo del número de reglas es el siguiente:
+
+Como se puede observar un aumento del número de reglas no implica un uso mas exhaustivo de los recursos. Incluso probando con un número de reglas mayor al esperando en entornos productivos el uso de memoria se puede considerar bajo.
+
+
+\subsubsection{Conclusiones}
+
+Una vez realizado el proceso de pruebas sobre el sistema se puede afirmar lo siguiente:
+
+\begin{itemize}
+
+\item El sistema cumple con la fiabilidad y tiempo esperado dentro de un entorno de pruebas acotado al hardware disponible.
+
+\item Un aumento drástico en la cantidad de datos cargados en Elastic Search no supone una peor prestación en cuanto a tiempos de alertado.
+
+\item El aumento de número de reglas no supone peores tiempos de alertado, aún que si que se puede percibir un pequeño mayor consumo de recursos. 
+
+\end{itemize}
 
 
 \subsection{Pruebas del detector de anomalías en errores desconocidos}
@@ -124,6 +105,11 @@ Se definirá como correcto los casos en los que se diferencien aquellas líneas 
 \end{figure}
 
 
+En las pruebas realizadas se han obtenido los siguientes resultados:
+
+Positivos Correctos / Falsos Positivos
+
+Negativos Correctos / Falsos Negativos
 
 
 El resultado se considera correcto, ya que se efectivamente las líneas causantes del problema se resaltan como anomalías, sin embargo, no es un resultado perfecto, ya que también se están considerando anomalías (aunque con un valor de diferencia menor) debido al gran número de caminos y posibilidades posibles en las operaciones. Sin embargo, se considera que el resultado es lo suficientemente correcto, se espera que la salida pueda ayudar a personal no técnico encargado de la monitorización a facilitar el trabajo de revisión y búsqueda y con los resultados obtenidos se cumple esta condición.

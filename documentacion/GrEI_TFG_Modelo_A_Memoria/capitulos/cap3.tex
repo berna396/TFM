@@ -20,7 +20,7 @@ En este capítulo se va a describir la plataforma implementada para la emisión 
 \label{enlace1}
 \end{figure}
 
-La arquitectura estará desplegado en varios contenedores Docker. Se pueden distinguir las siguientes partes:
+La arquitectura estará compuesta por distintos componentes desplegados cada uno en un contenedores Docker. Se pueden distinguir las siguientes partes:
 
 \begin{itemize}
 \item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un script python que se encargue de leer cada línea de log y trasladarla a kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo.
@@ -29,13 +29,16 @@ La arquitectura estará desplegado en varios contenedores Docker. Se pueden dist
 
 \item \textbf{ELK Stack}: conjunto de aplicaciones (Elastic Search, Logstash y Kivana). Permite recoger datos de cualquier tpo de fuente y cualquier formato para realizar búsquedas, análisis y visualización de los datos en tiempo real. En la arquitectura planteada se para la aplicación real se obtendrán los datos a partir de ficheros de logs mediante Logstash y se almacenarán en el motor de búsquedas y análisis de Elasticsearch. Además, se permite la visualización, monitorización y explotación de datos en tiempo real mediante kibana.
 
-\item \textbf{Elastalert}: herramienta open source que se integra con ELK y permite detectar anomalías e inconsistencias en los datos de Elasticsearch y lanzar alertas. El conjunto de herramientas de \textbf{ELK (Elastic Stack)} más ElastAlert permite crear un sistema de monitorización para la extracción, almacenamiento y explotación de los datos de los procesos o sistemas a monitorizar.
+\item \textbf{Generador de alertas}: este componente se encargará de la emisión de alertas utilizando para ello herramienta open source Elasticsearch, que se integra con ELK y permite detectar anomalías e inconsistencias en los datos. El conjunto de herramientas de \textbf{ELK (Elastic Stack)} más ElastAlert permite crear un sistema de monitorización para la extracción, almacenamiento y explotación de los datos de los procesos o sistemas a monitorizar. Además de esta herramienta se configurará en el mismo conector el proceso de reducción de logs, envío de emails y registro en base de datos.
 
 \end{itemize}
+
+En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional..
 
 \subsection{Generador de alertas}
 
 Para detectar y emitir alertas como se comentó en el apartado anterior se utilizará ElastAlert.
+
 ElastAlert es un componente originalmente diseñado por Yelp que es capaz de detectar anomalías, picos u otros patrones de interés. Se trata de un producto \textit{production-ready} y es un estándar de alerta conocido y aceptado dentro del ecosistema de ElasticSearch. En la documentación se especifica que "Si puede verlo en Kibana, ElastAlert puede alertarlo". ElastAlert podrá realizar distintas operaciones dependiendo que como se configuren las reglas en los ficheros de configuración. 
 
 ElastAlert consulta periódicamente a ElasticSearch y los datos se trasladan al tipo de regla, la cual determina cuando se encuentra una coincidencia. Cuando se produce una coincidencia, se envía a una o más alertas que toman medidas en función de la coincidencia. Esto se configura mediante un conjunto de reglas, cada una de las cuales define una consulta, un tipo de regla y un conjunto de alertas. Se podrán definir tipos de regla del estilo:
@@ -47,6 +50,7 @@ ElastAlert consulta periódicamente a ElasticSearch y los datos se trasladan al 
 \item \textbf{Blacklist/Whitelist}: cuando un determinado campo coincide con una lista negra. (Se establecen unos códigos asociados a la indisponibilidad del sistema y en caso de detectarse se genera la alarma).
 \item \textbf{Any}: cualquier evento que coincida con un filtro dado (Un código de error al que se le dará un trato especial).
 \item \textbf{Change}: un campo tiene dos valores diferentes dentro de un tiempo (Una medida asociada a la temperatura varía drásticamente en un tiempo determinado´).
+
 
 \end{itemize}
 
@@ -60,6 +64,7 @@ En la solución propuesta se distinguirán dos tipos de alertas principales defi
         \item Se detectará que se está repitiendo un código de error un número configurable de veces en un tiempo determinado.
         \item Cada regla tendrá asignado un diagnóstico y las acciones a seguir en cada caso.
         \item Se enviará un correo especificando el error detectado, el diagnóstico y los pasos a seguir al correo de notificación de incidencias.
+        
     \end{enumerate}
     
     \item \textbf{Errores desconocidos}: por otro lado pueden darse errores desconocidos en la aplicación. Estos al contrario que los anteriores no tienen un fácil diagnóstico ni hay una serie de acciones por defecto a seguir. Se puede tratar de un gran abanico de posibilidades a la hora de buscar la causa, desde un mal tratamiento de una respuesta de un sistema o un bug que se introdujo en el código. 
@@ -68,8 +73,10 @@ En la solución propuesta se distinguirán dos tipos de alertas principales defi
     
 \end{itemize}
 
+El punto más importante que hace que ElastAlert sea la herramienta escogida es la posibilidad de realizar acciones totalmente configurables una vez se active un trigger. Para el proyecto interesa el hecho de para una misma alerta poder enviar un correo informando del problema, el registro en base de datos y ejecutar el proceso de reducción de log en caso de que se trate de un error desconocido.
 
-\subsection{Reducción de log}
+
+\subsubsection{Reducción de log}
 
 Cuando la aplicación falla con un error indeterminado se genera un log distinto al normal. Encontrar la causa del error puede ser un trabajo muy tedioso ya que involucra el estudio de los logs para encontrar la fracción del registro que se escapa de la operativa normal. Para hacer esta tarea más simple se utilizará LogReduce, el cual es un librería de código abierto que permite la generación de modelos Machine Learning entrenándolo con ejecuciones exitosas de procesos anteriores para extraer anomalías de los registros de ejecuciones fallidas.
 
