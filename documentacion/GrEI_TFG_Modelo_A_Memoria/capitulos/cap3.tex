@@ -9,7 +9,9 @@ Los archivos de registro de actividad que sobre los que se obtendrá la informac
 \item Registro de la aplicación de entrada que utilizarán los usuarios finales con registro de las operaciones solicitadas y pantallas accedidas.
 \end{itemize}
 
-En los logs de actividad se registrarán el momento en que se registran, la clase en la que se originó el comportamiento y el texto con la información que se está registrando en ese momento.
+En los logs de actividad se registrarán el momento en que se registran, la clase en la que se originó el comportamiento y el texto con la información que se está registrando en ese momento. 
+
+Estos ficheros se unificarán en un único índice de ElasticSearch por un motivo en concreto: todos los registros de actividad tienen asociado un identificador de operación, es decir, cuando se intenta hacer una operación sobre la aplicación los logs de actividad generados desde el origen hasta el final tendrán asociado un identificador numérico. De esta forma se podrá obtener rápidamente con una única búsqueda sobre ElasticSearch todos los registros de operación asociados a una operación en concreto.
 
 
 En este capítulo se va a describir la plataforma implementada para la emisión de alertas. La arquitectura diseñada para la plataforma es la siguiente:
@@ -23,7 +25,7 @@ En este capítulo se va a describir la plataforma implementada para la emisión 
 La arquitectura estará compuesta por distintos componentes desplegados cada uno en un contenedores Docker. Se pueden distinguir las siguientes partes:
 
 \begin{itemize}
-\item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un script python que se encargue de leer cada línea de log y trasladarla a kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo.
+\item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un productos python que se encargue de leer cada línea de log y trasladarla a kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo. Esto productos deberá poder comportarse de forma distinta para poder realizar todas las ingestas de datos necesarias para la realización de pruebas.
 
 \item \textbf{Kafka server}: se utilizará kafka con el fin de trasladar los datos producidos en el productos al ELK Stack. La plataforma Apache Kafka es un sistema de transmisión de datos distribuido con capacidad de escalado y tolerante a fallos. Gracias a su alto rendimiento permitirá transmitir datos en tiempo real utilizando el patrón de mensajería publish/subscribe. 
 
@@ -33,7 +35,7 @@ La arquitectura estará compuesta por distintos componentes desplegados cada uno
 
 \end{itemize}
 
-En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional..
+En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional.
 
 \subsection{Generador de alertas}
 

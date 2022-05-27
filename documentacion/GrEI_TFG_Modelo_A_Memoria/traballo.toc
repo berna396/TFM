@@ -13,12 +13,13 @@
 \contentsline {subsection}{\numberline {2.1.4}Conclusiones}{10}%
 \contentsline {chapter}{\numberline {3}Propuesta de solución}{13}%
 \contentsline {subsection}{\numberline {3.0.1}Generador de alertas}{15}%
-\contentsline {subsection}{\numberline {3.0.2}Reducción de log}{17}%
-\contentsline {chapter}{\numberline {4}Pruebas}{19}%
-\contentsline {subsection}{\numberline {4.0.1}Pruebas de Alertas y Rendimiento}{20}%
-\contentsline {subsubsection}{Muestra de los datos}{23}%
-\contentsline {subsection}{\numberline {4.0.2}Pruebas del detector de anomalías en errores desconocidos}{23}%
-\contentsline {chapter}{\numberline {5}Conclusiones y posibles ampliaciones}{25}%
-\contentsline {subsection}{\numberline {5.0.1}Conclusiones}{25}%
-\contentsline {subsection}{\numberline {5.0.2}Posibles ampliaciones}{26}%
-\contentsline {chapter}{Bibliografía}{27}%
+\contentsline {subsubsection}{Reducción de log}{17}%
+\contentsline {chapter}{\numberline {4}Pruebas}{21}%
+\contentsline {subsection}{\numberline {4.0.1}Pruebas de Alertas y Rendimiento}{22}%
+\contentsline {subsubsection}{Muestra de los datos}{24}%
+\contentsline {subsubsection}{Conclusiones}{25}%
+\contentsline {subsection}{\numberline {4.0.2}Pruebas del detector de anomalías en errores desconocidos}{26}%
+\contentsline {chapter}{\numberline {5}Conclusiones y posibles ampliaciones}{29}%
+\contentsline {subsection}{\numberline {5.0.1}Conclusiones}{29}%
+\contentsline {subsection}{\numberline {5.0.2}Posibles ampliaciones}{30}%
+\contentsline {chapter}{Bibliografía}{31}%

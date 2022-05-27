@@ -8,7 +8,8 @@ Debido a esto será necesario un trabajo previo de separación de logs en operac
 \item Script de carga inicial que permita una ingesta de datos hasta el tamaño deseado en Elastic Search. Para controlar el tamaño de datos cargados en elastic se podrá utilizar el comando:
 
 \begin{verbatim}
-curl 'elasticsearch:9200/_cat/indices?v' -H "Authorization: Basic ********************"
+curl 'elasticsearch:9200/_cat/indices?v' 
+-H "Authorization: Basic ********************"
 \end{verbatim}
 
 \item Script que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido).
@@ -66,11 +67,23 @@ timeframe:
 
 En la primera gráfica se mostrará la media de los tiempos obtenidos frente a los datos cargados en elastic search.
 
+\begin{figure}[H]
+\centerline{\includegraphics[width=15cm]{figuras/GraficaTiempos.png}}
+\caption{Gráfica de tiempos}
+\label{enlace1}
+\end{figure}
+
 Como podemos observar un aumento substancial en la cantidad de datos de elastic search no supone un aumento significativo del tiempo de alerta. Tratándose de una POC en un entorno limitado el resultado obtenido supera con creces a lo esperado. Se puede esperar que en un entorno productivo el sistema funcione dentro de un rango de tiempo que suponga una mejora en el sistema de monitorizado. 
 
 Por otro lado el consumo de recursos dependiendo del número de reglas es el siguiente:
 
-Como se puede observar un aumento del número de reglas no implica un uso mas exhaustivo de los recursos. Incluso probando con un número de reglas mayor al esperando en entornos productivos el uso de memoria se puede considerar bajo.
+\begin{figure}[H]
+\centerline{\includegraphics[width=15cm]{figuras/GraficaRecursos.png}}
+\caption{Gráfica de recursos}
+\label{enlace1}
+\end{figure}
+
+Como se puede observar un aumento del número de reglas si que implica un uso mas exhaustivo de los recursos. Sin embargo, el uso de CPU se mantiene relativamente bajo e incluso probando con un número de reglas mayor al esperando en entornos productivos el uso de CPU no supera umbrales preocupantes.
 
 
 \subsubsection{Conclusiones}
@@ -87,16 +100,15 @@ Una vez realizado el proceso de pruebas sobre el sistema se puede afirmar lo sig
 
 \end{itemize}
 
-
 \subsection{Pruebas del detector de anomalías en errores desconocidos}
 
 Como objetivo secundario de la aplicación se buscará probar que para los errores desconocidos se proporciona una herramienta que pueda ayudar a la resolución de la alerta.
 
 Para esta prueba se han buscado operaciones fallidas con un error desconocido en las que se distinguieron claramente la causa del error. En este caso varias operaciones en las que se produjo una excepción java no controlada que llegó a registrarse.
 
-Por otro lado, se realizará un entrenamiento inicial del modelo utilizando un conjunto logs de resultados correctos de la operación a probar. Para ello se utilizarán los logs utilizados en las pruebas de rendimiento y se filtrarán por operaciones para entrenar un modelo por operación. Una vez entrenados los modelos y aplicada la detección de anomalías se genera un informe que resalte aquellas líneas que difieran de las líneas base. 
+Por otro lado, se realizará un entrenamiento inicial del modelo utilizando un conjunto logs de resultados correctos de la operación a probar. Para ello se utilizarán los logs utilizados en las pruebas de rendimiento y se filtrarán por operaciones para entrenar un modelo por operación. Una vez entrenados los modelos y aplicada la detección de anomalías se genera un informe que resalte aquellas líneas que difieran de las líneas base. Para ello se utilizarán las funcionalidades de la librería \textit{LogReduce} comentada en el apartado anterior.
 
-Se definirá como correcto los casos en los que se diferencien aquellas líneas que en un trabajo previo se clasifiquen como las que aportan información para tratar la incidencia, es decir, las líneas que se consideren anómalas. El ejemplo de salida es el siguiente:
+Se definirá como línea clasificada como anomalía aquellas en las que se calcule una distancia al baseline explicado en el apartado anterior superior a 0,5. Una correcta clasificación se dará cuando se detecte como anomalía una línea con información sobre el error. El ejemplo de salida es el siguiente:
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=15cm]{figuras/report.png}}
@@ -104,14 +116,9 @@ Se definirá como correcto los casos en los que se diferencien aquellas líneas 
 \label{enlace1}
 \end{figure}
 
-
-En las pruebas realizadas se han obtenido los siguientes resultados:
-
-Positivos Correctos / Falsos Positivos
-
-Negativos Correctos / Falsos Negativos
+Lo que se busca con esta funcionalidad es que se intente limpiar correctamente los logs, sin embargo, debido a la naturaleza del sistema a monitorizar se dará más importancia a que no se obtengan falsos negativos (líneas clasificadas como no anomalías, pero que si lo son). En las pruebas realizadas no se han obtenido más de 10 falsos negativos por lo que la limpieza se puede considerar lo suficientemente correcta. 
 
 
-El resultado se considera correcto, ya que se efectivamente las líneas causantes del problema se resaltan como anomalías, sin embargo, no es un resultado perfecto, ya que también se están considerando anomalías (aunque con un valor de diferencia menor) debido al gran número de caminos y posibilidades posibles en las operaciones. Sin embargo, se considera que el resultado es lo suficientemente correcto, se espera que la salida pueda ayudar a personal no técnico encargado de la monitorización a facilitar el trabajo de revisión y búsqueda y con los resultados obtenidos se cumple esta condición.
+El resultado se considera correcto, ya que se efectivamente la gran mayoría de las líneas causantes del problema se resaltan como anomalías, sin embargo, no es un resultado perfecto, ya que también se están obteniendo falsos positivos de anomalías (aunque con un valor de diferencia menor) debido al gran número de caminos y posibilidades posibles en las operaciones. Sin embargo, se considera que el resultado es lo suficientemente correcto, se espera que la salida pueda ayudar a personal no técnico encargado de la monitorización a facilitar el trabajo de revisión y búsqueda y con los resultados obtenidos se cumple esta condición.
 
 
