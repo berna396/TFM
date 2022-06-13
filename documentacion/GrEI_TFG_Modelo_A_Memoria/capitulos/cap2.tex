@@ -42,7 +42,7 @@ Nagios se usa con mayor frecuencia en organizaciones que necesitan monitorizar l
 Como parte de la auditoría de red, Nagios filtrará los datos de registro según la ubicación geográfica donde se originan. Eso significa que puede crear paneles de control completos con tecnología de mapeo para comprender cómo fluye su tráfico web.
 
 \subsection{ELK Stack}
-
+\label{sec:elk_stack}
 \textbf{ELK Stack} o Elastic Stack es un proyecto OpenSource multiplataforma que abarca una serie de productos y soluciones que tienen como finalidad facilitar al usuario el tratamiento de la información. Se trata de una de las herramientas de código abierto más populares entre las organizaciones que necesitan examinar grandes conjuntos de datos y dar sentido a los registros de su sistema. Las funcionalidades básicas serían la de extraer, buscar, analizar y visualizar datos en tiempo real o de forma asíncrona.
 
 ElasticSerch proporciona distintas formas de implementación, tanto de forma local e una única máquina o de forma distribuida utilizando un modelo SaaS (Software as service).
@@ -69,7 +69,9 @@ ElasticSearch es el componente principal de ELK Stack, que presenta como princip
 
 Ofrece una API de tipo RESTful Json y clientes para distintos lenguajes de programación de forma oficial, al mismo tiempo que al ser una herramienta OpenSource dispone de una comunidad de usuarios que ofrece clientes y soporte para los lenguajes a los que no se les proporciona oficialmente.
 
-ElasticSearch está compuesto por repositorios, que es donde almacena la información en forma de JSON, en que cada documento es una correlación clave-valor. Su principal objetivo será la de almacenar y catalogar con un índice la información para que sea fácilmente recuperable. Además ofrece interfaces para poder trabajar cond atos de distintas plataformas Big Data como Hadoop y Spark mediante conectores.
+ElasticSearch utiliza índices para registrar los documentos. Un índice de ElasticSearch se define como una colección de documentos que presentan relación entre sí. Elasticsearch almacena los datos como documentos JSON. Elastic Search utiliza una estructura de datos llamada índice invertido, el cual está diseñado para permitir búsquedas de texto de manera muy eficiente. Un índice invertido hace una lista de cada palabra única que aparece en cualquier documento e identifica todos los documentos en las que ocurre determinada palabra. Durante este proceso de indexación, Elasticsearch almacena documentos construyendo el índice invertio para poder buscar dastos en el documento casi en tiempo real.
+
+
 
 \subsubsection{LogStash}
 
@@ -92,9 +94,8 @@ Dispone de gran variedad de gráficas, métricas histogramas y visualizaciones c
 
 Las herramientas mencionadas en esta sección proporcionan parte de la funcionalidad que se busca con este proyecto, sin embargo no consiguen todos los objetivos propuestos. Esto no quita que se pueda utilizar parte de la funcionalidad propuesta por la herramienta con el fin de construir la solución final del proyecto. Tras el análisis realizado de posibles herramientas utilizadas en el mercado se ha decidido eliminar GrayLog ya que se parte del requisito de que la solución deberá utilizar productos OpenSource, y en este caso la licencia gratuita de GrayLog solo permite el tratamiento de 2 GB diarios, lo cual no es lo suficiente para una aplicación como sobre la que va a actuar la solución. Por otro lado, Nagios no dispone de una licencia OpenSource y se descarta por este motivo.
 
-Finalmente se ha optado utilizar por una de ellas, concretamente ELK debido a la extensa documentación y comunidad, así como su posibilidad de escalado y a la rapidez de búsqueda gracias al indexado de la información. Utilizando las últimas versiones de kibana se podría utilizar las herramientas de gestión de alertas para la generación de eventos, sin embargo, esto no entra dentro de la licencia OpenSource y los triggers que dispone son limitados. 
+Finalmente se ha optado utilizar por una de ellas, concretamente ELK debido a la extensa documentación y comunidad, así como su posibilidad de escalado y a la rapidez de búsqueda gracias al indexado de la información. Utilizando las últimas versiones de kibana se podría utilizar las herramientas de gestión de alertas para la generación de eventos, sin embargo, esto no entra dentro de la licencia OpenSource y los triggers que dispone son limitados. El uso del índice invertido se espere que acelere las búsquedas, ya que en el caso real del proyecto se buscarán todas los documentos asociados a un id que se presenta dentro de cada línea de log, por tanto se esperan tiempos de búsqueda practicamente en tiempo real.
 
 Debido a que existe una gran comunidad de usuarios de Elastic Search, existe una comunidad dedicada a la creación de plugins y complementos que mejoran el uso y proporcionan herramientas que con la herramienta de stock no dispondríamos. Gracias a ello para la gestión de alertas se podrá utilizar la herramienta ElastAlert, que se trata de una herramienta totalmente Open Source creada como complemento a Kibana para suplir las limitaciones presentes a la hora de alertar sobre incoherencias.
 
 De esta forma aun teniendo que emplear tiempo en el conocimiento de las funcionalidades de la herramienta, será más eficiente que desarrollar una herramienta desde 0. Así se podrá asignar mas tiempo a las posibilidades de parametrización de la solución para poder ser aplicada a otros proyectos y en otros entornos.
-

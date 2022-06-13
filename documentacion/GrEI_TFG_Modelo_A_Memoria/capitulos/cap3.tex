@@ -13,6 +13,7 @@ En los logs de actividad se registrarán el momento en que se registran, la clas
 
 Estos ficheros se unificarán en un único índice de ElasticSearch por un motivo en concreto: todos los registros de actividad tienen asociado un identificador de operación, es decir, cuando se intenta hacer una operación sobre la aplicación los logs de actividad generados desde el origen hasta el final tendrán asociado un identificador numérico. De esta forma se podrá obtener rápidamente con una única búsqueda sobre ElasticSearch todos los registros de operación asociados a una operación en concreto.
 
+\section{Arquitectura}
 
 En este capítulo se va a describir la plataforma implementada para la emisión de alertas. La arquitectura diseñada para la plataforma es la siguiente:
 
@@ -27,9 +28,28 @@ La arquitectura estará compuesta por distintos componentes desplegados cada uno
 \begin{itemize}
 \item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un productos python que se encargue de leer cada línea de log y trasladarla a kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo. Esto productos deberá poder comportarse de forma distinta para poder realizar todas las ingestas de datos necesarias para la realización de pruebas.
 
-\item \textbf{Kafka server}: se utilizará kafka con el fin de trasladar los datos producidos en el productos al ELK Stack. La plataforma Apache Kafka es un sistema de transmisión de datos distribuido con capacidad de escalado y tolerante a fallos. Gracias a su alto rendimiento permitirá transmitir datos en tiempo real utilizando el patrón de mensajería publish/subscribe. 
+\item \textbf{Kafka Container}: se utilizará kafka con el fin de trasladar los datos producidos en el productos al ELK Stack. La plataforma Apache Kafka es un sistema de transmisión de datos distribuido con capacidad de escalado y tolerante a fallos. Gracias a su alto rendimiento permitirá transmitir datos en tiempo real utilizando el patrón de mensajería publish/subscribe. Kafka se estructura logicamente en \textit{Topics}, que se puede definir como un flujo de datos sobre un tema en particular. Se podrán crear tantos como se desee y serán identificados por su nombre. Para cada \textit{Topic} existirán un número de particiones determinadas.
 
-\item \textbf{ELK Stack}: conjunto de aplicaciones (Elastic Search, Logstash y Kivana). Permite recoger datos de cualquier tpo de fuente y cualquier formato para realizar búsquedas, análisis y visualización de los datos en tiempo real. En la arquitectura planteada se para la aplicación real se obtendrán los datos a partir de ficheros de logs mediante Logstash y se almacenarán en el motor de búsquedas y análisis de Elasticsearch. Además, se permite la visualización, monitorización y explotación de datos en tiempo real mediante kibana.
+Cada elemento que se almacene en un \textit{Topic} se denomina \textit{Mensaje} o \textit{Record}, los cuales están compuestos por una clave y un valor, son inmutables y se añaden a una partición determinada dependiendo de la key (en caso de no especificar la key se aplica la estrategia "Round Robin" en la que cada mensaje es enviado a una partición distinta por orden). Cada mensaje dentro de una partición tiene un identificador numérico incremental llamado offset. Aunque los mensajes se guarden en los \textit{topics} por un tiempo limitado (una semana por defecto) y sean eliminados, el offset seguirá incrementando su valor. Los \textit{Brokers} son servidores identificados por un Id que contienen particiones de un \textit{topic}, no necesariamente todas. Kafka utiliza varios brokers para guardar copias de las particiones que actúan como maestro-esclavo y así ser tolerante a fallos. 
+
+El contenedor docker estará compuesto por tres imágenes:
+
+\begin{itemize}
+\item \textbf{Kafka Cluster}: agrupación de N \textit{Brokers}.
+\item \textbf{Zookeeper}: servicio centralizado encargado de gestionar los brokers de kafka manteniendo un listado con metadatos para las funciones de health checking. Se encarga de enviar las notificaciones en caso de cambios como la creación de nuevos topicos, caídas de brokes, etc.
+\item \textbf{Kafka-manager}: interfaz gráfica que facilita la creación modificado y borrado de tópicos así como cambios en la configuración.
+\end{itemize}
+
+En el caso concreto del proyecto se utilizará unicamente un tópic que tendrá los datos leídos para los logs. Se desarrollará un productor usando \textit{Python} que se encargará de producir en el topic leyendo de los ficheros de log y como Consumidor de los datos se utilizará directamente Logstash, que funciona como un conector que lleva los datos a ElasticSearch.
+
+Utilizando Kafka en este punto nos aporta las siguientes ventajas:
+
+\begin{itemize}
+\item En cualquier momento se podrá añadir nuevos Consumidores (fuentes de datos) y productores (nuevas salidas y tratamientos de los datos) de forma sencilla y sin cambios de configuración.
+\item En caso de una caída del ELK Stack los datos se mantendrán en kafka por defecto una semana, por lo que no habría perdida de datos. Este tiempo máximo se puede configurar en cualquier momento utilizando la propiedad retention.ms y se podría alargar en caso de ser necesario.
+\end{itemize}
+
+\item \textbf{ELK Stack}: conjunto de aplicaciones (Elastic Search, Logstash y Kivana). Permite recoger datos de cualquier tpo de fuente y cualquier formato para realizar búsquedas, análisis y visualización de los datos en tiempo real. En la arquitectura planteada se para la aplicación real se obtendrán los datos a partir de ficheros de logs mediante Logstash y se almacenarán en el motor de búsquedas y análisis de Elasticsearch. Además, se permite la visualización, monitorización y explotación de datos en tiempo real mediante kibana. Estas tecnologías se explicaron con detalle en el punto \hyperref[sec:elk_stack]{\textit{ELK Stack}}.
 
 \item \textbf{Generador de alertas}: este componente se encargará de la emisión de alertas utilizando para ello herramienta open source Elasticsearch, que se integra con ELK y permite detectar anomalías e inconsistencias en los datos. El conjunto de herramientas de \textbf{ELK (Elastic Stack)} más ElastAlert permite crear un sistema de monitorización para la extracción, almacenamiento y explotación de los datos de los procesos o sistemas a monitorizar. Además de esta herramienta se configurará en el mismo conector el proceso de reducción de logs, envío de emails y registro en base de datos.
 
@@ -37,7 +57,7 @@ La arquitectura estará compuesta por distintos componentes desplegados cada uno
 
 En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional.
 
-\subsection{Generador de alertas}
+\section{Generador de alertas}
 
 Para detectar y emitir alertas como se comentó en el apartado anterior se utilizará ElastAlert.
 
@@ -51,7 +71,7 @@ ElastAlert consulta periódicamente a ElasticSearch y los datos se trasladan al 
 \item \textbf{Flatline}: menos de X eventos en Y tiempo. (No se realizan un mínimo de consultas a la bbdd en 1 minuto)
 \item \textbf{Blacklist/Whitelist}: cuando un determinado campo coincide con una lista negra. (Se establecen unos códigos asociados a la indisponibilidad del sistema y en caso de detectarse se genera la alarma).
 \item \textbf{Any}: cualquier evento que coincida con un filtro dado (Un código de error al que se le dará un trato especial).
-\item \textbf{Change}: un campo tiene dos valores diferentes dentro de un tiempo (Una medida asociada a la temperatura varía drásticamente en un tiempo determinado´).
+\item \textbf{Change}: un campo tiene dos valores diferentes dentro de un tiempo (Una medida asociada a la temperatura varía drásticamente en un tiempo determinado).
 
 
 \end{itemize}
@@ -79,6 +99,7 @@ El punto más importante que hace que ElastAlert sea la herramienta escogida es 
 
 
 \subsubsection{Reducción de log}
+\label{sec:log_reduction}
 
 Cuando la aplicación falla con un error indeterminado se genera un log distinto al normal. Encontrar la causa del error puede ser un trabajo muy tedioso ya que involucra el estudio de los logs para encontrar la fracción del registro que se escapa de la operativa normal. Para hacer esta tarea más simple se utilizará LogReduce, el cual es un librería de código abierto que permite la generación de modelos Machine Learning entrenándolo con ejecuciones exitosas de procesos anteriores para extraer anomalías de los registros de ejecuciones fallidas.
 

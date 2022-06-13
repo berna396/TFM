@@ -1,6 +1,6 @@
 \chapter{Conclusiones y posibles ampliaciones}
 
-\subsection{Conclusiones}
+\section{Conclusiones}
 
 Se consideran las siguientes conclusiones acerca de los objetivos propuestos:
 
@@ -15,7 +15,7 @@ Se consideran las siguientes conclusiones acerca de los objetivos propuestos:
 \end{itemize}
 
 
-\subsection{Posibles ampliaciones}
+\section{Posibles ampliaciones}
 
 \begin{enumerate}
 \item \textbf{Servidor Cloud ejecutando ELK}: la arquitectura propuesta de ELK podría estar alojada en un entorno Cloud como podría ser Amazon Web Services (AWS) o Windows Azure o bien servidores propios interconectados entre si. Tendía sentido dividir los distintos elementos en diferentes máquinas, por ejemplo, añadir un elemento como FileBeat de forma local, que envíe la información de los logs a un LogStash remoto y este, a su vez, enviara los datos refinados a otra máquina que ejecutaría Elastic Search y Kibana. Se podría garantizar la visualkización de los datos a través de Kibana en una url fija accesible desde equipos remotos.

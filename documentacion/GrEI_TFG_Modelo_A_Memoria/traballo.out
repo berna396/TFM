@@ -1,17 +1,21 @@
 \BOOKMARK [0][-]{chapter.1}{Introduci\363n}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Requisitos}{}% 2
-\BOOKMARK [0][-]{chapter.3}{Revisi\363n de soluci\363ns comerciais}{}% 3
-\BOOKMARK [0][-]{chapter.4}{Proposta de soluci\363n}{}% 4
-\BOOKMARK [0][-]{chapter.5}{Probas de validaci\363n}{}% 5
-\BOOKMARK [0][-]{chapter.6}{Exemplos \(eliminar cap\355tulo na versi\363n final\)}{}% 6
-\BOOKMARK [1][-]{section.6.1}{Un exemplo de secci\363n}{chapter.6}% 7
-\BOOKMARK [2][-]{subsection.6.1.1}{Un exemplo de subsecci\363n}{section.6.1}% 8
-\BOOKMARK [2][-]{subsection.6.1.2}{Otro exemplo de subsecci\363n}{section.6.1}% 9
-\BOOKMARK [1][-]{section.6.2}{Exemplos de figuras e cadros}{chapter.6}% 10
-\BOOKMARK [1][-]{section.6.3}{Exemplos de referencias \341 bibliograf\355a}{chapter.6}% 11
-\BOOKMARK [1][-]{section.6.4}{Exemplos de enumeraci\363ns}{chapter.6}% 12
-\BOOKMARK [0][-]{chapter.7}{Conclusi\363ns e posibles ampliaci\363ns}{}% 13
-\BOOKMARK [0][-]{appendix.A}{Manuais t\351cnicos}{}% 14
-\BOOKMARK [0][-]{appendix.B}{Manuais de usuario}{}% 15
-\BOOKMARK [0][-]{appendix.C}{Licenza}{}% 16
-\BOOKMARK [0][-]{appendix.C}{Bibliograf\355a}{}% 17
+\BOOKMARK [1][-]{section.1.1}{Objetivos}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Alcance}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Revisi\363n de soluciones comerciales}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Gesti\363n de alertas}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.1.1}{Graylog}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.2}{Nagios}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.3}{ELK Stack}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.4}{Conclusiones}{section.2.1}% 9
+\BOOKMARK [0][-]{chapter.3}{Propuesta de soluci\363n}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Arquitectura}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Generador de alertas}{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.4}{Pruebas}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Pruebas de Alertas y Rendimiento}{chapter.4}% 14
+\BOOKMARK [2][-]{subsection.4.1.1}{Muestra de los datos}{section.4.1}% 15
+\BOOKMARK [2][-]{subsection.4.1.2}{Conclusiones}{section.4.1}% 16
+\BOOKMARK [1][-]{section.4.2}{Pruebas del detector de anomal\355as en errores desconocidos}{chapter.4}% 17
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y posibles ampliaciones}{}% 18
+\BOOKMARK [1][-]{section.5.1}{Conclusiones}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.2}{Posibles ampliaciones}{chapter.5}% 20
+\BOOKMARK [0][-]{Item.19}{Bibliograf\355a}{}% 21

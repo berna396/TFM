@@ -1,11 +1,11 @@
 \chapter{Pruebas}
 
-Con el fin de comprobar el correcto funcionamiento de la solución se realizarán distintas pruebas para corroborar que las alertas se generan correctamente y en un tiempo que pueda ser comprendido dentro de un sistema near real time. Para ello se obtendrá un conjunto de logs correctos y errores que se querrá identificar como una alerta (tanto de un error conocido con un error desconocido) con el objetivo de forzar una alerta y así comprobar que se recibe dentro del margen temporal esperado.
+Con el fin de comprobar el correcto funcionamiento de la solución se realizarán distintas pruebas para corroborar que las alertas se generan correctamente y en un tiempo que pueda ser comprendido dentro de un sistema near real time. Para ello se obtendrá un conjunto de logs correctos y errores que se querrá identificar como una alerta (tanto de un error conocido con un error desconocido) con el objetivo de forzar la generación de una alerta con la que comprobar que se recibe dentro del margen temporal esperado.
 
 Debido a esto será necesario un trabajo previo de separación de logs en operaciones con errores y operaciones con funcionamiento correcto. Esto se llevará a cabo con un script Python, que separará en ficheros los dos tipos de operaciones a partir de logs producidos en un entorno no productivo de la aplicación. Una vez realizada la separación se podrá replicar el comportamiento de la aplicación a monitorizar, para lo que se desarrollarán dos scripts Python con las siguientes funciones:
 
 \begin{itemize}
-\item Script de carga inicial que permita una ingesta de datos hasta el tamaño deseado en Elastic Search. Para controlar el tamaño de datos cargados en elastic se podrá utilizar el comando:
+\item Script de carga inicial que permita una ingesta de datos hasta el tamaño deseado en Elastic Search. Para controlar el tamaño de datos cargados en Elastic se podrá utilizar el comando:
 
 \begin{verbatim}
 curl 'elasticsearch:9200/_cat/indices?v' 
@@ -15,13 +15,13 @@ curl 'elasticsearch:9200/_cat/indices?v'
 \item Script que permita la publicación de logs en Kafka que reciba como entrada la cantidad de operaciones que se publican por segundo, el número de operaciones correctas que se publicarán hasta que se envíe el error y el tipo de error (conocido o desconocido).
 \end{itemize}
 
-Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones. Por otro lado se desarrollará otro script que funcione como productor de la ingesta inicial de datos.
+Con esto conseguimos proporcionar el estado de alarma bajo demanda y así poder comprobar la respuesta en distintas situaciones.
 
 También interesa medir si se la información obtenida de aplicar la detección de anomalías sobre la traza de logs de errores desconocidos se considere útil. Para ello una vez obtenida la alerta en el informe generado deberá estar resaltado aquellas líneas de log que en un trabajo previo se han clasificado como las que contienen la causa de la incidencia.`
 
-\subsection{Pruebas de Alertas y Rendimiento}
+\section{Pruebas de Alertas y Rendimiento}
 
-Para comprobar que las alertas aportan una ayuda y mejora al sistema real, se deberá probar que efectivamente se generan las alertas y se definirá un máximo de tiempo desde que se produce la incidencia hasta que el sistema la notifica. Se ha de tener en cuenta que se está trabajando sobre un prototipo que no corre sobre un sistema en producción. Debido a la menor capacidad de computo se generarán un número inferior de logs por segundo que el sistema real y se esperarán tiempos inferiores a 5 minutos entre el registro de la incidencia en los logs y la recepción del correo con la alerta. Se probarán distintos números de logs generados por segundo que sirva de estimación de comportamiento en el sistema real, así como distintos números de reglas de alertas desplegadas.
+Para comprobar que las alertas aportan una ayuda y mejora al sistema real, se deberá probar que efectivamente se generan las alertas y se definirá un máximo de tiempo desde que se produce la incidencia hasta que el sistema la notifica. Se ha de tener en cuenta que se está trabajando sobre un prototipo que no corre sobre un sistema en producción, por lo que debido a la menor capacidad de computo será complicado generar un número semejante de logs por segundo que el sistema real, sin embargo, se esperarán tiempos inferiores a 5 minutos entre el registro de la incidencia en los logs y la generación de la alerta. Se probarán distintos números de logs generados por segundo que sirva de estimación de comportamiento en el sistema real, así como distintos números de reglas de alertas desplegadas.
 
 Con la realización de las pruebas se intentará conseguir tres objetivos:
 
@@ -63,7 +63,7 @@ timeframe:
 \end{verbatim}
 
 
-\subsubsection{Muestra de los datos}
+\subsection{Muestra de los datos}
 
 En la primera gráfica se mostrará la media de los tiempos obtenidos frente a los datos cargados en elastic search.
 
@@ -86,7 +86,7 @@ Por otro lado el consumo de recursos dependiendo del número de reglas es el sig
 Como se puede observar un aumento del número de reglas si que implica un uso mas exhaustivo de los recursos. Sin embargo, el uso de CPU se mantiene relativamente bajo e incluso probando con un número de reglas mayor al esperando en entornos productivos el uso de CPU no supera umbrales preocupantes.
 
 
-\subsubsection{Conclusiones}
+\subsection{Conclusiones}
 
 Una vez realizado el proceso de pruebas sobre el sistema se puede afirmar lo siguiente:
 
@@ -100,25 +100,22 @@ Una vez realizado el proceso de pruebas sobre el sistema se puede afirmar lo sig
 
 \end{itemize}
 
-\subsection{Pruebas del detector de anomalías en errores desconocidos}
+\section{Pruebas del detector de anomalías en errores desconocidos}
 
 Como objetivo secundario de la aplicación se buscará probar que para los errores desconocidos se proporciona una herramienta que pueda ayudar a la resolución de la alerta.
 
 Para esta prueba se han buscado operaciones fallidas con un error desconocido en las que se distinguieron claramente la causa del error. En este caso varias operaciones en las que se produjo una excepción java no controlada que llegó a registrarse.
 
-Por otro lado, se realizará un entrenamiento inicial del modelo utilizando un conjunto logs de resultados correctos de la operación a probar. Para ello se utilizarán los logs utilizados en las pruebas de rendimiento y se filtrarán por operaciones para entrenar un modelo por operación. Una vez entrenados los modelos y aplicada la detección de anomalías se genera un informe que resalte aquellas líneas que difieran de las líneas base. Para ello se utilizarán las funcionalidades de la librería \textit{LogReduce} comentada en el apartado anterior.
+Por otro lado, se realizará un entrenamiento inicial del modelo utilizando un conjunto logs de resultados correctos de la operación a probar. Para ello se utilizarán los logs utilizados en las pruebas de rendimiento y se filtrarán por operaciones para entrenar un modelo por operación. Una vez entrenados los modelos y aplicada la detección de anomalías se genera un informe que resalte aquellas líneas que difieran de las líneas base. Para ello se utilizarán las funcionalidades de la librería \textit{LogReduce} comentada en el apartado \hyperref[sec:log_reduction]{\textit{Reducción de log}}.
 
-Se definirá como línea clasificada como anomalía aquellas en las que se calcule una distancia al baseline explicado en el apartado anterior superior a 0,5. Una correcta clasificación se dará cuando se detecte como anomalía una línea con información sobre el error. El ejemplo de salida es el siguiente:
+Se definirá como línea clasificada como anomalía aquellas en las que se calcule una distancia al baseline explicado en el apartado anterior superior a 0,5. Una correcta clasificación se dará cuando se detecte como anomalía una línea con información sobre el error. 
+
+Lo que se busca con esta funcionalidad es que se intente limpiar correctamente los logs, sin embargo, debido a la naturaleza del sistema a monitorizar se dará más importancia a que no se obtengan falsos negativos (líneas clasificadas como no anomalías, pero que si lo son). En las pruebas realizadas no se han obtenido más de 10 falsos negativos por lo que la limpieza se puede considerar lo suficientemente correcta. 
+
+El resultado se considera correcto, ya que se efectivamente la gran mayoría de las líneas causantes del problema se resaltan como anomalías, sin embargo, no es un resultado perfecto, ya que también se están obteniendo falsos positivos de anomalías (aunque con un valor de diferencia menor) debido al gran número de caminos y posibilidades posibles en las operaciones. Sin embargo, se considera que el resultado es lo suficientemente correcto, ya que se espera que la salida pueda ayudar a personal no técnico encargado de la monitorización a facilitar el trabajo de revisión y búsqueda y con los resultados obtenidos se cumple esta condición. El ejemplo de salida de las pruebas es el siguiente:
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=15cm]{figuras/report.png}}
 \caption{Ejemplo salida detección anomalías}
 \label{enlace1}
 \end{figure}
-
-Lo que se busca con esta funcionalidad es que se intente limpiar correctamente los logs, sin embargo, debido a la naturaleza del sistema a monitorizar se dará más importancia a que no se obtengan falsos negativos (líneas clasificadas como no anomalías, pero que si lo son). En las pruebas realizadas no se han obtenido más de 10 falsos negativos por lo que la limpieza se puede considerar lo suficientemente correcta. 
-
-
-El resultado se considera correcto, ya que se efectivamente la gran mayoría de las líneas causantes del problema se resaltan como anomalías, sin embargo, no es un resultado perfecto, ya que también se están obteniendo falsos positivos de anomalías (aunque con un valor de diferencia menor) debido al gran número de caminos y posibilidades posibles en las operaciones. Sin embargo, se considera que el resultado es lo suficientemente correcto, se espera que la salida pueda ayudar a personal no técnico encargado de la monitorización a facilitar el trabajo de revisión y búsqueda y con los resultados obtenidos se cumple esta condición.
-
-

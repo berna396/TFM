@@ -29,7 +29,7 @@
 \usepackage{tikz}
 \usepackage{multirow, array} % para las tablas
 \usepackage{float} % para usar [H]
-% \usepackage{hyperref} % menús no pdf pero non leva ben co package galician
+\usepackage{hyperref} % menús no pdf pero non leva ben co package galician
 
 
 
@@ -49,11 +49,11 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \pagestyle{headings}
-\setlength{\parskip}{8mm}
+\setlength{\parskip}{4mm}
+\let\cleardoublepage\clearpage
 \include{capitulos/introducion}
 \clearpage
 \include{capitulos/cap2}
-\clearpage 
 \include{capitulos/cap3}
 \include{capitulos/cap4}
 %
