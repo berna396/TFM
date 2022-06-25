@@ -1,16 +1,15 @@
 \chapter{Introdución}
 \hyphenation{In-te-re-se}
 
-Para un sistema de máxima disponibilidad como es el caso de sistemas de dispensación farmacéutica,
-los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una cantidad masiva de logs. Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
+Para un sistema de máxima disponibilidad como es el caso de sistemas de dispensación farmacéutica, los cuales deben estar en funcionamiento las 24 horas del día, los 7 días de la semana se generan una cantidad masiva de logs. Para cumplir con esta disponibilidad se deberá disponer de un equipo de desarrollo y de soporte que cubrirán todas las horas del día haciendo guardias durante las horas no laborables. Sin embargo, en caso de que un componente falle, el tiempo de respuesta en informar del problema y buscar una solución deberá ser el mínimo posible independientemente de la causa y circunstancia en que se de el problema.
 
-El objetivo del proyecto será aportar una plataforma que se encargue de generar alertas en caso de una incidencia importante, analizando los logs de actividad hasta dar con el componente afectado. De esta forma el sistema deberá responder en tiempo real con el fin de agilizar el proceso y mejorar el servicio. Con esta nueva operativa se podría registrar estas alertas para poder dotar al equipo de un informe de las incidencias y sus componentes afectados, con el fin de elaborar soluciones a problemas comunes y poder formar de una manera más eficiente y exacta a los encargados del correcto funcionamiento del sistema principal. 
+El objetivo del proyecto será aportar una plataforma que se encargue de generar alertas en caso de una incidencia importante, analizando los logs de actividad hasta dar con el componente afectado. De esta forma el sistema deberá responder en near real time con el fin de agilizar el proceso y mejorar el servicio. Con esta nueva operativa se podría registrar estas alertas para poder dotar al equipo de un informe de las incidencias y sus componentes afectados, con el fin de elaborar soluciones a problemas comunes y poder formar de una manera más eficiente y exacta a los encargados del correcto funcionamiento del sistema principal. 
 
 Un ejemplo de uso concreto sería la caída de una base de datos sobre la que opera la aplicación. En este caso se buscaría poder recibir una alerta lo antes posible con la información necesaria para la identificación del problema y su posible solución. Este tipo de sistemas se tienen que basar sus principios en:
 
 \begin{itemize}
 	\item Fiabilidad, la solución no deberán generar falsos positivos ni obviar problemas que suponen una alerta.
-	\item Tiempo real, la información debe llegar al destino lo antes posible después de su generación.
+	\item Near real-time, la información debe llegar al destino lo antes posible después de su generación.
 	\item Adaptabilidad, la solución deberá estar desacoplada de la aplicación a monitorizar y será resiliente a cambios.
 \end{itemize}
 
@@ -21,13 +20,13 @@ Se buscará que la alerta generada sea lo más descriptible posible y que consig
 \begin{itemize}
 \item Dada una aplicación que tenga una disponibilidad total y sobre la que opere un número elevado de usuarios, se generan una cantidad de logs masiva, que en caso de que se produzca un error, el proceso de revisión de logs y la diagnosis posterior puede ocupar un tiempo demasiado largo en caso de que no se pueden producir cortes en el servicio.
 
-\item La finalidad del proyecto será disponer de una plataforma para detectar en tiempo real posibles problemas e incidencias y clasificarlas según experiencias pasadas, lo cual reducirá ese tiempo de espera en gran medida. La funcionalidad de la clasificación de la alerta entre problemas conocidos supondría una mejora significativa en la gestión operacional de la aplicación.
+\item La finalidad del proyecto será disponer de una plataforma para detectar en near real time posibles problemas e incidencias y clasificarlas según experiencias pasadas, lo cual reducirá ese tiempo de espera en gran medida. La funcionalidad de la clasificación de la alerta entre problemas conocidos supondría una mejora significativa en la gestión operacional de la aplicación.
 
 \item Registrar las incidencias alertadas de errores no conocidos supone un extra añadido, ya que se dispondrá de un histórico con el que saldrán a la luz posibles bugs o errores frecuentes de cara a poder llevar un control y análisis de la aplicación más exhaustiva.  
 
 \item El proyecto deberá estar desacoplado de la aplicación principal y estar preparado para adaptarse a cambios y nuevas funcionalidades.
 
-\item En caso de detectar un detectar errores desconocidos, de los cuales la aplicación no conoce la causa, se deberá implementar un sistema de obtención de anomalías en los logs para mostrar las excepciones causantes del error.
+\item En caso de detectar errores desconocidos, de los cuales la aplicación no conoce la causa, se deberá implementar un sistema de obtención de anomalías en los logs para mostrar las excepciones causantes del error.
 
 \end{itemize}
 
@@ -56,7 +55,7 @@ La solución alcanzada deberá cumplir los objetivos definidos en el apartado an
 
 Se deberá tener en cuenta que no se podrán utilizar datos reales de la aplicación actual debido a que se estarían utilizando datos personales de terceros lo que incumpliría la normativa de protección de datos. En su lugar se utilizarán logs de entornos de desarrollo sobre los cuales se implementará una solución que permita crear un escenario equivalente al entorno real sin datos personales y a menor escala.
 
-Una vez finalizado el desarrollo se deberá proporcionar una plataforma que pueda ser agregada a la aplicación actual y que deberá ser validada a posteriori. Para ello deberá proponerse una arquitectura como una extensión de la plataforma actual con el fin de que coexista. Por ello se ha de tener en cuenta que la instalación y despliegue será controlado en un entorno preparado para este fin permitiendo un control de versiones y registro del resultado.
+Una vez finalizado el desarrollo se deberá proporcionar una plataforma que pueda ser agregada a la aplicación actual y que deberá ser validada a posteriori sobre un entorno productivo. Para ello deberá proponerse una arquitectura como una extensión de la plataforma actual con el fin de que coexista. Por ello se ha de tener en cuenta que la instalación y despliegue será controlado en un entorno preparado para este fin permitiendo un control de versiones y registro del resultado.
 
 Como entregables del proyecto serán los siguiente:
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.21)  12 JUN 2022 14:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.8.21)  15 JUN 2022 09:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,26 +745,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.15 \end{itemize}
+l.14 \end{itemize}
                    [1
 
 
 ]
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 
+l.39 
       [2]
-LaTeX Info: Redefining \. on input line 56.
-LaTeX Info: Redefining \% on input line 56.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.56 
+l.55 
       [3])
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
@@ -779,7 +779,7 @@ l.54 \include{capitulos/introducion}
  (./capitulos/cap2.tex
 Cap\'{\i }tulo 2.
 
-Underfull \vbox (badness 1142) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5
 
@@ -794,16 +794,16 @@ LaTeX Info: Redefining \% on input line 37.
 <figuras/elkstack.png, id=165, 502.87875pt x 111.41624pt>
 File: figuras/elkstack.png Graphic file (type png)
 <use figuras/elkstack.png>
-Package pdftex.def Info: figuras/elkstack.png  used on input line 53.
+Package pdftex.def Info: figuras/elkstack.png  used on input line 51.
 (pdftex.def)             Requested size: 426.79134pt x 94.55804pt.
-LaTeX Info: Redefining \. on input line 57.
-LaTeX Info: Redefining \% on input line 57.
- [7]
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
- [8 <./figuras/elkstack.png>]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 58.
+LaTeX Info: Redefining \% on input line 58.
+ [7 <./figuras/elkstack.png>]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [8]
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
  [9])
 LaTeX Info: Redefining \. on input line 56.
 LaTeX Info: Redefining \% on input line 56.
@@ -820,37 +820,38 @@ Cap\'{\i }tulo 3.
 <figuras/arquitectura.png, id=196, 701.62125pt x 645.41125pt>
 File: figuras/arquitectura.png Graphic file (type png)
 <use figuras/arquitectura.png>
-Package pdftex.def Info: figuras/arquitectura.png  used on input line 21.
+Package pdftex.def Info: figuras/arquitectura.png  used on input line 22.
 (pdftex.def)             Requested size: 426.79134pt x 392.60715pt.
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
  [12 <./figuras/arquitectura.png>]
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
  [13]
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
  [14]
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
  [15]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
  [16]
-<figuras/logreduce.png, id=227, 722.7pt x 416.757pt>
+<figuras/logreduce.png, id=226, 722.7pt x 416.757pt>
 File: figuras/logreduce.png Graphic file (type png)
 <use figuras/logreduce.png>
-Package pdftex.def Info: figuras/logreduce.png  used on input line 116.
+Package pdftex.def Info: figuras/logreduce.png  used on input line 117.
 (pdftex.def)             Requested size: 426.79134pt x 246.11978pt.
 
-Underfull \vbox (badness 1163) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 122.
-LaTeX Info: Redefining \% on input line 122.
- [17 <./figuras/logreduce.png>])
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+ [17])
 LaTeX Info: Redefining \. on input line 57.
 LaTeX Info: Redefining \% on input line 57.
- [18]
+
+[18 <./figuras/logreduce.png>]
 \openout2 = `capitulos/cap4.aux'.
 
  (./capitulos/cap4.tex
@@ -896,11 +897,11 @@ LaTeX Info: Redefining \% on input line 85.
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
  [23 <./figuras/GraficaRecursos.png>]
-<figuras/report.png, id=273, 1129.21875pt x 648.4225pt>
+<figuras/report.png, id=273, 1129.21875pt x 532.99126pt>
 File: figuras/report.png Graphic file (type png)
 <use figuras/report.png>
 Package pdftex.def Info: figuras/report.png  used on input line 118.
-(pdftex.def)             Requested size: 426.79134pt x 245.0773pt.
+(pdftex.def)             Requested size: 426.79134pt x 201.44899pt.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -943,6 +944,18 @@ Underfull \hbox (badness 4391) in paragraph at lines 10--12
 . Dis-po-ni-ble:
  []
 
+
+Underfull \hbox (badness 1142) in paragraph at lines 22--25
+[]\OT1/cmr/m/n/12 Quiet log noi-se with Pyt-hon and ma-chi-ne lear-ning. [En l^
+^S^^Pnea]. Dis-
+ []
+
+
+Underfull \hbox (badness 4608) in paragraph at lines 22--25
+\OT1/cmr/m/n/12 po-ni-ble: https://opensource.com/article/18/9/quiet-log-noise-
+python-and-
+ []
+
 ) [28
 
 
@@ -968,13 +981,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
  ) 
 Here is how much of TeX's memory you used:
- 18876 strings out of 483080
- 345551 string characters out of 5963339
- 589093 words of memory out of 5000000
- 33379 multiletter control sequences out of 15000+600000
+ 18880 strings out of 483080
+ 345600 string characters out of 5963339
+ 589153 words of memory out of 5000000
+ 33381 multiletter control sequences out of 15000+600000
  541643 words of font info for 59 fonts, out of 8000000 for 9000
  63 hyphenation exceptions out of 8191
- 60i,8n,60p,965b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,60p,963b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/adrian/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/
@@ -983,10 +996,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on traballo.pdf (32 pages, 408489 bytes).
+Output written on traballo.pdf (32 pages, 399962 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

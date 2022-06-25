@@ -1,7 +1,8 @@
 \chapter{Propuesta de solución}
 
+En la siguiente sección se especificará la estrategia que se llevará a cabo para cumplir con los objetivos propuestos del proyecto.
 
-Los archivos de registro de actividad que sobre los que se obtendrá la información del sistema se dividen en varios archivos, cada uno con un objetivo concreto. En concreto se monitorizarán tres ficheros, los cuales poseen un ciclo de vida que consiste en pasar por un fichero plano, para una vez alcanzado un tamaño determino comprimirse y guardarse como histórico. Si el histórico tiene una antigüedad superior a los días establecidos como máximo se enviarán a un servidor que funcionará como almacenamiento. Estos tres ficheros tienen los siguientes acometidos:
+Para el caso concreto del proyecto, la aplicación a monitorizar estará escribiendo ficheros de registro de actividad. Estos registros sobre los que se obtendrá la información del sistema se dividen en varios archivos, cada uno con un objetivo concreto. En concreto se monitorizarán tres ficheros, los cuales poseen un ciclo de vida que consiste en pasar por un fichero plano, para una vez alcanzado un tamaño determino comprimirse y guardarse como histórico. Si el histórico tiene una antigüedad superior a los días establecidos como máximo se enviarán a un servidor que funcionará como almacenamiento. Estos tres ficheros tienen los siguientes acometidos:
 
 \begin{itemize}
 \item Registro de interacciones (peticiones y respuestas) con otros sistemas externos e internos.
@@ -9,9 +10,9 @@ Los archivos de registro de actividad que sobre los que se obtendrá la informac
 \item Registro de la aplicación de entrada que utilizarán los usuarios finales con registro de las operaciones solicitadas y pantallas accedidas.
 \end{itemize}
 
-En los logs de actividad se registrarán el momento en que se registran, la clase en la que se originó el comportamiento y el texto con la información que se está registrando en ese momento. 
+En los logs de actividad se registrarán el momento en que se registran, la clase en la que se originó el comportamiento el identificador de la operación y el texto con la información que se está registrando en ese momento. 
 
-Estos ficheros se unificarán en un único índice de ElasticSearch por un motivo en concreto: todos los registros de actividad tienen asociado un identificador de operación, es decir, cuando se intenta hacer una operación sobre la aplicación los logs de actividad generados desde el origen hasta el final tendrán asociado un identificador numérico. De esta forma se podrá obtener rápidamente con una única búsqueda sobre ElasticSearch todos los registros de operación asociados a una operación en concreto.
+Estos ficheros se unificarán en un único índice de ElasticSearch por un motivo en concreto: todos los registros de actividad tienen asociado un identificador de operación, es decir, cuando se intenta hacer una operación sobre la aplicación los logs de actividad generados desde el origen hasta el final tendrán asociado un identificador alfanumérico. De esta forma se podrá obtener rápidamente con una única búsqueda sobre ElasticSearch todos los registros de operación asociados a una operación en concreto.
 
 \section{Arquitectura}
 
@@ -26,17 +27,17 @@ En este capítulo se va a describir la plataforma implementada para la emisión 
 La arquitectura estará compuesta por distintos componentes desplegados cada uno en un contenedores Docker. Se pueden distinguir las siguientes partes:
 
 \begin{itemize}
-\item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un productos python que se encargue de leer cada línea de log y trasladarla a kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo. Esto productos deberá poder comportarse de forma distinta para poder realizar todas las ingestas de datos necesarias para la realización de pruebas.
+\item \textbf{Producer}: como se ha comentado en el capítulo de introducción no es posible utilizar los logs de la aplicación real en el entorno de producción ya que se estaría incumpliendo la ley de protección de datos. Para ello se utilizarán logs ya registrados de los que se tiene certeza que se produjo una incidencia pero procedente de un entorno de desarrollo con datos que no contengan información sensitiva. Para reproducir el comportamiento de la aplicación se implementará un productor kafka python que se encargue de leer cada línea de log y trasladarla al tópico de kafka, de esta forma replicará el comportamiento de escribir registros a lo largo del tiempo. 
 
-\item \textbf{Kafka Container}: se utilizará kafka con el fin de trasladar los datos producidos en el productos al ELK Stack. La plataforma Apache Kafka es un sistema de transmisión de datos distribuido con capacidad de escalado y tolerante a fallos. Gracias a su alto rendimiento permitirá transmitir datos en tiempo real utilizando el patrón de mensajería publish/subscribe. Kafka se estructura logicamente en \textit{Topics}, que se puede definir como un flujo de datos sobre un tema en particular. Se podrán crear tantos como se desee y serán identificados por su nombre. Para cada \textit{Topic} existirán un número de particiones determinadas.
+\item \textbf{Kafka Container}: se utilizará kafka con el fin de trasladar los datos producidos en el productor al ELK Stack. La plataforma Apache Kafka es un sistema de transmisión de datos distribuido con capacidad de escalado y tolerante a fallos. Gracias a su alto rendimiento permitirá transmitir datos en tiempo real utilizando el patrón de mensajería publish/subscribe. Kafka se estructura logicamente en \textit{Topics}, que se puede definir como un flujo de datos sobre un tema en particular. Se podrán crear tantos como se desee y serán identificados por su nombre. Para cada \textit{Topic} existirán un número de particiones determinadas.
 
-Cada elemento que se almacene en un \textit{Topic} se denomina \textit{Mensaje} o \textit{Record}, los cuales están compuestos por una clave y un valor, son inmutables y se añaden a una partición determinada dependiendo de la key (en caso de no especificar la key se aplica la estrategia "Round Robin" en la que cada mensaje es enviado a una partición distinta por orden). Cada mensaje dentro de una partición tiene un identificador numérico incremental llamado offset. Aunque los mensajes se guarden en los \textit{topics} por un tiempo limitado (una semana por defecto) y sean eliminados, el offset seguirá incrementando su valor. Los \textit{Brokers} son servidores identificados por un Id que contienen particiones de un \textit{topic}, no necesariamente todas. Kafka utiliza varios brokers para guardar copias de las particiones que actúan como maestro-esclavo y así ser tolerante a fallos. 
+Cada elemento que se almacene en un \textit{Topic} se denomina \textit{Mensaje} o \textit{Record}, los cuales están compuestos por una clave y un valor, son inmutables y se añaden a una partición determinada dependiendo de la key (en caso de no ser especificada se aplica la estrategia "Round Robin" en la que cada mensaje es enviado a una partición distinta por orden). Cada mensaje dentro de una partición tiene un identificador numérico incremental llamado offset. Aunque los mensajes se guarden en los \textit{topics} por un tiempo limitado (una semana por defecto) y sean eliminados, el offset seguirá incrementando su valor. Los \textit{Brokers} son servidores identificados por un Id que contienen particiones de un \textit{topic}, no necesariamente todas. Kafka utiliza varios brokers para guardar copias de las particiones que actúan como maestro-esclavo y así ser tolerante a fallos. 
 
 El contenedor docker estará compuesto por tres imágenes:
 
 \begin{itemize}
 \item \textbf{Kafka Cluster}: agrupación de N \textit{Brokers}.
-\item \textbf{Zookeeper}: servicio centralizado encargado de gestionar los brokers de kafka manteniendo un listado con metadatos para las funciones de health checking. Se encarga de enviar las notificaciones en caso de cambios como la creación de nuevos topicos, caídas de brokes, etc.
+\item \textbf{Zookeeper}: servicio centralizado encargado de gestionar los brokers de kafka manteniendo un listado con metadatos para las funciones de health checking. Se encarga de enviar las notificaciones entre servidores en caso de cambios como la creación de nuevos topicos, caídas de brokes, etc.
 \item \textbf{Kafka-manager}: interfaz gráfica que facilita la creación modificado y borrado de tópicos así como cambios en la configuración.
 \end{itemize}
 
@@ -46,16 +47,16 @@ Utilizando Kafka en este punto nos aporta las siguientes ventajas:
 
 \begin{itemize}
 \item En cualquier momento se podrá añadir nuevos Consumidores (fuentes de datos) y productores (nuevas salidas y tratamientos de los datos) de forma sencilla y sin cambios de configuración.
-\item En caso de una caída del ELK Stack los datos se mantendrán en kafka por defecto una semana, por lo que no habría perdida de datos. Este tiempo máximo se puede configurar en cualquier momento utilizando la propiedad retention.ms y se podría alargar en caso de ser necesario.
+\item En caso de una caída del ELK Stack los datos se mantendrán en kafka por defecto una semana, por lo que no habría perdida de datos. Este tiempo máximo se puede configurar en cualquier momento utilizando la propiedad \textit{retention.ms} y se podría alargar en caso de ser necesario.
 \end{itemize}
 
 \item \textbf{ELK Stack}: conjunto de aplicaciones (Elastic Search, Logstash y Kivana). Permite recoger datos de cualquier tpo de fuente y cualquier formato para realizar búsquedas, análisis y visualización de los datos en tiempo real. En la arquitectura planteada se para la aplicación real se obtendrán los datos a partir de ficheros de logs mediante Logstash y se almacenarán en el motor de búsquedas y análisis de Elasticsearch. Además, se permite la visualización, monitorización y explotación de datos en tiempo real mediante kibana. Estas tecnologías se explicaron con detalle en el punto \hyperref[sec:elk_stack]{\textit{ELK Stack}}.
 
-\item \textbf{Generador de alertas}: este componente se encargará de la emisión de alertas utilizando para ello herramienta open source Elasticsearch, que se integra con ELK y permite detectar anomalías e inconsistencias en los datos. El conjunto de herramientas de \textbf{ELK (Elastic Stack)} más ElastAlert permite crear un sistema de monitorización para la extracción, almacenamiento y explotación de los datos de los procesos o sistemas a monitorizar. Además de esta herramienta se configurará en el mismo conector el proceso de reducción de logs, envío de emails y registro en base de datos.
+\item \textbf{Generador de alertas}: este componente se encargará de la emisión de alertas utilizando para ello herramienta open source ElastAlert, que se integra con ELK y permite detectar anomalías e inconsistencias en los datos. El conjunto de herramientas de \textbf{ELK (Elastic Stack)} más ElastAlert permite crear un sistema de monitorización para la extracción, almacenamiento y explotación de los datos de los procesos o sistemas a monitorizar. Además de esta herramienta se configurará en el mismo contenedor como un script el proceso de reducción de logs, envío de emails (para lo que será necesario configurar un servidor SMTP) y registro en base de datos. 
 
 \end{itemize}
 
-En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional.
+En el sistema real se espera que las alertas se registren en la base de datos del sistema, sin embargo en el proyecto se utilizará un base de datos mongoDB desplegada en un contenedor Docker adicional. Se escogió mongoDB, ya que es una base de datos NoSQL orientada a documentos en los que cada registro albergará las líneas de log asociadas y el tipo de alerta. Debido a esto la no necesidad de especificar un esquema simplificará el trabajo y se guardarán los datos en un formato JSON con el que es sencillo trabajar. 
 
 \section{Generador de alertas}
 
